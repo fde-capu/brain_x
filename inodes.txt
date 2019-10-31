@@ -1,0 +1,3 @@
+0 pleasure
+1 joy
+2 anger
