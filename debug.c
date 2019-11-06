@@ -6,7 +6,7 @@
 /*   By: fde-c <x@y.z>                              ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 00:14:54 by fde-c                                    */
-/*   Updated: 2019/11/06 00:14:57 by fde-c                                    */
+/*   Updated: 2019/11/06 01:56:56 by fde-c                                    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	imsg(char *str, int v)
 {
-	printf("Detail: %s %d.\n", str, v);
+	printf(GENERAL_ERROR_DETAIL": %s %d.\n", str, v);
 }
 
 void	error_msg(char *str)
 {
-	printf("Error: %s.\n", str);
+	printf(GENERAL_ERROR": %s.\n", str);
 }
 

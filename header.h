@@ -6,6 +6,8 @@
 
 # define STRESS 20
 
+# define GENERAL_ERROR "Error"
+# define GENERAL_ERROR_DETAIL "Detail"
 # define BRAIN_ERROR "brain"
 # define FAIL_S(f) { error_msg(f); exit (1); }
 # define FAIL_SSI(f,m,v) { error_msg(f); imsg(m,v); exit (1); }
