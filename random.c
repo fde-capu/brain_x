@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                               ...... ...   */
-/*   random.c                                                    .  ... . .   */
-/*                                                               ..   .. ..   */
-/*   By: fde-c <x@y.z>                                            .  ..  .    */
-/*                                                               ..    . .    */
-/*   Created: 2019/10/31 14:45:20 by fde-c                       .   .  .     */
-/*   Updated: 2019/10/31 14:47:45 by fde-c                           .....0   */
+/*                                                                            */
+/*   random.c                                                                 */
+/*                                                  ||||||:||||::|||:|:|||:   */
+/*   By: fde-c <x@y.z>                              ::||:||:|::||::|:||::::   */
+/*                                                  |:|:|:::|::|::::::|||||   */
+/*   Created: 2019/11/06 00:16:01 by fde-c                                    */
+/*   Updated: 2019/11/06 00:16:05 by fde-c                                    */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,27 @@ void	init_rnd()
 	srand(time(0));
 }
 
-double  rnd(double max)
+float	rnd01(void)
 {
-        return ((rand() % (int)(max * PRECISION)) / PRECISION);
+	return ((float)rand() / (float)((unsigned)RAND_MAX + 1));
 }
 
-int     irnd(double max)
+float	rnd(float max)
 {
-        return(rand() % (int)max);
+        return(rnd01() * max);
 }
 
-int	brnd(double chance)
+int	irnd(float max)
+{
+	return (1 + rnd01() * max);
+}
+
+int     izrnd(float max)
+{
+        return(rnd01() * (max + 1));
+}
+
+int	brnd(float chance)
 {
 	if (rnd(1) >= chance)
 		return (1);
