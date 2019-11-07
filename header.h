@@ -22,14 +22,6 @@
 // main.c
 int		main(void);
 
-// brain.c
-
-// brain_ops.c
-
-// brain_helpers.c
-
-// think.c
-
 // debug.c
 void	imsg(char *str, int v);
 void	error_msg(char *str);
