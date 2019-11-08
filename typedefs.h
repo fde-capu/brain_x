@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/08 09:54:40 by ||||||                                   */
+/*   Updated: 2019/11/08 10:47:09 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,21 @@ typedef struct	neuron
 	struct	neuron	*next;
 }	neu;
 
+typedef struct	genome
+{
+	neu		*bias;
+	neu		*inpu;
+	neu		*hidd;
+	neu		*outp;
+	neu		*axon;
+}	gnm;
+
 typedef struct	t_id_innov
 {
 	t_id	id;
 	t_innov	innov;
 } t_id_innov;
+
+t_id g_id;
+t_innov g_innov;
+gnm	*g_genome;

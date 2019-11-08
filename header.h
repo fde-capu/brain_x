@@ -1,11 +1,11 @@
 #ifndef HEADER_H
 # define HEADER_H
 
-# define TYPE_OF_ID long
+# define TYPE_OF_ID unsigned long
 # define TYPE_OF_TYPE signed char
 # define TYPE_OF_FINE long
 # define TYPE_OF_CHARGE double
-# define TYPE_OF_INNOV long
+# define TYPE_OF_INNOV unsigned long
 
 # define PRECISION 100000
 # define EULER 2.71828
@@ -33,6 +33,11 @@
 # define DEFH 5
 # define DEFO 3
 # define DEFA 7
+# define GENB 2
+# define GENI 3
+# define GENH 5
+# define GENO 3
+# define GENA 7
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -45,7 +50,8 @@
 int		main(void);
 
 // genome.c
-bra		init_genome(void);
+gnm		*init_genome(void);
+neu		*gen_neuron(t_type t, neu *next);
 void	rnd_from_genome \
 	(t_type t, t_id_innov id_innov);
 

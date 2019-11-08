@@ -6,20 +6,25 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/08 10:16:36 by ||||||                                   */
+/*   Updated: 2019/11/08 10:43:46 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-bra	genome;
+t_id g_id;
+t_innov g_innov;
+gnm	*g_genome;
 
 int	main(void)
 {
 	bra	*b;
 
 	init_rnd();
-	genome = init_genome();
+	g_id = 0;
+	g_innov = 0;
+	g_genome = init_genome();
+
 
 	b = \
 		init_brain(	\
