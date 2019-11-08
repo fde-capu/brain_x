@@ -6,17 +6,18 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/08 09:40:26 by ||||||                                   */
+/*   Updated: 2019/11/08 09:57:47 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_id	rnd_id_from_genome(t_type t)
+void	rnd_from_genome \
+	(t_type t, t_id_innov id_innov)
 {
-	t_id	id;
-	id = 0;
-	return (id);
+	id_innov.id = 0;
+	id_innov.innov = 0;
+	return ;
 }
 
 // operation_function(t);

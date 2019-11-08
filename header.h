@@ -45,7 +45,8 @@
 int		main(void);
 
 // genome.c
-t_id	rnd_id_from_genome(t_type t);
+void	rnd_from_genomei \
+	(t_type t, t_id_innov id_innov);
 
 // brain.c
 bra		*init_brain(        \

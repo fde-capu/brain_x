@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/08 09:38:16 by ||||||                                   */
+/*   Updated: 2019/11/08 09:54:40 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	neuro_net	net;
 typedef struct	neuro_net
 {
 	t_id				id;
+	t_innov				innov;
 	bra					*parent;
 	t_charge			charge;
 	struct	neuro_net	*next;
@@ -52,3 +53,8 @@ typedef struct	neuron
 	struct	neuron	*next;
 }	neu;
 
+typedef struct	t_id_innov
+{
+	t_id	id;
+	t_innov	innov;
+} t_id_innov;
