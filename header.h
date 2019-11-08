@@ -45,7 +45,8 @@
 int		main(void);
 
 // genome.c
-void	rnd_from_genomei \
+bra		init_genome(void);
+void	rnd_from_genome \
 	(t_type t, t_id_innov id_innov);
 
 // brain.c
@@ -56,8 +57,7 @@ bra		*init_brain(        \
 			unsigned int o, \
 			unsigned int a  \
 		);
-net	*create_neuron \
-	(t_type t, int n);
+net		*create_neuron (t_type t, int n);
 
 // debug.c
 void	imsg(char *str, int v);
