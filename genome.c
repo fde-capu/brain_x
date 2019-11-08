@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/08 11:17:05 by ||||||                                   */
+/*   Updated: 2019/11/08 12:07:12 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,21 @@ neu		*gen_neuron(t_type t, neu *next)
 void	rnd_from_genome \
 	(t_type t, t_id_innov id_innov)
 {
+	net		rnd_list;
+	t_id	rnd_l;
+
+	rnd_l = 0;
+	if (t & TP_B)
+		rnd_l += net_concat(&g_genome->bias, rnd_list);
+	if (t & TP_I)
+		rnd_l += net_concat(&g_genome->inpu, rnd_list);
+	if (t & TP_H)
+		rnd_l += net_concat(&g_genome->hidd, rnd_list);
+	if (t & TP_O)
+		rnd_l += net_concat(&g_genome->outp, rnd_list);
+	if (t & TP_A)
+		rnd_l += net_concat(&g_genome->axon, rnd_list);
+
 	id_innov.id = 0;
 	id_innov.innov = 0;
 	return ;

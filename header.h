@@ -65,6 +65,9 @@ bra		*init_brain(        \
 		);
 net		*create_neuron (t_type t, int n);
 
+// helper.c
+t_id	net_concat(void *a, net b);
+
 // debug.c
 void	imsg(char *str, int v);
 void	error_msg(char *str);
