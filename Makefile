@@ -6,7 +6,7 @@
 #    By: fde-c <x@y.z>                              ::||:||:|::||::|:||::::    #
 #                                                   |:|:|:::|::|::::::|||||    #
 #    Created: 2019/11/06 00:16:52 by fde-c                                     #
-#    Updated: 2019/11/06 00:45:13 by fde-c                                     #
+#    Updated: 2019/11/07 02:04:48 by ||||||                                    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,10 @@ CC = gcc
 
 FLAGS = -Wall -Werror -Wextra
 
-SRCS =	main.c \
-		random.c \
-		debug.c
+SRCS =	main.c		\
+		random.c	\
+		debug.c		\
+		brain.c
 
 OBJS = $(SRCS:.c=.o)
 

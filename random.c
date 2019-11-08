@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:00 by ||||||                                   */
-/*   Updated: 2019/11/07 00:42:04 by ||||||                                   */
+/*   Updated: 2019/11/07 00:48:40 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	init_rnd()
 
 float	rnd01(void)
 {
-	return ((float)rand() / (float)((unsigned)RAND_MAX + 1));
+	return ((float)rand() / \
+	(float)((unsigned)RAND_MAX + 1));
 }
 
 float	rnd(float max)

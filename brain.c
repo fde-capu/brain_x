@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   main.c                                                                   */
+/*   brain.c                                                                  */
 /*                                                  ||||||:||||::|||:|:|||:   */
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
-/*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/07 02:03:51 by ||||||                                   */
+/*   Created: 2019/11/07 02:05:31 by ||||||                                   */
+/*   Updated: 2019/11/07 02:10:39 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(void)
+bra	init_brain(			\
+		unsigned int b,	\
+		unsigned int i, \
+		unsigned int h, \
+		unsigned int o, \
+		unsigned int a	\
+	)
 {
-	bra	b;
-
-	init_rnd();
-	b = \
-		init_brain(  \
-			BIAS_TEST_N, \
-			INPU_TEST_N, \
-			HIDE_TEST_N, \
-			OUTP_TEST_N, \
-			AXON_TEST_N  \
-		);
-
-	//init_biases();
-//	init_inputs();
-//	init_hiddens();
-//	init_outputs();
-//	init_axons();
-	return (0);
+	bra	brain;
+	return (brain);
 }
+
