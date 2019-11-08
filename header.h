@@ -2,7 +2,7 @@
 # define HEADER_H
 
 # define TYPE_OF_ID unsigned long
-# define TYPE_OF_TYPE signed char
+# define TYPE_OF_TYPE signed int
 # define TYPE_OF_FINE long
 # define TYPE_OF_CHARGE double
 # define TYPE_OF_INNOV unsigned long
@@ -22,11 +22,11 @@
 	{ error_msg(f); imsg(m,v); \
 		exit (1); }
 
-# define TP_B -2
-# define TP_I -1
-# define TP_H  0
-# define TP_O  1
-# define TP_A  2
+# define TP_B 1
+# define TP_I 2
+# define TP_H 4
+# define TP_O 8
+# define TP_A 16
 
 # define DEFB 1
 # define DEFI 3

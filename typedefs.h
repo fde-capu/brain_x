@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/08 10:47:09 by ||||||                                   */
+/*   Updated: 2019/11/08 11:18:54 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct	neuron
 {
 	t_id	id;
 	t_type	type;
-	net		*in;
-	net		*out;
+	t_id	in;
+	t_id	out;
 	t_fine	threshold;
 	t_fine	(*op)(bra *, neu *);
 	// op = &function;
@@ -68,6 +68,7 @@ typedef struct	t_id_innov
 	t_innov	innov;
 } t_id_innov;
 
-t_id g_id;
-t_innov g_innov;
-gnm	*g_genome;
+/// GLOBALS ///
+t_id	g_id;
+t_innov	g_innov;
+gnm		*g_genome;
