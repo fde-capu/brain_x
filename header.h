@@ -16,6 +16,12 @@
 	{ error_msg(f); imsg(m,v); \
 		exit (1); }
 
+# define TP_B -2
+# define TP_I -1
+# define TP_H  0
+# define TP_O  1
+# define TP_A  2
+
 # define BIAS_TEST_N 1
 # define INPU_TEST_N 3
 # define HIDE_TEST_N 5
@@ -33,13 +39,14 @@
 int		main(void);
 
 // brain.c
-bra		init_brain(			\
-			unsigned int b,	\
+bra		*init_brain(        \
+			unsigned int b, \
 			unsigned int i, \
 			unsigned int h, \
 			unsigned int o, \
-			unsigned int a	\
+			unsigned int a  \
 		);
+net	*create_neuron(signed char n);
 
 // debug.c
 void	imsg(char *str, int v);

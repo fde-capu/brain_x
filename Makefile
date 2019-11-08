@@ -6,7 +6,7 @@
 #    By: fde-c <x@y.z>                              ::||:||:|::||::|:||::::    #
 #                                                   |:|:|:::|::|::::::|||||    #
 #    Created: 2019/11/06 00:16:52 by fde-c                                     #
-#    Updated: 2019/11/07 02:04:48 by ||||||                                    #
+#    Updated: 2019/11/08 08:42:50 by ||||||                                    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ NAME = x
 CC = gcc
 
 FLAGS = -Wall -Werror -Wextra
+FLAG2 = -v
 
 SRCS =	main.c		\
 		random.c	\
@@ -39,3 +40,7 @@ fclean:	clean
 
 re:	fclean
 	make all
+
+v:	$(OBJS)
+	$(CC) $(FLAGS) $(FLAG2) $(OBJS) -o $(NAME)
+

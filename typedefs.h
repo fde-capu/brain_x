@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/07 01:45:22 by ||||||                                   */
+/*   Updated: 2019/11/08 08:35:56 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ typedef struct	neuro_net
 
 typedef struct	brain
 {
-	net		*bias;		// -2
-	net		*input;		// -1
-	net		*hidden;	//  0
-	net		*output;	//  1
-	net		*axon;		//  2
+	net		*bias;
+	net		*inpu;
+	net		*hidd;
+	net		*outp;
+	net		*axon;
 	struct	brain	*next;
 }	bra;
 
@@ -36,8 +36,7 @@ typedef struct	neuron
 {
 	long	id;
 	// types: see struct brain
-	signed char	\
-			type;
+	signed char type;
 	net		*in;
 	net		*out;
 	float	threshold;
