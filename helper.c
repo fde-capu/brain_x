@@ -6,15 +6,21 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/08 12:08:33 by ||||||                                   */
+/*   Updated: 2019/11/08 13:15:08 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-t_id	net_concat(void *a, net b)
+t_id	net_neu_concat(neu *a, net b)
 {
-	t_id	len;
-	len = 0;
-	return (len);
+	t_id	alen;
+
+	alen = 0;
+//	while (a->next)
+//	{
+//		a = a->next;
+//		alen++;
+//	}
+//	return (alen);
 }

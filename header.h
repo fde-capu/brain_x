@@ -33,7 +33,7 @@
 # define DEFH 5
 # define DEFO 3
 # define DEFA 7
-# define GENB 2
+# define GENB 1
 # define GENI 3
 # define GENH 5
 # define GENO 3
@@ -50,8 +50,8 @@
 int		main(void);
 
 // genome.c
-gnm		*init_genome(void);
-neu		*gen_neuron(t_type t, neu *next);
+void	*init_genome(void);
+neu		*gen_neuron(t_type t, int n);
 void	rnd_from_genome \
 	(t_type t, t_id_innov id_innov);
 
@@ -63,10 +63,10 @@ bra		*init_brain(        \
 			unsigned int o, \
 			unsigned int a  \
 		);
-net		*create_neuron (t_type t, int n);
+net		*rnd_neuron (t_type t, int n);
 
 // helper.c
-t_id	net_concat(void *a, net b);
+t_id	net_neu_concat(neu *a, net b);
 
 // debug.c
 void	imsg(char *str, int v);
