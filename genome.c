@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
-/*   main.c                                                                   */
+/*   genome.c                                                                 */
 /*                                                  ||||||:||||::|||:|:|||:   */
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
-/*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/08 08:57:30 by ||||||                                   */
+/*   Created: 2019/11/08 09:28:31 by ||||||                                   */
+/*   Updated: 2019/11/08 09:40:26 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-int	main(void)
+t_id	rnd_id_from_genome(t_type t)
 {
-	bra	*b;
-
-	init_rnd();
-	b = \
-		init_brain(      \
-			DEFB, \
-			DEFI, \
-			DEFH, \
-			DEFO, \
-			DEFA  \
-		);
-
-	//init_biases();
-//	init_inputs();
-//	init_hiddens();
-//	init_outputs();
-//	init_axons();
-	return (0);
+	t_id	id;
+	id = 0;
+	return (id);
 }
+
+// operation_function(t);
+

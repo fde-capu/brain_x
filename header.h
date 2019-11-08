@@ -1,6 +1,12 @@
 #ifndef HEADER_H
 # define HEADER_H
 
+# define TYPE_OF_ID long
+# define TYPE_OF_TYPE signed char
+# define TYPE_OF_FINE long
+# define TYPE_OF_CHARGE double
+# define TYPE_OF_INNOV long
+
 # define PRECISION 100000
 # define EULER 2.71828
 
@@ -22,11 +28,11 @@
 # define TP_O  1
 # define TP_A  2
 
-# define BIAS_TEST_N 1
-# define INPU_TEST_N 3
-# define HIDE_TEST_N 5
-# define OUTP_TEST_N 3
-# define AXON_TEST_N 7
+# define DEFB 1
+# define DEFI 3
+# define DEFH 5
+# define DEFO 3
+# define DEFA 7
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -38,6 +44,9 @@
 // main.c
 int		main(void);
 
+// genome.c
+t_id	rnd_id_from_genome(t_type t);
+
 // brain.c
 bra		*init_brain(        \
 			unsigned int b, \
@@ -46,7 +55,8 @@ bra		*init_brain(        \
 			unsigned int o, \
 			unsigned int a  \
 		);
-net	*create_neuron(signed char n);
+net	*create_neuron \
+	(t_type t, int n);
 
 // debug.c
 void	imsg(char *str, int v);
