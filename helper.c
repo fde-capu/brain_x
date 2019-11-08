@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/08 13:15:08 by ||||||                                   */
+/*   Updated: 2019/11/08 13:36:48 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,17 @@
 t_id	net_neu_concat(neu *a, net b)
 {
 	t_id	alen;
+	net		new_b;
 
 	alen = 0;
-//	while (a->next)
-//	{
-//		a = a->next;
-//		alen++;
-//	}
-//	return (alen);
+	while (a->next)
+	{
+		new_b.id = a->id;
+		new_b.innov = a->innov;
+		new_b.next = &b;
+		b = new_b;
+		alen++;
+		a = a->next;
+	}
+	return (alen);
 }
