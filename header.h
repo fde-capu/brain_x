@@ -2,8 +2,8 @@
 # define HEADER_H
 
 # define TYPE_OF_ID unsigned long
-# define TYPE_OF_TYPE signed int
-# define TYPE_OF_FINE long
+# define TYPE_OF_TYPE char
+# define TYPE_OF_FINE double
 # define TYPE_OF_CHARGE double
 # define TYPE_OF_INNOV unsigned long
 
@@ -11,11 +11,16 @@
 # define EULER 2.71828
 
 # define STRESS 20
+# define STRESS_IN int stress = STRESS;
+# define STRESS_OUT if(!--stress)\
+	{FAIL(STRESS_ERROR);}
 
+# define STRESS_ERROR "Stress"
 # define GENERAL_ERROR "Error"
 # define GENERAL_ERROR_DETAIL \
 	"Detail"
 # define BRAIN_ERROR "brain"
+# define FAIL(f) FAIL_S(f)
 # define FAIL_S(f) \
 	{ error_msg(f); exit (1); }
 # define FAIL_SSI(f,m,v) \
@@ -27,6 +32,12 @@
 # define TP_H 4
 # define TP_O 8
 # define TP_A 16
+
+# define TPN_B 'B'
+# define TPN_I 'I'
+# define TPN_H 'H'
+# define TPN_O 'O'
+# define TPN_A 'A'
 
 # define DEFB 1
 # define DEFI 3
@@ -73,6 +84,9 @@ void	imsg(char *str, int v);
 void	error_msg(char *str);
 void	msgs(char *str);
 void	msgi(int inty);
+void	print_net(net n);
+void	print_genome(void);
+void	print_neuron(neu *neuron);
 
 // random.c
 void	init_rnd(void);
