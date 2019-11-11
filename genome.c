@@ -6,13 +6,13 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/11 12:03:24 by ||||||                                   */
+/*   Updated: 2019/11/11 12:44:03 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	*init_genome(void)
+void		*init_genome(void)
 {
 	g_genome = malloc(sizeof(gnm));
 	g_genome->bias = gen_neuron(TP_B, GENB);
@@ -25,11 +25,10 @@ void	*init_genome(void)
 	return ;
 }
 
-neu		*gen_neuron(t_type t, int n)
+neu			*gen_neuron(t_type t, int n)
 {
 	neu			*neuron;
 	neu			*next;
-	t_id_innov	temp_neuron;
 
 	next = 0;
 	while (--n > -1)
@@ -39,12 +38,10 @@ neu		*gen_neuron(t_type t, int n)
 		neuron->type = t;
 		if (t & TP_A)
 		{
-			rnd_from_genome( \
-				TP_B + TP_I + TP_H, temp_neuron);
-			neuron->in = temp_neuron.id;
-			rnd_from_genome( \
-				TP_H + TP_O, temp_neuron);
-			neuron->out = temp_neuron.id;
+			neuron->in = rnd_from_genome( \
+				TP_B + TP_I + TP_H).id;
+			neuron->out = rnd_from_genome( \
+				TP_H + TP_O).id;
 		}
 		else
 		{
@@ -61,10 +58,11 @@ neu		*gen_neuron(t_type t, int n)
 	return (neuron);
 }
 
-void	rnd_from_genome(t_type t, t_id_innov id_innov)
+neuidinn	rnd_from_genome(t_type t)
 {
-	net		rnd_list;
-	t_id	rnd_l;
+	net			rnd_list;
+	t_id		rnd_l;
+	neuidinn	out;
 
 	rnd_list.next = 0;
 	rnd_l = 0;
@@ -79,7 +77,7 @@ void	rnd_from_genome(t_type t, t_id_innov id_innov)
 	if (t & TP_A)
 		rnd_l += net_neu_concat(g_genome->axon, rnd_list);
 
-	id_innov.id = 0;
-	id_innov.innov = 0;
-	return ;
+	out.id = 0;
+	out.innov = 0;
+	return (out);
 }

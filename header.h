@@ -61,10 +61,9 @@
 int		main(void);
 
 // genome.c
-void	*init_genome(void);
-neu		*gen_neuron(t_type t, int n);
-void	rnd_from_genome \
-	(t_type t, t_id_innov id_innov);
+void		*init_genome(void);
+neu			*gen_neuron(t_type t, int n);
+neuidinn	rnd_from_genome(t_type t);
 
 // brain.c
 bra		*init_brain(        \
@@ -86,6 +85,8 @@ void	msgs(char *str);
 void	msgi(int inty);
 void	print_net(net n);
 void	print_genome(void);
+char	*get_typename(t_type t);
+void	print_neu_list(neu *n);
 void	print_neuron(neu *neuron);
 
 // random.c

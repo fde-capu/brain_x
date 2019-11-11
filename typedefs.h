@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/08 11:18:54 by ||||||                                   */
+/*   Updated: 2019/11/11 12:35:46 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ typedef struct	genome
 	neu		*axon;
 }	gnm;
 
-typedef struct	t_id_innov
+typedef struct	neuidinn
 {
 	t_id	id;
 	t_innov	innov;
-} t_id_innov;
+} neuidinn;
 
 /// GLOBALS ///
 t_id	g_id;

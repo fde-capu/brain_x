@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 02:05:31 by ||||||                                   */
-/*   Updated: 2019/11/08 12:49:28 by ||||||                                   */
+/*   Updated: 2019/11/11 12:41:31 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,16 @@ bra	*init_brain(        \
 
 net	*rnd_neuron(t_type t, int n)
 {
-	net	*neu_in_b;
-	net	*next;
-	t_id_innov	temp_neuron;
+	net			*neu_in_b;
+	net			*next;
+	neuidinn	temp_neuron;
 
 	next = 0;
 	while (--n > -1)
 	{
 		neu_in_b = malloc(sizeof(net));
-		rnd_from_genome(t, temp_neuron);
-		neu_in_b->id = temp_neuron.id;
-		neu_in_b->innov = temp_neuron.innov;
+		neu_in_b->id = rnd_from_genome(t).id;
+		neu_in_b->innov = rnd_from_genome(t).innov;
 		neu_in_b->charge = 0;
 		neu_in_b->next = next;
 		next = neu_in_b;
