@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/11 12:32:05 by ||||||                                   */
+/*   Updated: 2019/11/12 07:11:13 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,22 @@ void	msgi(int inty)
 	printf("%d\n", inty);
 }
 
-void	print_net(net n)
+void	logi(char *c, int n)
 {
-	
+	printf("%s: %d\n",c,n);
+}
+
+void	print_net(net *n)
+{
+	STRESS_IN
+	while (n)
+	{
+		printf("net id:%2d*%2d %2x>%2x\n", \
+			n->id, n->innov,
+			n, n->next);
+		n = n->next;
+		STRESS_OUT
+	};
 }
 
 void	print_genome(void)
@@ -83,9 +96,9 @@ char	*get_typename(t_type t)
 
 void	print_neuron(neu *neuron)
 {
-	printf("[%3d*%3d] %s:[%3d]--%0.5lf-->[%3d] {%2x} %2x>%2x\n", \
-		neuron->id, neuron->innov, \
+	printf("%s:[%3d*%3d]|[%3d]--%0.5lf-->[%3d] {%2x} %2x>%2x\n", \
 		get_typename(neuron->type), \
+		neuron->id, neuron->innov, \
 		neuron->in, \
 		neuron->threshold, neuron->out, \
 		neuron->op, neuron, \

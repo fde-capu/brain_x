@@ -26,6 +26,7 @@
 # define FAIL_SSI(f,m,v) \
 	{ error_msg(f); imsg(m,v); \
 		exit (1); }
+# define LOGI(c,n) logi(c,n);
 
 # define TP_B 1
 # define TP_I 2
@@ -76,18 +77,21 @@ bra		*init_brain(        \
 net		*rnd_neuron (t_type t, int n);
 
 // helper.c
-t_id	net_neu_concat(neu *a, net b);
+t_id	net_neu_concat(neu *a, net *b);
+neuidinn	get_neu_from_net \
+	(int n, net *l);
 
 // debug.c
 void	imsg(char *str, int v);
 void	error_msg(char *str);
 void	msgs(char *str);
 void	msgi(int inty);
-void	print_net(net n);
+void	print_net(net *n);
 void	print_genome(void);
 char	*get_typename(t_type t);
 void	print_neu_list(neu *n);
 void	print_neuron(neu *neuron);
+void	logi(char *c, int n);
 
 // random.c
 void	init_rnd(void);

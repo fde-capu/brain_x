@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/11 12:44:03 by ||||||                                   */
+/*   Updated: 2019/11/12 06:58:03 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ neu			*gen_neuron(t_type t, int n)
 		neuron->op = 0;
 		neuron->innov = ++g_innov;
 		neuron->next = next;
-		print_neuron(neuron);
 		next = neuron;
 	}
 	return (neuron);
@@ -60,11 +59,11 @@ neu			*gen_neuron(t_type t, int n)
 
 neuidinn	rnd_from_genome(t_type t)
 {
-	net			rnd_list;
+	net			*rnd_list;
 	t_id		rnd_l;
 	neuidinn	out;
 
-	rnd_list.next = 0;
+	rnd_list->next = 0;
 	rnd_l = 0;
 	if (t & TP_B)
 		rnd_l += net_neu_concat(g_genome->bias, rnd_list);
@@ -76,8 +75,8 @@ neuidinn	rnd_from_genome(t_type t)
 		rnd_l += net_neu_concat(g_genome->outp, rnd_list);
 	if (t & TP_A)
 		rnd_l += net_neu_concat(g_genome->axon, rnd_list);
-
-	out.id = 0;
-	out.innov = 0;
+	printf("\n--\n");
+	print_net(rnd_list);
+	out = get_neu_from_net(irnd(rnd_l), rnd_list);
 	return (out);
 }
