@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/14 09:46:14 by ||||||                                   */
+/*   Updated: 2019/11/14 10:17:06 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,30 @@ neu			*gen_neuron(t_type t, int n)
 
 nii	rnd_from_genome(t_type t)
 {
-	nii		out;
-	
+	nii	out;
+	tid	cb[BRAIN_NETS_N];
+	tid	i;
+	tid c;
+	tid s;
 
+	i = 0;
+	while (++i <= BRAIN_NETS_N)
+		cb[i - 1] = 0;
 
-	out.id = 0;
-	out.innov = 0;
+	if(t & TP_B) cb[0]+=count_neu(g_genome->bias);
+	if(t & TP_I) cb[1]+=count_neu(g_genome->inpu);
+	if(t & TP_H) cb[2]+=count_neu(g_genome->hidd);
+	if(t & TP_O) cb[3]+=count_neu(g_genome->outp);
+	if(t & TP_A) cb[4]+=count_neu(g_genome->axon);
+
+	c = 0;
+	i = 0;
+	while (++i <= BRAIN_NETS_N)
+		c += cb[i - 1];
+
+	s = irnd(c);
+	out.id = s;
+	out.innov = s;
 	//out = get_neu_from_net(\
 			irnd(rnd_l), rnd_list);
 	return (out);

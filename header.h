@@ -28,6 +28,8 @@
 		exit (1); }
 # define LOGI(c,n) logi(c,n);
 
+# define BRAIN_NETS_N 5
+
 # define TP_B 1
 # define TP_I 2
 # define TP_H 4
@@ -79,7 +81,7 @@ net		*rnd_neuron (t_type t, int n);
 // helper.c
 nii		get_neu_from_net \
 	(int n, net *l);
-tid	count_neu(neu *a);
+tid	count_neu(neu *l);
 
 // debug.c
 void	imsg(char *str, int v);
