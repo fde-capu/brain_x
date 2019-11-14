@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 02:05:31 by ||||||                                   */
-/*   Updated: 2019/11/14 16:06:51 by ||||||                                   */
+/*   Updated: 2019/11/14 17:32:02 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,24 @@ bra	*init_brain(\
 net	*rnd_neuron(typ t, int q, bra *b)
 {
 	net	*n;
-	neu	*g;
+	neu	g;
+	net	*nx;
 
-	n = init_net(b);
+	nx = 0;
+	while (--q > -1)
+	{
+		n = init_net();
+		g = rnd_from_genome(t);
+		n->id = g.id;
+		n->iv = g.iv;
+		n->pt = b;
+		n->nx = nx;
+		nx = n;
+	}
 	return (n);
 }
 
-net	*init_net(bra *b)
+net	*init_net(void)
 {
 	net *n;
 
@@ -45,7 +56,7 @@ net	*init_net(bra *b)
 	n->id = 0;
 	n->iv = 0;
 	n->bz = 0;
-	n->pt = b;
+	n->pt = 0;
 	n->nx = 0;
 	return (n);
 }

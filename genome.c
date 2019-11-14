@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/14 16:28:55 by ||||||                                   */
+/*   Updated: 2019/11/14 17:15:46 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ neu		*init_neu(void)
 	return (n);
 }
 
-nii		rnd_from_genome(typ t)
+neu		rnd_from_genome(typ t)
 {
-	nii	out;
+	neu	out;
 	tid	cb[GNM_NETS_N];
 	tid	i;
 	tid c;
@@ -109,7 +109,6 @@ nii		rnd_from_genome(typ t)
 	while (--c)
 	{
 		n = n->nx;
-//		n = neu_cp(n, n->nx);
 		if (!n)
 		{
 			if (i == 0)
@@ -158,8 +157,6 @@ nii		rnd_from_genome(typ t)
 			if (i == 0) c = 1;
 		}
 	}
-	out.id = n->id;
-	out.iv = n->iv;
-	//free(n);
-	return (out);
+//	out = cp_neu(n);
+	return (*n);
 }

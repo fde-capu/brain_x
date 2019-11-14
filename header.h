@@ -26,6 +26,7 @@
 	{ error_msg(f); imsg(m,v); \
 		exit (1); }
 # define LOGI(c,n) logi(c,n);
+# define NL printf("\n");
 
 # define GNM_NETS_N 5
 
@@ -66,18 +67,18 @@ int		main(void);
 void	*init_genome(tid b, tid i, tid h, tid o, tid a);
 neu		*gen_neuron(typ t, int n);
 neu		*init_neu(void);
-nii		rnd_from_genome(typ t);
+neu		rnd_from_genome(typ t);
 
 // brain.c
 bra		*init_brain(\
 			tid b, tid i, \
 			tid h, tid o, tid a);
 net		*rnd_neuron (typ t, int q, bra *b);
-net	*init_net(bra *b);
+net	*init_net(void);
 
 // helper.c
-tid		count_neu(neu *l);
-void	*neu_cp(neu *d, neu *o);
+tid	count_neu(neu *l);
+neu	*neuron_by_nii(tid id, tid iv);
 
 // debug.c
 void	imsg(char *str, int v);
@@ -90,6 +91,7 @@ char	*get_typename(typ t);
 void	print_neu_list(neu *n);
 void	print_net_list(net *n);
 void	print_neuron(neu *neuron);
+void	print_neuron_simple(neu *neuron);
 void	logi(char *c, int n);
 
 // random.c

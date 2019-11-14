@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/14 16:28:31 by ||||||                                   */
+/*   Updated: 2019/11/14 17:58:03 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,20 @@ void	print_brain(bra *b)
 
 void	print_net_list(net *n)
 {
-//	while (n)
-//	{
-//		print_neuron(n->pos);
-//		n = n->nx;
-//	}
+	while (n)
+	{
+//		printf("::%3d*%3d :: %0.5lf :: ~%2x~ %2x>%2x\n",\
+			n->id,\
+			n->iv,\
+			n->bz,\
+			n->pt,\
+			n, n->nx);
+		print_neuron_simple(\
+			neuron_by_nii(n->id, n->iv)\
+		);
+//		print_neuron(n->id);
+		n = n->nx;
+	}
 }
 
 
@@ -134,4 +143,32 @@ void	print_neuron(neu *neuron)
 			neuron->op, neuron, 		\
 			neuron->nx);
 	}
+}
+
+
+void	print_neuron_simple(neu *neuron)
+{
+	if (neuron->tp & TP_A)
+	{
+		printf("%s:[%3d*%3d] " 			\
+			"[%3d]--%0.5lf-->[%-3d] " 	\
+			"{%2x}\n", 					\
+			get_typename(neuron->tp),	\
+			neuron->id, neuron->iv, 	\
+			neuron->in, 				\
+			neuron->tr,		 			\
+			neuron->out, 				\
+			neuron->op);
+	}
+	else
+	{
+		printf("%s:[%3d*%3d] " 			\
+			"[ %0.16lf ] " 				\
+			"{%2x}\n", 					\
+			get_typename(neuron->tp),	\
+			neuron->id, neuron->iv, 	\
+			neuron->tr,		 			\
+			neuron->op);
+	}
+	/// shoudn't this print net insted of neu?
 }
