@@ -79,7 +79,7 @@ net		*rnd_neuron (t_type t, int n);
 // helper.c
 nii		get_neu_from_net \
 	(int n, net *l);
-t_id	count_neu(neu *a);
+tid	count_neu(neu *a);
 
 // debug.c
 void	imsg(char *str, int v);
