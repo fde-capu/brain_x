@@ -5,7 +5,6 @@
 # define TYPE_OF_TYPE char
 # define TYPE_OF_FINE double
 # define TYPE_OF_CHARGE double
-# define TYPE_OF_INNOV unsigned long
 
 # define PRECISION 100000
 # define EULER 2.71828

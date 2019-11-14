@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/14 15:59:21 by ||||||                                   */
+/*   Updated: 2019/11/14 16:14:28 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@ typedef TYPE_OF_ID		tid;
 typedef TYPE_OF_TYPE	typ;
 typedef TYPE_OF_FINE	fin;
 typedef TYPE_OF_CHARGE	tbz;
-typedef TYPE_OF_INNOV	tin;
 
 typedef struct	brain		bra;
 typedef struct	neuron		neu;
@@ -24,7 +23,7 @@ typedef struct	neuro_net
 {
 	struct	neuron		*ps;
 	tid		id;
-	tin		iv;
+	tid		iv;
 	tbz		bz;
 	bra		*pt;
 	struct	neuro_net	*nx;
@@ -50,7 +49,7 @@ typedef struct	neuron
 	fin	(*op)(bra *, neu *);
 	// op = &function;
 	// (*op)(a,b);
-	tin	iv;
+	tid	iv;
 	struct	neuron	*nx;
 }	neu;
 
@@ -66,10 +65,10 @@ typedef struct	genome
 typedef struct	tuplet_id_inn
 {
 	tid	id;
-	tin	iv;
+	tid	iv;
 } nii;
 
 /// GLOBALS ///
 tid		g_id;
-tin		g_iv;
+tid		g_iv;
 gnm		*g_genome;
