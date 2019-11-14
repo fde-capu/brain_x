@@ -6,13 +6,13 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/14 09:49:01 by ||||||                                   */
+/*   Updated: 2019/11/14 11:06:20 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 typedef TYPE_OF_ID		tid;
-typedef TYPE_OF_TYPE	t_type;
-typedef TYPE_OF_FINE	t_fine;
+typedef TYPE_OF_TYPE	typ;
+typedef TYPE_OF_FINE	fin;
 typedef TYPE_OF_CHARGE	t_charge;
 typedef TYPE_OF_INNOV	tin;
 
@@ -23,7 +23,7 @@ typedef struct	neuro_net	net;
 typedef struct	neuro_net
 {
 	tid				id;
-	tin				innov;
+	tin				iv;
 	bra					*parent;
 	t_charge			charge;
 	struct	neuro_net	*next;
@@ -42,14 +42,14 @@ typedef struct	brain
 typedef struct	neuron
 {
 	tid	id;
-	t_type	type;
+	typ	type;
 	tid	in;
 	tid	out;
-	t_fine	threshold;
-	t_fine	(*op)(bra *, neu *);
+	fin	threshold;
+	fin	(*op)(bra *, neu *);
 	// op = &function;
 	// (*op)(a,b);
-	tin	innov;
+	tin	iv;
 	struct	neuron	*next;
 }	neu;
 
@@ -65,10 +65,10 @@ typedef struct	genome
 typedef struct	tuplet_id_inn
 {
 	tid	id;
-	tin	innov;
+	tin	iv;
 } nii;
 
 /// GLOBALS ///
 tid		g_id;
-tin		g_innov;
+tin		g_iv;
 gnm		*g_genome;

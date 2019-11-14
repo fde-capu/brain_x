@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/14 10:17:06 by ||||||                                   */
+/*   Updated: 2019/11/14 14:09:16 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ void		*init_genome(void)
 	return ;
 }
 
-neu			*gen_neuron(t_type t, int n)
+neu			*gen_neuron(typ t, int n)
 {
-	neu			*neuron;
-	neu			*next;
+	neu	*neuron;
+	neu	*next;
+	neu	*head;
 
 	next = 0;
 	while (--n > -1)
 	{
-		neuron = malloc(sizeof(neu));
+		neuron = init_neu();
 		neuron->id = ++g_id;
 		neuron->type = t;
 		if (t & TP_A)
@@ -50,40 +51,130 @@ neu			*gen_neuron(t_type t, int n)
 		}
 		neuron->threshold = rnd01();
 		neuron->op = 0;
-		neuron->innov = ++g_innov;
+		neuron->iv = ++g_iv;
 		neuron->next = next;
 		next = neuron;
 	}
 	return (neuron);
 }
 
-nii	rnd_from_genome(t_type t)
+neu	*init_neu()
+{
+	neu *n;
+
+	n = malloc(sizeof(neu));
+	n->id = 0;
+	n->type = 0;
+	n->in = 0;
+	n->out = 0;
+	n->threshold = 0;
+	n->op = 0;
+	n->iv = 0;
+	n->next = 0;
+	return (n);
+}
+
+neu	get_neu(neu	*a)
+{
+//	printf("%2x - a:%d\n", a, a->id);
+	neu n;
+//	n.id = a->id;
+//	n.type = a->type;
+//	n.in = a->in;
+//	n.out = a->out;
+//	n.threshold = a->threshold;
+//	n.op = a->op;
+//	n.next = a->next;
+	return (n);
+}
+
+nii	rnd_from_genome(typ t)
 {
 	nii	out;
-	tid	cb[BRAIN_NETS_N];
+	tid	cb[GNM_NETS_N];
 	tid	i;
 	tid c;
-	tid s;
+	neu *n;
 
 	i = 0;
-	while (++i <= BRAIN_NETS_N)
+	while (++i <= GNM_NETS_N)
 		cb[i - 1] = 0;
-
 	if(t & TP_B) cb[0]+=count_neu(g_genome->bias);
 	if(t & TP_I) cb[1]+=count_neu(g_genome->inpu);
 	if(t & TP_H) cb[2]+=count_neu(g_genome->hidd);
 	if(t & TP_O) cb[3]+=count_neu(g_genome->outp);
 	if(t & TP_A) cb[4]+=count_neu(g_genome->axon);
-
 	c = 0;
 	i = 0;
-	while (++i <= BRAIN_NETS_N)
+	while (++i <= GNM_NETS_N)
 		c += cb[i - 1];
+	c = irnd(c);
 
-	s = irnd(c);
-	out.id = s;
-	out.innov = s;
-	//out = get_neu_from_net(\
-			irnd(rnd_l), rnd_list);
+	n = t & TP_A ? g_genome->axon : init_neu();
+	n = t & TP_O ? g_genome->outp : n;
+	n = t & TP_H ? g_genome->hidd : n;
+	n = t & TP_I ? g_genome->inpu : n;
+	n = t & TP_B ? g_genome->bias : n;
+
+	i = t & TP_A ? 4 : 0;
+	i = t & TP_O ? 3 : i;
+	i = t & TP_H ? 2 : i;
+	i = t & TP_I ? 1 : i;
+	i = t & TP_I ? 0 : i;
+
+	while (--c)
+	{
+		n = n->next;
+		if (!n)
+		{
+			if (i == 0)
+			{
+				n = t & TP_A ? g_genome->axon : init_neu();
+				n = t & TP_O ? g_genome->outp : n;
+				n = t & TP_H ? g_genome->hidd : n;
+				n = t & TP_I ? g_genome->inpu : n;
+			}
+			if (i == 1)
+			{
+				n = t & TP_A ? g_genome->axon : init_neu();
+				n = t & TP_O ? g_genome->outp : n;
+				n = t & TP_H ? g_genome->hidd : n;
+
+			}
+			if (i == 2)
+			{
+				n = t & TP_A ? g_genome->axon : init_neu();
+				n = t & TP_O ? g_genome->outp : n;
+
+			}
+			if (i == 3)
+			{
+				n = t & TP_A ? g_genome->axon : init_neu();
+				i = t & TP_A ? 4 : 0;
+			}
+			if (i == 2)
+			{
+				i = t & TP_A ? 4 : 0;
+				i = t & TP_O ? 3 : i;
+			}
+			if (i == 1)
+			{
+				i = t & TP_A ? 4 : 0;
+				i = t & TP_O ? 3 : i;
+				i = t & TP_H ? 2 : i;
+			}
+			if (i == 0)
+			{
+				i = t & TP_A ? 4 : 0;
+				i = t & TP_O ? 3 : i;
+				i = t & TP_H ? 2 : i;
+				i = t & TP_I ? 1 : i;
+			}
+			if (i == 0) c = 1;
+		}
+	}
+	out.id = n->id;
+	out.iv = n->iv;
+
 	return (out);
 }

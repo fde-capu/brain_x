@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/14 00:10:17 by ||||||                                   */
+/*   Updated: 2019/11/14 13:46:44 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ void	print_net(net *n)
 {
 		printf("net id:%2d*%2d " \
 				"%2x>%2x\n", \
-			n->id, n->innov, \
+			n->id, n->iv, \
 			n, n->next);
 		n = n->next;
 		printf("net id:%2d*%2d " \
 				"%2x>%2x\n", \
-			n->id, n->innov, \
+			n->id, n->iv, \
 			n, n->next);
 //	while (n)
 //	{
 //		printf("net id:%2d*%2d " \
 				"%2x>%2x\n", \
-			n->id, n->innov, \
+			n->id, n->iv, \
 			n, n->next);
 //		n = n->next;
 //	};
@@ -78,14 +78,14 @@ void	print_genome(void)
 
 void	print_neu_list(neu *n)
 {
-	do
+	while (n)
 	{
 		print_neuron(n);
 		n = n->next;
-	} while (n);
+	}
 }
 
-char	*get_typename(t_type t)
+char	*get_typename(typ t)
 {
 	char	out[6];
 	char	*p;
@@ -104,14 +104,28 @@ char	*get_typename(t_type t)
 
 void	print_neuron(neu *neuron)
 {
-	printf("%s:[%3d*%3d]|" \
-		"[%3d]--%0.5lf-->[%3d] " \
-		"{%2x} %2x>%2x\n", \
-		get_typename(neuron->type), \
-		neuron->id, neuron->innov, \
-		neuron->in, \
-		neuron->threshold, \
-		neuron->out, \
-		neuron->op, neuron, \
-		neuron->next);
+	if (neuron->type & TP_A)
+	{
+		printf("%s:[%3d*%3d]|" \
+			"[%3d]--%0.5lf-->[%3d] " \
+			"{%2x} %2x>%2x\n", \
+			get_typename(neuron->type), \
+			neuron->id, neuron->iv, \
+			neuron->in, \
+			neuron->threshold, \
+			neuron->out, \
+			neuron->op, neuron, \
+			neuron->next);
+	}
+	else
+	{
+		printf("%s:[%3d*%3d]|" \
+			"     [ %0.6lf ]     " \
+			"{%2x} %2x>%2x\n", \
+			get_typename(neuron->type), \
+			neuron->id, neuron->iv, \
+			neuron->threshold, \
+			neuron->op, neuron, \
+			neuron->next);
+	}
 }

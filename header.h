@@ -10,7 +10,7 @@
 # define PRECISION 100000
 # define EULER 2.71828
 
-# define STRESS 20
+# define STRESS 50
 # define STRESS_IN int stress = STRESS;
 # define STRESS_OUT if(!--stress)\
 	{FAIL(STRESS_ERROR);}
@@ -28,7 +28,7 @@
 		exit (1); }
 # define LOGI(c,n) logi(c,n);
 
-# define BRAIN_NETS_N 5
+# define GNM_NETS_N 5
 
 # define TP_B 1
 # define TP_I 2
@@ -65,8 +65,9 @@ int		main(void);
 
 // genome.c
 void	*init_genome(void);
-neu		*gen_neuron(t_type t, int n);
-nii		rnd_from_genome(t_type t);
+neu		*gen_neuron(typ t, int n);
+neu		*init_neu(void);
+nii		rnd_from_genome(typ t);
 
 // brain.c
 bra		*init_brain(        \
@@ -76,11 +77,9 @@ bra		*init_brain(        \
 			unsigned int o, \
 			unsigned int a  \
 		);
-net		*rnd_neuron (t_type t, int n);
+net		*rnd_neuron (typ t, int n);
 
 // helper.c
-nii		get_neu_from_net \
-	(int n, net *l);
 tid	count_neu(neu *l);
 
 // debug.c
@@ -90,7 +89,7 @@ void	msgs(char *str);
 void	msgi(int inty);
 void	print_net(net *n);
 void	print_genome(void);
-char	*get_typename(t_type t);
+char	*get_typename(typ t);
 void	print_neu_list(neu *n);
 void	print_neuron(neu *neuron);
 void	logi(char *c, int n);

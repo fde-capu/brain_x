@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 02:05:31 by ||||||                                   */
-/*   Updated: 2019/11/13 18:30:36 by ||||||                                   */
+/*   Updated: 2019/11/14 11:04:38 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bra	*init_brain(        \
 	return (brain);
 }
 
-net	*rnd_neuron(t_type t, int n)
+net	*rnd_neuron(typ t, int n)
 {
 	net	*neu_in_b;
 	net	*next;
@@ -43,8 +43,8 @@ net	*rnd_neuron(t_type t, int n)
 		neu_in_b = malloc(sizeof(net));
 		neu_in_b->id = \
 			rnd_from_genome(t).id;
-		neu_in_b->innov = \
-			rnd_from_genome(t).innov;
+		neu_in_b->iv = \
+			rnd_from_genome(t).iv;
 		neu_in_b->charge = 0;
 		neu_in_b->next = next;
 		next = neu_in_b;
