@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/12 07:11:13 by ||||||                                   */
+/*   Updated: 2019/11/14 00:10:17 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,23 @@ void	logi(char *c, int n)
 
 void	print_net(net *n)
 {
-	STRESS_IN
-	while (n)
-	{
-		printf("net id:%2d*%2d %2x>%2x\n", \
-			n->id, n->innov,
+		printf("net id:%2d*%2d " \
+				"%2x>%2x\n", \
+			n->id, n->innov, \
 			n, n->next);
 		n = n->next;
-		STRESS_OUT
-	};
+		printf("net id:%2d*%2d " \
+				"%2x>%2x\n", \
+			n->id, n->innov, \
+			n, n->next);
+//	while (n)
+//	{
+//		printf("net id:%2d*%2d " \
+				"%2x>%2x\n", \
+			n->id, n->innov, \
+			n, n->next);
+//		n = n->next;
+//	};
 }
 
 void	print_genome(void)
@@ -96,11 +104,14 @@ char	*get_typename(t_type t)
 
 void	print_neuron(neu *neuron)
 {
-	printf("%s:[%3d*%3d]|[%3d]--%0.5lf-->[%3d] {%2x} %2x>%2x\n", \
+	printf("%s:[%3d*%3d]|" \
+		"[%3d]--%0.5lf-->[%3d] " \
+		"{%2x} %2x>%2x\n", \
 		get_typename(neuron->type), \
 		neuron->id, neuron->innov, \
 		neuron->in, \
-		neuron->threshold, neuron->out, \
+		neuron->threshold, \
+		neuron->out, \
 		neuron->op, neuron, \
 		neuron->next);
 }

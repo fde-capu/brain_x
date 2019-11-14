@@ -62,9 +62,9 @@
 int		main(void);
 
 // genome.c
-void		*init_genome(void);
-neu			*gen_neuron(t_type t, int n);
-neuidinn	rnd_from_genome(t_type t);
+void	*init_genome(void);
+neu		*gen_neuron(t_type t, int n);
+nii		rnd_from_genome(t_type t);
 
 // brain.c
 bra		*init_brain(        \
@@ -77,9 +77,11 @@ bra		*init_brain(        \
 net		*rnd_neuron (t_type t, int n);
 
 // helper.c
-t_id	net_neu_concat(neu *a, net *b);
-neuidinn	get_neu_from_net \
+net		*net_neu_concat(neu *a, net *b);
+nii		get_neu_from_net \
 	(int n, net *l);
+t_id	count_neu(neu *a);
+net		*init_net(net *p);
 
 // debug.c
 void	imsg(char *str, int v);
