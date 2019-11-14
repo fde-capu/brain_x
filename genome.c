@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/14 00:15:06 by ||||||                                   */
+/*   Updated: 2019/11/14 09:44:26 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,28 +59,7 @@ neu			*gen_neuron(t_type t, int n)
 
 nii	rnd_from_genome(t_type t)
 {
-	net		*p;
 	nii		out;
-
-	p = init_net(p);
-	printf("i->%2x\t%d\n", p, p->id);
-	if (t & TP_B)
-		p = net_neu_concat\
-			(g_genome->bias, p);
-	if (t & TP_I)
-		p = net_neu_concat\
-			(g_genome->inpu, p);
-	if (t & TP_H)
-		p = net_neu_concat\
-			(g_genome->hidd, p);
-	if (t & TP_O)
-		p = net_neu_concat\
-			(g_genome->outp, p);
-	if (t & TP_A)
-		p = net_neu_concat\
-			(g_genome->axon, p);
-	printf("o->%2x\t%d\n", p, p->id);
-//	print_net(p);
 
 
 	out.id = 0;
