@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/14 16:01:31 by ||||||                                   */
+/*   Updated: 2019/11/14 16:28:31 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,12 +110,12 @@ char	*get_typename(typ t)
 
 void	print_neuron(neu *neuron)
 {
-	if (neuron->type & TP_A)
+	if (neuron->tp & TP_A)
 	{
 		printf("%s:[%3d*%3d] " 			\
 			"[%3d]--%0.5lf-->[%-3d] " 	\
 			"{%2x} %2x>%2x\n", 			\
-			get_typename(neuron->type), \
+			get_typename(neuron->tp), \
 			neuron->id, neuron->iv, 	\
 			neuron->in, 				\
 			neuron->tr,		 			\
@@ -128,7 +128,7 @@ void	print_neuron(neu *neuron)
 		printf("%s:[%3d*%3d] " 			\
 			"[ %0.16lf ] " 				\
 			"{%2x} %2x>%2x\n", 			\
-			get_typename(neuron->type), \
+			get_typename(neuron->tp), \
 			neuron->id, neuron->iv, 	\
 			neuron->tr,		 			\
 			neuron->op, neuron, 		\

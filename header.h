@@ -76,7 +76,8 @@ net		*rnd_neuron (typ t, int q, bra *b);
 net	*init_net(bra *b);
 
 // helper.c
-tid	count_neu(neu *l);
+tid		count_neu(neu *l);
+void	*neu_cp(neu *d, neu *o);
 
 // debug.c
 void	imsg(char *str, int v);

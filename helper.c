@@ -6,12 +6,11 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/14 15:55:06 by ||||||                                   */
+/*   Updated: 2019/11/14 16:29:54 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
 
 tid	count_neu(neu *l)
 {
@@ -24,4 +23,17 @@ tid	count_neu(neu *l)
 		l = l->nx;
 	}
 	return (c);
+}
+
+void	*neu_cp(neu *d, neu *o)
+{
+	d->id = o->id;
+	d->tp = o->tp;
+	d->in = o->in ;
+	d->out = o->out;
+	d->tr = o->tr;
+	d->op = o->op;
+	d->iv = o->iv;
+	d->nx = o->nx;
+	return ;
 }
