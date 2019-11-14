@@ -73,7 +73,8 @@ nii		rnd_from_genome(typ t);
 bra		*init_brain(\
 			tid b, tid i, \
 			tid h, tid o, tid a);
-net		*rnd_neuron (typ t, int n);
+net		*rnd_neuron (typ t, int q, bra *b);
+net	*init_net(bra *b);
 
 // helper.c
 tid	count_neu(neu *l);
@@ -83,10 +84,11 @@ void	imsg(char *str, int v);
 void	error_msg(char *str);
 void	msgs(char *str);
 void	msgi(int inty);
-void	print_net(net *n);
 void	print_genome(void);
+void	print_brain(bra *b);
 char	*get_typename(typ t);
 void	print_neu_list(neu *n);
+void	print_net_list(net *n);
 void	print_neuron(neu *neuron);
 void	logi(char *c, int n);
 

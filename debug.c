@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/14 14:25:37 by ||||||                                   */
+/*   Updated: 2019/11/14 15:58:09 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,9 @@ void	logi(char *c, int n)
 	printf("%s: %d\n",c,n);
 }
 
-void	print_net(net *n)
-{
-		printf("net id:%2d*%2d " \
-				"%2x>%2x\n", \
-			n->id, n->iv, \
-			n, n->next);
-		n = n->next;
-		printf("net id:%2d*%2d " \
-				"%2x>%2x\n", \
-			n->id, n->iv, \
-			n, n->next);
-//	while (n)
-//	{
-//		printf("net id:%2d*%2d " \
-				"%2x>%2x\n", \
-			n->id, n->iv, \
-			n, n->next);
-//		n = n->next;
-//	};
-}
-
 void	print_genome(void)
 {
-	printf("::: GENOME :::\n");
+	printf("\n::: GENOME :::\n");
 	neu	*n;
 	n = g_genome->bias;
 	print_neu_list(n);
@@ -81,9 +60,36 @@ void	print_neu_list(neu *n)
 	while (n)
 	{
 		print_neuron(n);
-		n = n->next;
+		n = n->nx;
 	}
 }
+
+
+void	print_brain(bra *b)
+{
+	printf("\n::: BRAIN ~%2x~ :::\n", b);
+	net	*n;
+	n = b->bias;
+	print_net_list(n);
+	n = b->inpu;
+	print_net_list(n);
+	n = b->hidd;
+	print_net_list(n);
+	n = b->outp;
+	print_net_list(n);
+	n = b->axon;
+	print_net_list(n);
+}
+
+void	print_net_list(net *n)
+{
+//	while (n)
+//	{
+//		print_neuron(n->pos);
+//		n = n->nx;
+//	}
+}
+
 
 char	*get_typename(typ t)
 {
@@ -106,26 +112,26 @@ void	print_neuron(neu *neuron)
 {
 	if (neuron->type & TP_A)
 	{
-		printf("%s:[%3d*%3d] " \
-			"[%3d]--%0.5lf-->[%3d] " \
-			"{%2x} %2x>%2x\n", \
+		printf("%s:[%3d*%3d] " 			\
+			"[%3d]--%0.5lf-->[%3d] " 	\
+			"{%2x} %2x>%2x\n", 			\
 			get_typename(neuron->type), \
-			neuron->id, neuron->iv, \
-			neuron->in, \
-			neuron->threshold, \
-			neuron->out, \
-			neuron->op, neuron, \
-			neuron->next);
+			neuron->id, neuron->iv, 	\
+			neuron->in, 				\
+			neuron->tr,		 			\
+			neuron->out, 				\
+			neuron->op, neuron, 		\
+			neuron->nx);
 	}
 	else
 	{
-		printf("%s:[%3d*%3d] " \
-			"[ %0.16lf ] " \
-			"{%2x} %2x>%2x\n", \
+		printf("%s:[%3d*%3d] " 			\
+			"[ %0.16lf ] " 				\
+			"{%2x} %2x>%2x\n", 			\
 			get_typename(neuron->type), \
-			neuron->id, neuron->iv, \
-			neuron->threshold, \
-			neuron->op, neuron, \
-			neuron->next);
+			neuron->id, neuron->iv, 	\
+			neuron->tr,		 			\
+			neuron->op, neuron, 		\
+			neuron->nx);
 	}
 }

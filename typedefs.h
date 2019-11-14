@@ -6,14 +6,14 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/14 11:06:20 by ||||||                                   */
+/*   Updated: 2019/11/14 15:59:21 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 typedef TYPE_OF_ID		tid;
 typedef TYPE_OF_TYPE	typ;
 typedef TYPE_OF_FINE	fin;
-typedef TYPE_OF_CHARGE	t_charge;
+typedef TYPE_OF_CHARGE	tbz;
 typedef TYPE_OF_INNOV	tin;
 
 typedef struct	brain		bra;
@@ -22,11 +22,12 @@ typedef struct	neuro_net	net;
 
 typedef struct	neuro_net
 {
-	tid				id;
-	tin				iv;
-	bra					*parent;
-	t_charge			charge;
-	struct	neuro_net	*next;
+	struct	neuron		*ps;
+	tid		id;
+	tin		iv;
+	tbz		bz;
+	bra		*pt;
+	struct	neuro_net	*nx;
 }	net;
 
 typedef struct	brain
@@ -36,7 +37,7 @@ typedef struct	brain
 	net		*hidd;
 	net		*outp;
 	net		*axon;
-	struct	brain	*next;
+	struct	brain	*nx;
 }	bra;
 
 typedef struct	neuron
@@ -45,12 +46,12 @@ typedef struct	neuron
 	typ	type;
 	tid	in;
 	tid	out;
-	fin	threshold;
+	fin	tr;
 	fin	(*op)(bra *, neu *);
 	// op = &function;
 	// (*op)(a,b);
 	tin	iv;
-	struct	neuron	*next;
+	struct	neuron	*nx;
 }	neu;
 
 typedef struct	genome

@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/14 14:38:51 by ||||||                                   */
+/*   Updated: 2019/11/14 15:58:25 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,16 @@ void	*init_genome(tid b, tid i, tid h, tid o, tid a)
 	g_genome->hidd = gen_neuron(TP_H, h);
 	g_genome->outp = gen_neuron(TP_O, o);
 	g_genome->axon = gen_neuron(TP_A, a);
-
-	print_genome();
 	return ;
 }
 
 neu		*gen_neuron(typ t, int n)
 {
 	neu	*neuron;
-	neu	*next;
+	neu	*nx;
 	neu	*head;
 
-	next = 0;
+	nx = 0;
 	while (--n > -1)
 	{
 		neuron = init_neu();
@@ -49,16 +47,16 @@ neu		*gen_neuron(typ t, int n)
 			neuron->in = 0;
 			neuron->out = 0;
 		}
-		neuron->threshold = rnd01();
+		neuron->tr = rnd01();
 		neuron->op = 0;
 		neuron->iv = ++g_iv;
-		neuron->next = next;
-		next = neuron;
+		neuron->nx = nx;
+		nx = neuron;
 	}
 	return (neuron);
 }
 
-neu		*init_neu()
+neu		*init_neu(void)
 {
 	neu *n;
 
@@ -67,10 +65,10 @@ neu		*init_neu()
 	n->type = 0;
 	n->in = 0;
 	n->out = 0;
-	n->threshold = 0;
+	n->tr = 0;
 	n->op = 0;
 	n->iv = 0;
-	n->next = 0;
+	n->nx = 0;
 	return (n);
 }
 
@@ -110,7 +108,7 @@ nii		rnd_from_genome(typ t)
 
 	while (--c)
 	{
-		n = n->next;
+		n = n->nx;
 		if (!n)
 		{
 			if (i == 0)
