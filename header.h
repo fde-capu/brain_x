@@ -91,7 +91,6 @@ char	*get_typename(typ t);
 void	print_neu_list(neu *n);
 void	print_net_list(net *n);
 void	print_neuron(neu *neuron);
-void	print_neuron_simple(neu *neuron);
 void	logi(char *c, int n);
 
 // random.c
