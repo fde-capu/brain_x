@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/14 12:04:07 by ||||||                                   */
+/*   Updated: 2019/11/14 14:43:16 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,13 @@ int	main(void)
 	init_rnd();
 	g_id = 0;
 	g_iv = 0;
-	init_genome();
+	init_genome(\
+		GENB,\
+		GENI,\
+		GENH,\
+		GENO,\
+		GENA\
+	);
 
 
 //	b = \
@@ -33,10 +39,5 @@ int	main(void)
 			DEFA 	\
 		);
 
-	//init_biases();
-//	init_inputs();
-//	init_hiddens();
-//	init_outputs();
-//	init_axons();
 	return (0);
 }

@@ -6,26 +6,26 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/14 14:09:16 by ||||||                                   */
+/*   Updated: 2019/11/14 14:38:51 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void		*init_genome(void)
+void	*init_genome(tid b, tid i, tid h, tid o, tid a)
 {
 	g_genome = malloc(sizeof(gnm));
-	g_genome->bias = gen_neuron(TP_B, GENB);
-	g_genome->inpu = gen_neuron(TP_I, GENI);
-	g_genome->hidd = gen_neuron(TP_H, GENH);
-	g_genome->outp = gen_neuron(TP_O, GENO);
-	g_genome->axon = gen_neuron(TP_A, GENA);
+	g_genome->bias = gen_neuron(TP_B, b);
+	g_genome->inpu = gen_neuron(TP_I, i);
+	g_genome->hidd = gen_neuron(TP_H, h);
+	g_genome->outp = gen_neuron(TP_O, o);
+	g_genome->axon = gen_neuron(TP_A, a);
 
 	print_genome();
 	return ;
 }
 
-neu			*gen_neuron(typ t, int n)
+neu		*gen_neuron(typ t, int n)
 {
 	neu	*neuron;
 	neu	*next;
@@ -58,7 +58,7 @@ neu			*gen_neuron(typ t, int n)
 	return (neuron);
 }
 
-neu	*init_neu()
+neu		*init_neu()
 {
 	neu *n;
 
@@ -74,21 +74,7 @@ neu	*init_neu()
 	return (n);
 }
 
-neu	get_neu(neu	*a)
-{
-//	printf("%2x - a:%d\n", a, a->id);
-	neu n;
-//	n.id = a->id;
-//	n.type = a->type;
-//	n.in = a->in;
-//	n.out = a->out;
-//	n.threshold = a->threshold;
-//	n.op = a->op;
-//	n.next = a->next;
-	return (n);
-}
-
-nii	rnd_from_genome(typ t)
+nii		rnd_from_genome(typ t)
 {
 	nii	out;
 	tid	cb[GNM_NETS_N];

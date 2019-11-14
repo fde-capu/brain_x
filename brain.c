@@ -6,19 +6,15 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 02:05:31 by ||||||                                   */
-/*   Updated: 2019/11/14 11:04:38 by ||||||                                   */
+/*   Updated: 2019/11/14 14:41:16 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-bra	*init_brain(        \
-		unsigned int b, \
-		unsigned int i, \
-		unsigned int h, \
-		unsigned int o, \
-		unsigned int a	\
-	)
+bra	*init_brain(\
+		tid b, tid i, \
+		tid h, 	tid o, 	tid a)
 {
 	bra	*brain;
 	brain = malloc(sizeof(brain));

@@ -64,19 +64,15 @@
 int		main(void);
 
 // genome.c
-void	*init_genome(void);
+void	*init_genome(tid b, tid i, tid h, tid o, tid a);
 neu		*gen_neuron(typ t, int n);
 neu		*init_neu(void);
 nii		rnd_from_genome(typ t);
 
 // brain.c
-bra		*init_brain(        \
-			unsigned int b, \
-			unsigned int i, \
-			unsigned int h, \
-			unsigned int o, \
-			unsigned int a  \
-		);
+bra		*init_brain(\
+			tid b, tid i, \
+			tid h, tid o, tid a);
 net		*rnd_neuron (typ t, int n);
 
 // helper.c
