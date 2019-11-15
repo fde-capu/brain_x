@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/14 17:50:06 by ||||||                                   */
+/*   Updated: 2019/11/14 21:40:23 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ tid	count_neu(neu *l)
 	return (c);
 }
 
-neu	*neuron_by_nii(tid id, tid iv)
+neu	*neuron_by_id(tid id)
 {
 	neu		*n;
 	char	found;
@@ -42,11 +42,11 @@ neu	*neuron_by_nii(tid id, tid iv)
 		n = i == 4 ? g_genome->axon : n;
 		while (n)
 		{
-			if ((n->id == id) && (n->iv == iv))
+			if (n->id == id)
 				return (n);
 			n = n->nx;
 		}
 		i++;
 	}
-	return (0);
+	return (n);
 }
