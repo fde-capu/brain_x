@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/14 21:40:23 by ||||||                                   */
+/*   Updated: 2019/11/14 22:28:28 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,28 @@ neu	*neuron_by_id(tid id)
 		i++;
 	}
 	return (n);
+}
+
+tid	in_brain(neu *g, bra *b)
+{	// xx segmentation
+	tid	i;
+	net	*na;
+
+	i = 0;
+	while (i <= 4)
+	{
+		na =	i == 0 ? b->bias : \
+				i == 1 ? b->inpu : \
+				i == 2 ? b->hidd : \
+				i == 3 ? b->outp : \
+				b->axon;
+		while (na)
+		{
+			if (na->id == g->id)
+				return (1);
+			na = na->nx;
+		}
+		i++;
+	}
+	return (0);
 }

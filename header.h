@@ -33,9 +33,9 @@
 # define GNM_N_STR "%s:[%3d*%3d] [ %0.16lf ] {%2x} %2x>%2x\n"
 
 # define BRA_TITLE "\n::: BRAIN ::: ~%2x~ :::\n"
-# define NET_A_STR " >[%3d*%3d] --%0.8lf-->[%-3d] {%2x} %2x>%2x\n"
-# define NET_N_STR "%s:[%3d*%3d] ::%0.7lf|%0.4lf:: {%2x} %2x>%2x\n"
-# define NET_H_STR " |[%3d*%3d] [%3d]--%0.3lf-->[%-3d] {%2x}|%2x>%2x\n"
+# define NET_A_STR ">>[%3d*%3d] --%0.7lf-->[%-3d] {%2x} %2x>%2x\n"
+# define NET_N_STR "%s:[%3d*%3d] ::%0.7lf|%0.5lf {%2x} %2x>%2x\n"
+# define NET_H_STR " |[%3d*%3d] [%3d]-%0.4lf->[%-3d] {%2x}|%2x>%2x\n"
 
 
 
@@ -90,6 +90,7 @@ net	*init_net(void);
 // helper.c
 tid	count_neu(neu *l);
 neu	*neuron_by_id(tid id);
+tid	in_brain(neu *g, bra *b);
 
 // debug.c
 void	imsg(char *str, int v);
