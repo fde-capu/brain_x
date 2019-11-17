@@ -9,16 +9,24 @@
 # define PRECISION 100000
 # define EULER 2.71828
 
-# define STRESS 50
-# define STRESS_IN int stress = STRESS;
-# define STRESS_OUT if(!--stress)\
+#define STR_HELPER(x) #x
+#define STR(x) STR_HELPER(x)
+
+# define STRESS 5
+# define STRESS_BRAIN 256
+# define STRESSIN int stress = STRESS;
+# define STRESS_BRAIN_CREATION int stress = STRESS_BRAIN;
+# define STRESSOUT if(!--stress)\
 	{FAIL(STRESS_ERROR);}
+# define STRESSMSG(s) if(!--stress)\
+	{FAIL(s);}
 
 # define STRESS_ERROR "Stress"
 # define GENERAL_ERROR "Error"
 # define GENERAL_ERROR_DETAIL \
 	"Detail"
-# define BRAIN_ERROR "brain"
+# define BRAIN_ERROR_MSG "brain creation, stress "
+# define BRAIN_ERROR BRAIN_ERROR_MSG STR(STRESS_BRAIN)
 # define FAIL(f) FAIL_S(f)
 # define FAIL_S(f) \
 	{ error_msg(f); exit (1); }
@@ -32,8 +40,8 @@
 # define GNM_A_STR "%s:[%3d*%3d] [%3d]--%0.5lf-->[%-3d] {%2x} %2x>%2x\n"
 # define GNM_N_STR "%s:[%3d*%3d] [ %0.16lf ] {%2x} %2x>%2x\n"
 
-# define BRA_TITLE "\n::: BRAIN ::: ~%2x~ :::\n"
-# define NET_A_STR ">>[%3d*%3d] --%0.7lf-->[%-3d] {%2x} %2x>%2x\n"
+# define BRA_TITLE "\n::: BRAIN ::::::::::::::::::::::::: ~%2x~ :::::\n"
+# define NET_A_STR " >[%3d*%3d] --%0.7lf-->[%-3d] {%2x} %2x>%2x\n"
 # define NET_N_STR "%s:[%3d*%3d] ::%0.7lf|%0.5lf {%2x} %2x>%2x\n"
 # define NET_H_STR " |[%3d*%3d] [%3d]-%0.4lf->[%-3d] {%2x}|%2x>%2x\n"
 
@@ -90,7 +98,7 @@ net	*init_net(void);
 // helper.c
 tid	count_neu(neu *l);
 neu	*neuron_by_id(tid id);
-tid	in_brain(neu *g, bra *b);
+int	find_id(tid id, net *n);
 
 // debug.c
 void	imsg(char *str, int v);

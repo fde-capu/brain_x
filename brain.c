@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 02:05:31 by ||||||                                   */
-/*   Updated: 2019/11/14 22:27:16 by ||||||                                   */
+/*   Updated: 2019/11/17 03:22:22 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ bra	*init_brain(\
 	brain->hidd = rnd_neuron(TP_H, h, brain);
 	brain->outp = rnd_neuron(TP_O, o, brain);
 	brain->axon = rnd_neuron(TP_A, a, brain);
-	//putparents
 	return (brain);
 }
 
@@ -37,14 +36,16 @@ net	*rnd_neuron(typ t, int q, bra *b)
 	while (--q > -1)
 	{
 		n = init_net();
+		n->nx = nx;
+		STRESS_BRAIN_CREATION
 		do {
+			STRESSMSG(BRAIN_ERROR)
 			g = rnd_from_genome(t);
-		} while (!in_brain(&g, b));
+		} while (find_id(g.id, n));
+		nx = n;
 		n->id = g.id;
 		n->iv = g.iv;
 		n->pt = b;
-		n->nx = nx;
-		nx = n;
 	}
 	return (n);
 }
