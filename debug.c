@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/14 21:55:41 by ||||||                                   */
+/*   Updated: 2019/11/17 03:40:27 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	print_net_list(net *n)
 				n->id,\
 				n->iv,\
 				ni->tr,\
-				ni->out,\
+				ni->ou,\
 				ni->op,\
 				n, n->nx);
 			return ;
@@ -158,7 +158,7 @@ void	print_net_herd(net *n)
 					n->iv,\
 					ni->in,\
 					ni->tr,\
-					ni->out,\
+					ni->ou,\
 					ni->op,\
 					n, n->nx);
 			}
@@ -195,7 +195,7 @@ void	print_neuron(neu *neuron)
 			neuron->id, neuron->iv, 	\
 			neuron->in, 				\
 			neuron->tr,		 			\
-			neuron->out, 				\
+			neuron->ou, 				\
 			neuron->op, neuron, 		\
 			neuron->nx);
 	}

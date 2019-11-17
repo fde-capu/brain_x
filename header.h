@@ -12,7 +12,7 @@
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
 
-# define STRESS 5
+# define STRESS 5 
 # define STRESS_BRAIN 256
 # define STRESSIN int stress = STRESS;
 # define STRESS_BRAIN_CREATION int stress = STRESS_BRAIN;
@@ -99,6 +99,8 @@ net	*init_net(void);
 tid	count_neu(neu *l);
 neu	*neuron_by_id(tid id);
 int	find_id(tid id, net *n);
+void	feed(bra *b, tid id);
+void	think(bra *b);
 
 // debug.c
 void	imsg(char *str, int v);
@@ -121,5 +123,6 @@ float	rnd(float max);
 int		irnd(float max);
 int		izrnd(float max);
 int		brnd(float chance);
+void	tic(fin ms);
 
 #endif

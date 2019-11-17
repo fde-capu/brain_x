@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/17 03:36:47 by ||||||                                   */
+/*   Updated: 2019/11/17 03:41:22 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ neu		*gen_neuron(typ t, int n)
 		{
 			neuron->in = rnd_from_genome( \
 				TP_B + TP_I + TP_H).id;
-			neuron->out = rnd_from_genome( \
+			neuron->ou = rnd_from_genome( \
 				TP_H + TP_O).id;
 		}
 		else
 		{
 			neuron->in = 0;
-			neuron->out = 0;
+			neuron->ou = 0;
 		}
 		neuron->tr = rnd01();
 		neuron->op = 0;
@@ -64,7 +64,7 @@ neu		*init_neu(void)
 	n->id = 0;
 	n->tp = 0;
 	n->in = 0;
-	n->out = 0;
+	n->ou = 0;
 	n->tr = 0;
 	n->op = 0;
 	n->iv = 0;
