@@ -6,6 +6,7 @@
 !main.c
 !random.c
 !debug.c
+!thoughts.c
 !brain.c
 !genome.c
 !helper.c

@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/17 04:26:54 by ||||||                                   */
+/*   Updated: 2019/11/17 04:30:18 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	main(void)
 // types of action:
 //  - threshold
 //  - capacitor
+//  - capacitor dispenser:
+//    above thres outs only diff from thres
 //  - linear
 //
 // types of op:

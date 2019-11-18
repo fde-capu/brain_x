@@ -95,12 +95,14 @@ bra		*init_brain(\
 net		*rnd_neuron (typ t, int q, bra *b);
 net	*init_net(void);
 
+// thoughts.c
+void	feed(bra *b, tid id);
+void	think(bra *b);
+
 // helper.c
 tid	count_neu(neu *l);
 neu	*neuron_by_id(tid id);
 int	find_id(tid id, net *n);
-void	feed(bra *b, tid id);
-void	think(bra *b);
 
 // debug.c
 void	imsg(char *str, int v);
