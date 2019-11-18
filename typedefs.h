@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/17 03:41:32 by ||||||                                   */
+/*   Updated: 2019/11/18 15:40:06 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct	brain
 typedef struct	neuron
 {
 	tid	id;
+	tid	iv;
 	typ	tp;
 	tid	in;
 	tid	ou;
@@ -49,7 +50,7 @@ typedef struct	neuron
 	fin	(*op)(bra *, neu *);
 	// op = &function;
 	// (*op)(a,b);
-	tid	iv;
+	fin	(*re)(bra *, neu *);
 	struct	neuron	*nx;
 }	neu;
 

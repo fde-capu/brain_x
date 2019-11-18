@@ -12,6 +12,8 @@
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
 
+# define COLOR_FORE 104
+
 # define STRESS 5 
 # define STRESS_BRAIN 256
 # define STRESSIN int stress = STRESS;
@@ -37,21 +39,21 @@
 # define NL printf("\n");
 
 # define GNM_TITLE "\n::: GENOME :::\n"
-# define GNM_A_STR "%s:[%3d*%-3d] [%3d]--%0.5lf-->[%-3d] {%2x} %2x>%2x\n"
+# define GNM_A_STR "%s:[%3d*%-3d] [%3d]--%0.5lf-->[%-3d] {%2x|%-2x} %2x>%2x\n"
 # define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->iv,\
 			neuron->in,neuron->tr,neuron->ou,\
-			neuron->op, neuron, neuron->nx
-# define GNM_N_STR "%s:[%3d*%-3d] [ %0.16lf ] {%2x} %2x>%2x\n"
+			neuron->re, neuron->op, neuron, neuron->nx
+# define GNM_N_STR "%s:[%3d*%-3d] [ %0.16lf ] {%2x|%-2x} %2x>%2x\n"
 # define GNM_N_VAR get_typename(neuron->tp), neuron->id, neuron->iv, 	\
-			neuron->tr,neuron->op, neuron,neuron->nx
+			neuron->tr, neuron->re, neuron->op, neuron,neuron->nx
 # define BRA_TITLE "\n::: BRAIN ::: ~%2x~ :::\n"
-# define NET_A_STR " >[ %5d ] <-------- %0.5lf ------- [%3d*%-3d] {%2x} %2x>%2x\n"
-# define NET_A_VAR ni->ou,ni->tr,n->id,n->iv,ni->op,n,n->nx
-# define NET_N_STR "%s:[%3d*%-3d] : %0.5f ::::::: %0.5lf ::::::::: {%2x} %2x>%2x\n"
+# define NET_A_STR " >[ %5d ] <-------- %0.5lf ------- [%3d*%-3d] {%2x|%-2x} %2x>%2x\n"
+# define NET_A_VAR ni->ou,ni->tr,n->id,n->iv,ni->re,ni->op,n,n->nx
+# define NET_N_STR "%s:[%3d*%-3d] : %0.5f ::::::: %0.5lf ::::::::: {%2x|%-2x} %2x>%2x\n"
 # define NET_N_VAR get_typename(ni->tp),n->id,n->iv,n->bz,ni->tr,\
-				ni->op,n, n->nx
-# define NET_H_STR " |[%3d*%-3d] [%3d]-%0.4lf->[%-3d] {%2x}|%2x>%2x\n"
-# define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->op,n,n->nx
+				ni->re,ni->op,n, n->nx
+# define NET_H_STR " |[%3d*%-3d] [%3d]-%0.4lf->[%-3d] {%2x|%-2x}|%2x>%2x\n"
+# define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 
 
 # define GNM_NETS_N 5
@@ -103,7 +105,7 @@ net		*rnd_neuron (typ t, int q, bra *b);
 net	*init_net(void);
 
 // thoughts.c
-void	feed(bra *b, tid id);
+void	feed(bra *b, tid id, fin v);
 void	think(bra *b);
 
 // helper.c
@@ -133,5 +135,6 @@ int		irnd(float max);
 int		izrnd(float max);
 int		brnd(float chance);
 void	tic(fin ms);
+void	color(int c);
 
 #endif
