@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/17 04:30:18 by ||||||                                   */
+/*   Updated: 2019/11/18 13:13:10 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,13 @@ int	main(void)
 //  - capacitor dispenser:
 //    above thres outs only diff from thres
 //  - linear
+//  - partial leak
+//  - gradative leak
+//  - regressive leak
+//  - ducking
+//  - reverb
+//  - delay
+//  - equalizer
 //
 // types of op:
 //  - sigmoid

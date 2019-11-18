@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/17 03:40:27 by ||||||                                   */
+/*   Updated: 2019/11/18 14:58:03 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,25 +91,12 @@ void	print_net_list(net *n)
 		ni = neuron_by_id(n->id);
 		if (ni->tp & TP_A)
 		{
-			printf(NET_A_STR,\
-				n->id,\
-				n->iv,\
-				ni->tr,\
-				ni->ou,\
-				ni->op,\
-				n, n->nx);
+			printf(NET_A_STR, NET_A_VAR);
 			return ;
 		}
 		else
 		{
-			printf(NET_N_STR,\
-				get_typename(ni->tp),\
-				n->id,\
-				n->iv,\
-				n->bz,\
-				ni->tr,\
-				ni->op,\
-				n, n->nx);
+			printf(NET_N_STR, NET_N_VAR);
 			na = n->pt->axon;
 			while (na)
 			{
@@ -152,16 +139,7 @@ void	print_net_herd(net *n)
 				i++;
 			}
 			if (!found)
-			{
-				printf(NET_H_STR,\
-					n->id,\
-					n->iv,\
-					ni->in,\
-					ni->tr,\
-					ni->ou,\
-					ni->op,\
-					n, n->nx);
-			}
+				printf(NET_H_STR, NET_H_VAR);
 		}
 		n = n->nx;
 	}
@@ -189,23 +167,7 @@ char	*get_typename(typ t)
 void	print_neuron(neu *neuron)
 {
 	if (neuron->tp & TP_A)
-	{
-		printf(GNM_A_STR, 				\
-			get_typename(neuron->tp),	\
-			neuron->id, neuron->iv, 	\
-			neuron->in, 				\
-			neuron->tr,		 			\
-			neuron->ou, 				\
-			neuron->op, neuron, 		\
-			neuron->nx);
-	}
+		printf(GNM_A_STR, GNM_A_VAR);
 	else
-	{
-		printf(GNM_N_STR, 			\
-			get_typename(neuron->tp),	\
-			neuron->id, neuron->iv, 	\
-			neuron->tr,		 			\
-			neuron->op, neuron, 		\
-			neuron->nx);
-	}
+		printf(GNM_N_STR, GNM_N_VAR);
 }
