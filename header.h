@@ -49,8 +49,8 @@
 # define BRA_TITLE "\n::: BRAIN ::: ~%2x~ :::\n"
 # define NET_A_STR " >[ %5d ] <-------- %0.5lf ------- [%3d*%-3d] {%2x|%-2x} %2x>%2x\n"
 # define NET_A_VAR ni->ou,ni->tr,n->id,n->iv,ni->re,ni->op,n,n->nx
-# define NET_N_STR "%s:[%3d*%-3d] : %0.5f ::::::: %0.5lf ::::::::: {%2x|%-2x} %2x>%2x\n"
-# define NET_N_VAR get_typename(ni->tp),n->id,n->iv,n->bz,ni->tr,\
+# define NET_N_STR "%s:[%3d*%-3d] : %0.5f %s %0.5lf ::::::::: {%2x|%-2x} %2x>%2x\n"
+# define NET_N_VAR get_typename(ni->tp),n->id,n->iv,n->bz,gauge_bar(n->bz),ni->tr,\
 				ni->re,ni->op,n, n->nx
 # define NET_H_STR " |[%3d*%-3d] [%3d]-%0.4lf->[%-3d] {%2x|%-2x}|%2x>%2x\n"
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
@@ -126,6 +126,7 @@ void	print_net_list(net *n);
 void	print_neuron(neu *neuron);
 void	logi(char *c, int n);
 void	print_net_herd(net *n);
+char	*gauge_bar(fin v);
 
 // random.c
 void	init_rnd(void);
