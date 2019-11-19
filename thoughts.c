@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/19 12:04:09 by ||||||                                   */
+/*   Updated: 2019/11/19 14:36:46 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	feed(bra *b, tid id, fin v)
 	while ((p->id != id) && (p->nx))
 		p = p->nx;
 	p->bz += v;
+	p->bz = p->bz > 1 ? 1 : p->bz;
 	return ;
 }
 
@@ -49,7 +50,25 @@ void	re_nothi(net *n, neu *ne)
 
 void	op_spark(net *n, neu *ne)
 {
-	printf("OP_SPARK\n");
+	net	*na;
+	neu *ni;
+	net *nd;
+
+	na = n->pt->axon;
+	while (na)
+	{
+		ni = neuron_by_id(na->id);
+		if (ni->in == n->id)
+		{
+			nd = neuron_in_brain(n->pt, ni->ou);
+			if ((nd) && (n->bz >= ne->tr))
+			{
+				nd->bz = 1 * ni->tr;
+				n->bz = 0;
+			}
+		}
+		na = na->nx;
+	}
 	return ;
 }
 

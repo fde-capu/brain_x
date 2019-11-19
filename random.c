@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:00 by ||||||                                   */
-/*   Updated: 2019/11/18 16:05:48 by ||||||                                   */
+/*   Updated: 2019/11/19 14:28:34 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ int	irnd(float max)
 		r = (1 + rnd01() * max);
 	} while ((r < 1) || (r > max));
 	return (r);
+}
+
+int	rndi(float min, float max)
+{
+	// min ~ max
+	int	r;
+	do {
+		r = rnd(irnd(max - min + 1) + min);
+	} while ((r < min) || (r > max));
+	return(r);
 }
 
 int     izrnd(float max)

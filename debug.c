@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/18 17:21:39 by ||||||                                   */
+/*   Updated: 2019/11/19 12:30:23 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	print_net_list(net *n)
 			na = n->pt->axon;
 			while (na)
 			{
-				if (neuron_by_id(na->id)->in == n->id)
+				if (neuron_by_id(na->id)->in == n->id) //&& ou is con
 					print_net_list(na);
 				na = na->nx;
 			}
@@ -113,6 +113,7 @@ void	print_net_list(net *n)
 	}
 	return ;
 }
+
 
 void	print_net_herd(net *n)
 {
@@ -136,7 +137,7 @@ void	print_net_herd(net *n)
 							n->pt->outp;
 				while ((na) && (!found))
 				{
-					if (na->id == neuron_by_id(n->id)->in)
+					if (na->id == ni->in) // && ni->ou is con
 						found = 1;
 					na = na->nx;
 				}

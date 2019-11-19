@@ -55,6 +55,7 @@
 # define NET_H_STR " |[%3d*%-3d] [%3d]-%0.4lf->[%-3d] {%2x|%-2x}|%2x>%2x\n"
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 
+# define TIC_SEC 0.2
 
 # define GNM_NETS_N 5
 
@@ -75,6 +76,7 @@
 # define DEFH 5
 # define DEFO 3
 # define DEFA 7
+
 # define GENB 1
 # define GENI 3
 # define GENH 5
@@ -113,6 +115,7 @@ void	re_nothi(net *n, neu *ne);
 // helper.c
 tid	count_neu(neu *l);
 neu	*neuron_by_id(tid id);
+net	*neuron_in_brain(bra *b, tid nid);
 int	find_id(tid id, net *n);
 
 // debug.c
@@ -135,6 +138,7 @@ void	init_rnd(void);
 float	rnd01(void);
 float	rnd(float max);
 int		irnd(float max);
+int	rndi(float min, float max);
 int		izrnd(float max);
 int		brnd(float chance);
 void	tic(fin ms);

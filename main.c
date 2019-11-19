@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/19 03:57:53 by ||||||                                   */
+/*   Updated: 2019/11/19 14:24:33 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(void)
 {
 	color(COLOR_FORE);
 	bra	*b;
+	int	i;
 
 	init_rnd();
 	g_id = 0;
@@ -40,17 +41,16 @@ int	main(void)
 	);
 
 
-	feed(b, 2, rnd01());
-	print_brain(b);
-	think(b);
-	tic(.5);
-	print_brain(b);
-//	tic(.5);
-//	print_brain(b);
-//	tic(.5);
-//	print_brain(b);
-//	tic(.5);
-//	print_brain(b);
+	while (++i < 20)
+	{
+		printf("--> %d\n", rndi(2, 4));
+		feed(b, rndi(2, 4), rnd01());
+		print_brain(b);
+		tic(TIC_SEC);
+		think(b);
+		print_brain(b);
+		tic(TIC_SEC);
+	}
 
 	return (0);
 }
@@ -59,7 +59,7 @@ int	main(void)
 // v.
 // types of action (op):
 //  - threshold (spark)
-//  	(after threshold yelds 1)
+//  	(after threshold yelds 1 to each con)
 //  - capacitor = high pass
 //  	(after threshold yelds val)
 //  - capacitor = low pass
