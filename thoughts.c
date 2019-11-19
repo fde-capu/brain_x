@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/19 03:58:25 by ||||||                                   */
+/*   Updated: 2019/11/19 12:04:09 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,29 @@ void	feed(bra *b, tid id, fin v)
 
 void	think(bra *b)
 {
-	net	*p;
-	neu	*n;
+	net	*n;
+	neu	*ne;
 	tid	i;
 
 	i = 0;
-	p = b->inpu;
-	while (p)
+	n = b->inpu;
+	while (n)
 	{
-		n = neuron_by_id(p->id);
-		n->re(p);
-		n->op(p);
-		p = p->nx;
+		ne = neuron_by_id(n->id);
+		ne->re(n, ne);
+		ne->op(n, ne);
+		n = n->nx;
 		i++;
 	}
 	return ;
 }
 
-void	re_nothi(net *n)
+void	re_nothi(net *n, neu *ne)
 {
 	return ;
 }
 
-void	op_spark(net *n)
+void	op_spark(net *n, neu *ne)
 {
 	printf("OP_SPARK\n");
 	return ;
