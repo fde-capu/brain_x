@@ -107,6 +107,8 @@ net	*init_net(void);
 // thoughts.c
 void	feed(bra *b, tid id, fin v);
 void	think(bra *b);
+void	op_spark(net *n);
+void	re_nothi(net *n);
 
 // helper.c
 tid	count_neu(neu *l);

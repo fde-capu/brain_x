@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/18 17:22:47 by ||||||                                   */
+/*   Updated: 2019/11/19 03:57:53 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,9 @@ int	main(void)
 		DEFO,		\
 		DEFA 		\
 	);
-	print_brain(b);
+
 
 	feed(b, 2, rnd01());
-	tic(.5);
 	print_brain(b);
 	think(b);
 	tic(.5);
@@ -59,10 +58,12 @@ int	main(void)
 
 // v.
 // types of action (op):
-//  - threshold
+//  - threshold (spark)
 //  	(after threshold yelds 1)
-//  - capacitor
+//  - capacitor = high pass
 //  	(after threshold yelds val)
+//  - capacitor = low pass
+//  	(only throws val if lower than threshold)
 //  - capacitor dispenser:
 //    	(above thres outs only diff from thres)
 //  - linear
@@ -84,5 +85,7 @@ int	main(void)
 //
 // types of reduction (re):
 //  - sigmoid
+//  - nothing
+//  
 //
 // brain log trace

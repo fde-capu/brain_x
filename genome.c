@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/18 15:40:53 by ||||||                                   */
+/*   Updated: 2019/11/19 03:58:42 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ neu		*gen_neuron(typ t, int n)
 			neuron->ou = 0;
 		}
 		neuron->tr = rnd01();
-		neuron->op = 0;
-		neuron->re = 0;
+		neuron->op = &op_spark;
+		neuron->re = &re_nothi;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
 		nx = neuron;

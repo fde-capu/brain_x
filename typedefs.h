@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/18 15:40:06 by ||||||                                   */
+/*   Updated: 2019/11/19 03:36:00 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,12 @@ typedef struct	neuron
 	tid	in;
 	tid	ou;
 	fin	tr;
-	fin	(*op)(bra *, neu *);
+	void	(*op)();
+//	void	(*op)(bra *, neu *);
 	// op = &function;
 	// (*op)(a,b);
-	fin	(*re)(bra *, neu *);
+	void	(*re)();
+//	void	(*re)(bra *, neu *);
 	struct	neuron	*nx;
 }	neu;
 
