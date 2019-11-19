@@ -6,14 +6,13 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/19 03:36:00 by ||||||                                   */
+/*   Updated: 2019/11/19 11:20:03 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 typedef TYPE_OF_ID		tid;
 typedef TYPE_OF_TYPE	typ;
 typedef TYPE_OF_FINE	fin;
-typedef TYPE_OF_CHARGE	tbz;
 
 typedef struct	brain		bra;
 typedef struct	neuron		neu;
@@ -24,8 +23,9 @@ typedef struct	neuro_net
 	struct	neuron		*ps;
 	tid		id;
 	tid		iv;
-	tbz		bz;
+	fin		bz;
 	bra		*pt;
+	fin		_bz;
 	struct	neuro_net	*nx;
 }	net;
 
