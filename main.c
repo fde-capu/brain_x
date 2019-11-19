@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/19 14:24:33 by ||||||                                   */
+/*   Updated: 2019/11/19 16:30:46 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	main(void)
 
 	while (++i < 20)
 	{
-		printf("--> %d\n", rndi(2, 4));
 		feed(b, rndi(2, 4), rnd01());
 		print_brain(b);
 		tic(TIC_SEC);
@@ -84,8 +83,8 @@ int	main(void)
 //  	(filter bands)
 //
 // types of reduction (re):
+//  - sum_clip : no reduction, only sum until 1
 //  - sigmoid
-//  - nothing
 //  
 //
 // brain log trace

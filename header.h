@@ -54,8 +54,9 @@
 				ni->re,ni->op,n, n->nx
 # define NET_H_STR " |[%3d*%-3d] [%3d]-%0.4lf->[%-3d] {%2x|%-2x}|%2x>%2x\n"
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
+# define CLIPCHAR '+'
 
-# define TIC_SEC 0.2
+# define TIC_SEC 0.1
 
 # define GNM_NETS_N 5
 
@@ -83,6 +84,8 @@
 # define GENO 3
 # define GENA 7
 
+# define ALL_RE &re_sum_clip
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -100,17 +103,18 @@ neu		*init_neu(void);
 neu		rnd_from_genome(typ t);
 
 // brain.c
-bra		*init_brain(\
-			tid b, tid i, \
-			tid h, tid o, tid a);
-net		*rnd_neuron (typ t, int q, bra *b);
+bra	*init_brain(\
+		tid b, tid i, \
+		tid h, tid o, tid a);
+net	*rnd_neuron (typ t, int q, bra *b);
 net	*init_net(void);
 
 // thoughts.c
 void	feed(bra *b, tid id, fin v);
+void	feed_nd(net *nd, fin v);
 void	think(bra *b);
 void	op_spark(net *n, neu *ne);
-void	re_nothi(net *n, neu *ne);
+void	re_sum_clip(net *n, fin v);
 
 // helper.c
 tid	count_neu(neu *l);
