@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/19 16:39:37 by ||||||                                   */
+/*   Updated: 2019/11/20 01:18:14 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	feed(bra *b, tid id, fin v)
 	net	*p;
 	neu	*ne;
 	int	i;
-	int	found;
 
-	found = 0;
 	i = -1;
 	while (++i <= 4)
 	{
@@ -28,15 +26,15 @@ void	feed(bra *b, tid id, fin v)
 			i == 2 ? b->hidd :
 			i == 3 ? b->outp :
 			i == 4 ? b->axon : 0;
-		while ((p->id != id) && (p->nx) && (!found))
+		while (p)
 		{
-			p = p->nx;
 			if (p->id == id)
 			{
 				ne = neuron_by_id(p->id);
 				ne->re(p, v);
 				return ;
 			}
+			p = p->nx;
 		}
 	}
 	return ;
@@ -73,6 +71,14 @@ void	re_sum_clip(net *n, fin v)
 {
 	n->bz += v;
 	n->bz = n->bz > 1 ? 1 : n->bz;
+	return ;
+}
+
+void	re_sigmoid(net *n, fin v)
+{
+	v = n->bz + v;
+	v = pow(EULER, v)/((pow(EULER, v) + 1));
+	n->bz = v;
 	return ;
 }
 

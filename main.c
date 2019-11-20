@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/19 16:30:46 by ||||||                                   */
+/*   Updated: 2019/11/20 01:18:42 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(void)
 	color(COLOR_FORE);
 	bra	*b;
 	int	i;
+	tid	nchoice;
 
 	init_rnd();
 	g_id = 0;
@@ -41,9 +42,10 @@ int	main(void)
 	);
 
 
-	while (++i < 20)
+	while (++i < 200)
 	{
-		feed(b, rndi(2, 4), rnd01());
+		nchoice = rndi(2, 4);
+		feed(b, nchoice, rnd01());
 		print_brain(b);
 		tic(TIC_SEC);
 		think(b);

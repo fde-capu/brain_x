@@ -7,7 +7,7 @@
 # define TYPE_OF_CHARGE double
 
 # define PRECISION 100000
-# define EULER 2.71828
+# define EULER 2.71828122845904523536
 
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
@@ -56,7 +56,7 @@
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
-# define TIC_SEC 0.1
+# define TIC_SEC 0.04
 
 # define GNM_NETS_N 5
 
@@ -84,12 +84,13 @@
 # define GENO 3
 # define GENA 7
 
-# define ALL_RE &re_sum_clip
+# define ALL_RE &re_sigmoid
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <time.h>
+# include <math.h>
 
 # include "typedefs.h"
 
@@ -115,6 +116,7 @@ void	feed_nd(net *nd, fin v);
 void	think(bra *b);
 void	op_spark(net *n, neu *ne);
 void	re_sum_clip(net *n, fin v);
+void	re_sigmoid(net *n, fin v);
 
 // helper.c
 tid	count_neu(neu *l);
