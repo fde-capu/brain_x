@@ -84,6 +84,7 @@
 # define GENO 3
 # define GENA 7
 
+# define DEF_SIG sigmoid
 # define ALL_RE &re_sigmoid
 
 # include <stdio.h>
@@ -124,6 +125,7 @@ neu	*neuron_by_id(tid id);
 net	*neuron_in_brain(bra *b, tid nid);
 int	find_id(tid id, net *n);
 net	*i_to_b_niche(int i, bra *b);
+double	sigmoid(double v);
 
 // debug.c
 void	imsg(char *str, int v);
