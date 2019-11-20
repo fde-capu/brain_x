@@ -56,7 +56,7 @@
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
-# define TIC_SEC 0.04
+# define TIC_SEC 0.0618
 
 # define GNM_NETS_N 5
 
@@ -123,6 +123,7 @@ tid	count_neu(neu *l);
 neu	*neuron_by_id(tid id);
 net	*neuron_in_brain(bra *b, tid nid);
 int	find_id(tid id, net *n);
+net	*i_to_b_niche(int i, bra *b);
 
 // debug.c
 void	imsg(char *str, int v);

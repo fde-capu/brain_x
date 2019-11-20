@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/20 01:18:14 by ||||||                                   */
+/*   Updated: 2019/11/20 01:51:05 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,7 @@ void	feed(bra *b, tid id, fin v)
 	i = -1;
 	while (++i <= 4)
 	{
-		p =	i == 0 ? b->bias :
-			i == 1 ? b->inpu :
-			i == 2 ? b->hidd :
-			i == 3 ? b->outp :
-			i == 4 ? b->axon : 0;
+		p = i_to_b_niche(i, b);
 		while (p)
 		{
 			if (p->id == id)
@@ -53,16 +49,18 @@ void	think(bra *b)
 {
 	net	*n;
 	neu	*ne;
-	tid	i;
+	int	i;
 
-	i = 0;
-	n = b->inpu;
-	while (n)
+	i = -1;
+	while (++i <= 4)
 	{
-		ne = neuron_by_id(n->id);
-		ne->op(n, ne);
-		n = n->nx;
-		i++;
+		n = i_to_b_niche(i, b);
+		while (n)
+		{
+			ne = neuron_by_id(n->id);
+			ne->op(n, ne);
+			n = n->nx;
+		}
 	}
 	return ;
 }

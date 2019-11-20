@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/19 13:57:43 by ||||||                                   */
+/*   Updated: 2019/11/20 01:24:14 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,7 @@ net	*neuron_in_brain(bra *b, tid nid)
 	i = -1;
 	while (++i <= 4)
 	{
-		n =	i == 0 ? b->bias :
-			i == 1 ? b->inpu :
-			i == 2 ? b->hidd :
-			i == 3 ? b->outp :
-			i == 4 ? b->axon : 0;
+		n = i_to_b_niche(i, b);
 		while (n)
 		{
 			if (n->id == nid)
@@ -82,4 +78,15 @@ net	*neuron_in_brain(bra *b, tid nid)
 		}
 	}
 	return (0);
+}
+
+net	*i_to_b_niche(int i, bra *b)
+{
+	net	*n;
+	n =	i == 0 ? b->bias :
+		i == 1 ? b->inpu :
+		i == 2 ? b->hidd :
+		i == 3 ? b->outp :
+		i == 4 ? b->axon : 0;
+	return (n);
 }
