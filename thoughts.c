@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/20 03:41:11 by ||||||                                   */
+/*   Updated: 2019/11/20 04:03:36 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ void	op_spark(net *n, neu *ne)
 	net	*na;
 	neu *ni;
 	net *nd;
+	int	esc;
 
+	esc = 0;
 	na = n->pt->axon;
 	while (na)
 	{
@@ -94,11 +96,12 @@ void	op_spark(net *n, neu *ne)
 			if ((nd) && (n->bz >= ne->tr))
 			{
 				feed_nd(nd, 1 * ni->tr);
-				n->bz = 0;
+				esc = 1;
 			}
 		}
 		na = na->nx;
 	}
+	n->bz = esc ? 0 : n->bz;
 	return ;
 }
 

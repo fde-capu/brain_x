@@ -76,13 +76,13 @@
 # define DEFI 3
 # define DEFH 5
 # define DEFO 3
-# define DEFA 7
+# define DEFA 10
 
 # define GENB 1
 # define GENI 3
 # define GENH 5
 # define GENO 3
-# define GENA 7
+# define GENA 17
 
 # define DEF_SIG sigmoid
 # define ALL_RE &re_sigmoid
