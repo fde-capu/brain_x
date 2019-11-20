@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/19 03:36:00 by ||||||                                   */
+/*   Updated: 2019/11/20 03:50:42 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	neuro_net	net;
 typedef struct	neuro_net
 {
 	struct	neuron		*ps;
+// wanto to remove line above but breaks?	
 	tid		id;
 	tid		iv;
 	tbz		bz;
