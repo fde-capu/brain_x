@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/20 03:36:04 by ||||||                                   */
+/*   Updated: 2019/11/23 22:00:06 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ neu	*neuron_by_id(tid id)
 
 	i = 0;
 	found = 0;
-	while (!found)
+	while ((!found) && (i <= 4))
 	{
 		n = i == 0 ? g_genome->bias : init_neu();
 		n = i == 1 ? g_genome->inpu : n;
@@ -43,12 +43,14 @@ neu	*neuron_by_id(tid id)
 		while (n)
 		{
 			if (n->id == id)
+			{
 				return (n);
+			}
 			n = n->nx;
 		}
 		i++;
 	}
-	return (n);
+	FAIL_SSI(NEU_ID_NOT_FOUND, "id", id)
 }
 
 int	find_id(tid id, net *n)

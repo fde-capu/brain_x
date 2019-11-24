@@ -14,7 +14,7 @@
 
 # define COLOR_FORE 104
 
-# define STRESS 5 
+# define STRESS 100
 # define STRESS_BRAIN 256
 # define STRESSIN int stress = STRESS;
 # define STRESS_BRAIN_CREATION int stress = STRESS_BRAIN;
@@ -28,6 +28,7 @@
 # define GENERAL_ERROR_DETAIL \
 	"Detail"
 # define BRAIN_ERROR_MSG "brain creation, stress "
+# define NEU_ID_NOT_FOUND "(internal) neuron not found in genome"
 # define BRAIN_ERROR BRAIN_ERROR_MSG STR(STRESS_BRAIN)
 # define FAIL(f) FAIL_S(f)
 # define FAIL_S(f) \
@@ -56,7 +57,7 @@
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
-# define TIC_SEC 0.0618
+# define TIC_SEC 0.0309
 
 # define GNM_NETS_N 5
 
@@ -73,16 +74,16 @@
 # define TPN_A 'A'
 
 # define DEFB 1
-# define DEFI 3
-# define DEFH 5
-# define DEFO 3
-# define DEFA 10
+# define DEFI 2
+# define DEFH 2
+# define DEFO 2
+# define DEFA 2
 
-# define GENB 1
-# define GENI 3
-# define GENH 5
-# define GENO 3
-# define GENA 17
+# define GENB 2
+# define GENI 2
+# define GENH 2
+# define GENO 2
+# define GENA 2
 
 # define DEF_SIG sigmoid
 # define ALL_RE &re_sigmoid

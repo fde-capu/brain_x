@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/20 03:50:42 by ||||||                                   */
+/*   Updated: 2019/11/23 21:58:56 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct	neuro_net	net;
 
 typedef struct	neuro_net
 {
-	struct	neuron		*ps;
+	struct	neuron		*psa;
 // wanto to remove line above but breaks?	
 	tid		id;
 	tid		iv;
@@ -49,12 +49,12 @@ typedef struct	neuron
 	tid	ou;
 	fin	tr;
 	void	(*op)();
+	void	(*re)();
+	struct	neuron	*nx;
+
 //	void	(*op)(bra *, neu *);
 	// op = &function;
 	// (*op)(a,b);
-	void	(*re)();
-//	void	(*re)(bra *, neu *);
-	struct	neuron	*nx;
 }	neu;
 
 typedef struct	genome

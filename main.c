@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/20 03:53:37 by ||||||                                   */
+/*   Updated: 2019/11/23 22:01:39 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,12 @@ int	main(void)
 		DEFA 		\
 	);
 
+		print_brain(b);
 
-	while (++i < 500)
+	while (++i < 200)
 	{
-		nchoice = rndi(2, 4);
-		feed(b, nchoice, rnd01() * 0.2);
+		nchoice = rndi(2, 6);
+		feed(b, nchoice, rnd01() * 1);
 		print_brain(b);
 		tic(TIC_SEC);
 		think(b);
@@ -59,18 +60,19 @@ int	main(void)
 
 // v.
 // types of action (op):
-//  - threshold (spark)
-//  	(after threshold yelds 1 to each con)
-//  - capacitor = high pass
-//  	(after threshold yelds val)
-//  - capacitor = low pass
-//  	(only throws val if lower than threshold)
-//  - capacitor dispenser:
-//    	(above thres outs only diff from thres)
-//  - linear
-//  	(multiply by threshold) <-- axons
-//  - partial leak
-//  	(leak only threshold by each time)
+//	* defaults
+//
+//  - threshold above
+//  - threshold below
+//
+//  	opt(A) spark  || value* || discr			|| multi			|| leaks		||
+//  	       1      || value  || abs(thres - val)	|| multiply by tr	|| thres value 	||
+//
+//  	opt(B)	accu*				|| disp		|| bias				|| axon
+//				accumulate value	|| wastes	|| never changes	|| treat tr as
+//
+//	- axon = threshold multiply
+//
 //  - gradative leak
 //  	(leak from bz/tr proportion increasinly) 
 //  - regressive leak
