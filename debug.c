@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/24 01:07:12 by ||||||                                   */
+/*   Updated: 2019/11/24 17:01:00 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ void	print_genome(void)
 {
 	printf(GNM_TITLE);
 	neu	*n;
-	n = g_genome->bias;
+	n = g_gnm->bias;
 	print_neu_list(n);
-	n = g_genome->inpu;
+	n = g_gnm->inpu;
 	print_neu_list(n);
-	n = g_genome->hidd;
+	n = g_gnm->hidd;
 	print_neu_list(n);
-	n = g_genome->outp;
+	n = g_gnm->outp;
 	print_neu_list(n);
-	n = g_genome->axon;
+	n = g_gnm->axon;
 	print_neu_list(n);
 	return ;
 }
@@ -99,16 +99,17 @@ void	print_net_list(net *n)
 		}
 		else
 		{
-			printf(NET_N_STR, NET_N_VAR);
-			na = n->pt->axon;
-			while (na)
-			{
-				if (neuron_by_id(na->id)->in == n->id) //&& ou is con
-				{
-					print_net_list(na);
-				}
-				na = na->nx;
-			}
+		 printf(NET_N_STR, NET_N_VAR);
+		 na = n->pt->axon;
+		 while (na)
+		 {
+		  if (neuron_by_id(na->id)->in \
+		      == n->id) //&& ou is con
+		  {
+		   print_net_list(na);
+		  }
+		  na = na->nx;
+		 }
 		}
 		n = n->nx;
 	}
@@ -132,20 +133,21 @@ void	print_net_herd(net *n)
 			i = 0;
 			while ((i <= 3) && (!found))
 			{
-				na =	i == 0 ? n->pt->bias : \
-						i == 1 ? n->pt->inpu : \
-						i == 2 ? n->pt->hidd : \
-							n->pt->outp;
-				while ((na) && (!found))
-				{
-					if (na->id == ni->in) // && ni->ou is con
-						found = 1;
-					na = na->nx;
-				}
-				i++;
+			 na = i == 0 ? n->pt->bias : \
+				  i == 1 ? n->pt->inpu : \
+				  i == 2 ? n->pt->hidd : \
+			 		n->pt->outp;
+			 while ((na) && (!found))
+			 {
+			  if (na->id == ni->in) // && ni->ou is con
+			  	found = 1;
+			  na = na->nx;
+			 }
+			 i++;
 			}
 			if (!found)
-				printf(NET_H_STR, NET_H_VAR);
+				printf(NET_H_STR, \
+						NET_H_VAR);
 		}
 		n = n->nx;
 	}
@@ -203,7 +205,9 @@ char	*gauge_bar(fin v)
 		{
 			if (!c2)
 			{
-				c2 = (int)(v * (c == 0 ? 100 : 100)) % 10;
+				c2 = (int)(v * \
+				 (c == 0 ? 100 : 100)) \
+				 % 10;
 				if (c2 >= 5)
 				{
 					*(p + i) = ':';

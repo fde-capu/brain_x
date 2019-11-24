@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 02:05:31 by ||||||                                   */
-/*   Updated: 2019/11/24 01:25:03 by ||||||                                   */
+/*   Updated: 2019/11/24 16:31:12 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ bra	*init_brain(\
 {
 	bra	*brain;
 	brain = malloc(sizeof(brain));
-	brain->bias = rnd_neuron(TP_B, b, brain);
-	brain->inpu = rnd_neuron(TP_I, i, brain);
-	brain->hidd = rnd_neuron(TP_H, h, brain);
-	brain->outp = rnd_neuron(TP_O, o, brain);
-	brain->axon = rnd_neuron(TP_A, a, brain);
+	brain->bias = rnd_neu(TP_B, b, brain);
+	brain->inpu = rnd_neu(TP_I, i, brain);
+	brain->hidd = rnd_neu(TP_H, h, brain);
+	brain->outp = rnd_neu(TP_O, o, brain);
+	brain->axon = rnd_neu(TP_A, a, brain);
 	return (brain);
 }
 
-net	*rnd_neuron(typ t, int q, bra *b)
+net	*rnd_neu(typ t, int q, bra *b)
 {
 	net	*n;
 	neu	g;

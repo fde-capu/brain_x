@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/24 16:20:03 by ||||||                                   */
+/*   Updated: 2019/11/24 16:55:46 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,16 @@ net	*i_to_b_niche(int i, bra *b)
 neu	*i_to_g_niche(int i)
 {
 	neu	*n;
-	n =	i == 0 ? g_genome->bias :
-		i == 1 ? g_genome->inpu :
-		i == 2 ? g_genome->hidd :
-		i == 3 ? g_genome->outp :
-		i == 4 ? g_genome->axon : 0;
+	n =	i == 0 ? g_gnm->bias :
+		i == 1 ? g_gnm->inpu :
+		i == 2 ? g_gnm->hidd :
+		i == 3 ? g_gnm->outp :
+		i == 4 ? g_gnm->axon : 0;
 	return (n);
 }
 
 double	sigmoid(double v)
 {
-	return ((pow(EULER, v)/((pow(EULER, v) + 1))) - .5);
+	return ((pow(EULER, v) / \
+		((pow(EULER, v) + 1))) - .5);
 }

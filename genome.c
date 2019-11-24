@@ -6,20 +6,21 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/24 00:34:38 by ||||||                                   */
+/*   Updated: 2019/11/24 16:53:29 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	*init_genome(tid b, tid i, tid h, tid o, tid a)
+void	*init_genome(tid b, tid i, \
+		tid h, tid o, tid a)
 {
-	g_genome = malloc(sizeof(gnm));
-	g_genome->bias = gen_neuron(TP_B, b);
-	g_genome->inpu = gen_neuron(TP_I, i);
-	g_genome->hidd = gen_neuron(TP_H, h);
-	g_genome->outp = gen_neuron(TP_O, o);
-	g_genome->axon = gen_neuron(TP_A, a);
+	g_gnm = malloc(sizeof(gnm));
+	g_gnm->bias = gen_neuron (TP_B, b);
+	g_gnm->inpu = gen_neuron (TP_I, i);
+	g_gnm->hidd = gen_neuron (TP_H, h);
+	g_gnm->outp = gen_neuron (TP_O, o);
+	g_gnm->axon = gen_neuron (TP_A, a);
 	return ;
 }
 
@@ -35,11 +36,13 @@ neu		*gen_neuron(typ t, int n)
 		neuron = init_neu();
 		neuron->id = ++g_id;
 		neuron->tp = t;
-		if (t & TP_A)
+		TTPA
 		{
-			neuron->in = rnd_from_genome( \
+			neuron->in = \
+				rnd_from_genome( \
 				TP_B + TP_I + TP_H).id;
-			neuron->ou = rnd_from_genome( \
+			neuron->ou = \
+				rnd_from_genome( \
 				TP_H + TP_O).id;
 		}
 		else
@@ -47,8 +50,10 @@ neu		*gen_neuron(typ t, int n)
 			neuron->in = 0;
 			neuron->ou = 0;
 		}
-		neuron->tr = t & TP_B ? 0 : rnd01();
-		neuron->op = t & TP_B ? &op_bias : &op_spark;
+		neuron->tr = t & TP_B ? \
+				0 : rnd01();
+		neuron->op = t & TP_B ? \
+				&op_bias : &op_spark;
 		neuron->re = ALL_RE;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
@@ -84,78 +89,79 @@ neu		rnd_from_genome(typ t)
 	i = 0;
 	while (++i <= GNM_NETS_N)
 		cb[i - 1] = 0;
-	if(t & TP_B) cb[0]+=count_neu(g_genome->bias);
-	if(t & TP_I) cb[1]+=count_neu(g_genome->inpu);
-	if(t & TP_H) cb[2]+=count_neu(g_genome->hidd);
-	if(t & TP_O) cb[3]+=count_neu(g_genome->outp);
-	if(t & TP_A) cb[4]+=count_neu(g_genome->axon);
+	TTPB cb[0] += count_neu(g_gnm->bias);
+	TTPI cb[1] += count_neu(g_gnm->inpu);
+	TTPH cb[2] += count_neu(g_gnm->hidd);
+	TTPO cb[3] += count_neu(g_gnm->outp);
+	TTPA cb[4] += count_neu(g_gnm->axon);
 	c = 0;
 	i = 0;
 	while (++i <= GNM_NETS_N)
 		c += cb[i - 1];
 	c = irnd(c);
-
-	n = t & TP_A ? g_genome->axon : init_neu();
-	n = t & TP_O ? g_genome->outp : n;
-	n = t & TP_H ? g_genome->hidd : n;
-	n = t & TP_I ? g_genome->inpu : n;
-	n = t & TP_B ? g_genome->bias : n;
-
-	i = t & TP_A ? 4 : 0;
-	i = t & TP_O ? 3 : i;
-	i = t & TP_H ? 2 : i;
-	i = t & TP_I ? 1 : i;
-	i = t & TP_B ? 0 : i;
-
+	n = init_neu();
+	TTPA n = g_gnm->axon;
+	TTPO n = g_gnm->outp;
+	TTPH n = g_gnm->hidd;
+	TTPI n = g_gnm->inpu;
+	TTPB n = g_gnm->bias;
+	TTPA i = 4;
+	TTPO i = 3;
+	TTPH i = 2;
+	TTPI i = 1;
+	TTPO i = 0;
 	while (--c)
 	{
 		n = n->nx;
 		if (!n)
 		{
+			n = init_neu();
 			if (i == 0)
 			{
-				n = t & TP_A ? g_genome->axon : init_neu();
-				n = t & TP_O ? g_genome->outp : n;
-				n = t & TP_H ? g_genome->hidd : n;
-				n = t & TP_I ? g_genome->inpu : n;
+				TTPA n = g_gnm->axon;
+				TTPO n = g_gnm->outp;
+				TTPH n = g_gnm->hidd;
+				TTPI n = g_gnm->inpu;
 			}
 			if (i == 1)
 			{
-				n = t & TP_A ? g_genome->axon : init_neu();
-				n = t & TP_O ? g_genome->outp : n;
-				n = t & TP_H ? g_genome->hidd : n;
-
+				TTPA n = g_gnm->axon;
+				TTPO n = g_gnm->outp;
+				TTPH n = g_gnm->hidd;
 			}
 			if (i == 2)
 			{
-				n = t & TP_A ? g_genome->axon : init_neu();
-				n = t & TP_O ? g_genome->outp : n;
-
+				TTPA n = g_gnm->axon;
+				TTPO n = g_gnm->outp;
 			}
 			if (i == 3)
 			{
-				n = t & TP_A ? g_genome->axon : init_neu();
-				i = t & TP_A ? 4 : 0;
+				TTPA n = g_gnm->axon;
+				i = 0;
+				TTPA	i = 4;
 			}
 			if (i == 2)
 			{
-				i = t & TP_A ? 4 : 0;
-				i = t & TP_O ? 3 : i;
+				i = 0;
+				TTPA	i = 4;
+				TTPO	i = 3;
 			}
 			if (i == 1)
 			{
-				i = t & TP_A ? 4 : 0;
-				i = t & TP_O ? 3 : i;
-				i = t & TP_H ? 2 : i;
+				i = 0;
+				TTPA	i = 4;
+				TTPO	i = 3;
+				TTPH	i = 2;
 			}
 			if (i == 0)
 			{
-				i = t & TP_A ? 4 : 0;
-				i = t & TP_O ? 3 : i;
-				i = t & TP_H ? 2 : i;
-				i = t & TP_I ? 1 : i;
+				i = 0;
+				TTPA	i = 4;
+				TTPO	i = 3;
+				TTPH	i = 2;
+				TTPI	i = 1;
 			}
-			if (i == 0) c = 1;
+			if (i == 0)	c = 1;
 		}
 	}
 	return (*n);

@@ -37,7 +37,13 @@
 	{ error_msg(f); imsg(m,v); \
 		exit (1); }
 # define LOGI(c,n) logi(c,n);
+
 # define NL printf("\n");
+# define TTPB if (t & TP_B)
+# define TTPI if (t & TP_I)
+# define TTPH if (t & TP_H)
+# define TTPO if (t & TP_O)
+# define TTPA if (t & TP_A)
 
 # define GNM_TITLE "\n::: GENOME :::\n"
 # define GNM_A_STR "%s:[%3d*%-3d] [%3d]--%0.5lf-->[%-3d] {%2x|%-2x} %2x>%2x\n"
@@ -109,7 +115,7 @@ neu		rnd_from_genome(typ t);
 bra	*init_brain(\
 		tid b, tid i, \
 		tid h, tid o, tid a);
-net	*rnd_neuron (typ t, int q, bra *b);
+net	*rnd_neu (typ t, int q, bra *b);
 net	*init_net(void);
 
 // thoughts.c

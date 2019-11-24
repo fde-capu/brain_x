@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/24 01:14:38 by ||||||                                   */
+/*   Updated: 2019/11/24 16:55:30 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	re_sum_clip(net *n, fin v)
 void	re_sigmoid(net *n, fin v)
 {
 	v = n->bz +\
-		(pow(EULER, v)/((pow(EULER, v) + 1)) - .5);
+		(pow(EULER, v) / \
+		((pow(EULER, v) + 1)) - .5);
 	n->bz = v;
 	return ;
 }
@@ -94,8 +95,10 @@ void	op_spark(net *n, neu *ne)
 		ni = neuron_by_id(na->id);
 		if (ni->in == n->id)
 		{
-			nd = neuron_in_brain(n->pt, ni->ou);
-			if ((nd) && (n->bz >= ne->tr))
+			nd = neuron_in_brain \
+				 (n->pt, ni->ou);
+			if ((nd) && \
+				(n->bz >= ne->tr))
 			{
 				feed_nd(nd, 1 * ni->tr);
 				n->bz = 0;
