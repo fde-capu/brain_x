@@ -127,6 +127,7 @@ neu	*neuron_by_id(tid id);
 net	*neuron_in_brain(bra *b, tid nid);
 int	find_id(tid id, net *n);
 net	*i_to_b_niche(int i, bra *b);
+neu	*i_to_g_niche(int i);
 double	sigmoid(double v);
 
 // debug.c

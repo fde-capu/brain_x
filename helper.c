@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/23 22:00:06 by ||||||                                   */
+/*   Updated: 2019/11/24 16:20:03 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ neu	*neuron_by_id(tid id)
 	found = 0;
 	while ((!found) && (i <= 4))
 	{
-		n = i == 0 ? g_genome->bias : init_neu();
-		n = i == 1 ? g_genome->inpu : n;
-		n = i == 2 ? g_genome->hidd : n;
-		n = i == 3 ? g_genome->outp : n;
-		n = i == 4 ? g_genome->axon : n;
+		n = i_to_g_niche(i);
 		while (n)
 		{
 			if (n->id == id)
@@ -90,6 +86,17 @@ net	*i_to_b_niche(int i, bra *b)
 		i == 2 ? b->hidd :
 		i == 3 ? b->outp :
 		i == 4 ? b->axon : 0;
+	return (n);
+}
+
+neu	*i_to_g_niche(int i)
+{
+	neu	*n;
+	n =	i == 0 ? g_genome->bias :
+		i == 1 ? g_genome->inpu :
+		i == 2 ? g_genome->hidd :
+		i == 3 ? g_genome->outp :
+		i == 4 ? g_genome->axon : 0;
 	return (n);
 }
 

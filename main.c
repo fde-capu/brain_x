@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/24 01:10:10 by ||||||                                   */
+/*   Updated: 2019/11/24 16:23:20 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,10 @@ int	main(void)
 //  	opt(A) spark  || value* || discr			|| multi			|| leaks		||
 //  	       1      || value  || abs(thres - val)	|| multiply by tr	|| thres value 	||
 //
-//  	opt(B)	accu*				|| disp		|| bias				|| axon
-//				accumulate value	|| wastes	|| never changes	|| treat tr as
+//  	opt(B)	accu*				|| disp		|| bias		|| axon
+//				accumulate value	|| wastes	|| noise	|| treat tr as
+//
+//		opt(C) divide bus for each out || same bus for each out
 //
 //	- axon = threshold multiply
 //
