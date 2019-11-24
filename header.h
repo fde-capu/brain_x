@@ -57,7 +57,7 @@
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
-# define TIC_SEC 0.0309
+# define TIC_SEC 0.0618
 
 # define GNM_NETS_N 5
 
@@ -117,6 +117,7 @@ void	feed(bra *b, tid id, fin v);
 void	feed_nd(net *nd, fin v);
 void	think(bra *b);
 void	op_spark(net *n, neu *ne);
+void	op_bias(net *n, neu *ne);
 void	re_sum_clip(net *n, fin v);
 void	re_sigmoid(net *n, fin v);
 

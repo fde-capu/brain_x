@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/20 04:03:36 by ||||||                                   */
+/*   Updated: 2019/11/23 22:31:55 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ void	think(bra *b)
 		while (n)
 		{
 			ne = neuron_by_id(n->id);
+			if (ne->tp & TP_B)
+			{
+				feed_nd(n, rnd01());
+			}
 			ne->op(n, ne);
 			n = n->nx;
 		}
@@ -102,6 +106,13 @@ void	op_spark(net *n, neu *ne)
 		na = na->nx;
 	}
 	n->bz = esc ? 0 : n->bz;
+	return ;
+}
+
+void	op_bias(net *n, neu *ne)
+{
+	op_spark(n, ne);
+	n->bz = 0;
 	return ;
 }
 
