@@ -14,7 +14,7 @@
 
 # define COLOR_FORE 104
 
-# define STRESS 100
+# define STRESS 5
 # define STRESS_BRAIN 256
 # define STRESSIN int stress = STRESS;
 # define STRESS_BRAIN_CREATION int stress = STRESS_BRAIN;
@@ -79,7 +79,7 @@
 # define DEFO 3
 # define DEFA 7
 
-# define GENB 1
+# define GENB 2
 # define GENI 3
 # define GENH 5
 # define GENO 3

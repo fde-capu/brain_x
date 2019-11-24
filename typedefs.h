@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/23 22:38:29 by ||||||                                   */
+/*   Updated: 2019/11/24 01:06:42 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ typedef struct	neuro_net	net;
 
 typedef struct	neuro_net
 {
-	struct	neuron		*psa;
-// wanto to remove line above but breaks?	
+	struct brain *why;
 	tid		id;
 	tid		iv;
 	tbz		bz;
-	tbz		bz_;
 	bra		*pt;
 	struct	neuro_net	*nx;
 }	net;

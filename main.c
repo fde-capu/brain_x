@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/23 23:17:40 by ||||||                                   */
+/*   Updated: 2019/11/24 01:10:10 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	main(void)
 	bra	*b;
 	int	i;
 	tid	nchoice;
-
 	init_rnd();
 	g_id = 0;
 	g_iv = 0;
@@ -40,12 +39,10 @@ int	main(void)
 		DEFO,		\
 		DEFA 		\
 	);
-
-		print_brain(b);
-
+	i = 0;
 	while (++i < 200)
 	{
-		nchoice = rndi(DEFB + 2, DEFB + DEFI + 1);
+		nchoice = rndi(GENB + 1, GENB + GENI);
 		feed(b, nchoice, rnd01() * 1);
 		print_brain(b);
 		tic(TIC_SEC);
