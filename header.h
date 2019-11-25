@@ -47,20 +47,20 @@
 
 # define GNM_TITLE "\n::: GENOME :::\n"
 # define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%x|%-x} %x>%x\n"
-# define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->iv,\
+# define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->id,\
 			neuron->in,neuron->tr,neuron->ou,\
 			neuron->re, neuron->op, neuron, neuron->nx
 # define GNM_N_STR "%s:[%3lu*%-3lu] [ %0.16lf ] {%x|%-x} %x>%x\n"
-# define GNM_N_VAR get_typename(neuron->tp), neuron->id, neuron->iv, 	\
+# define GNM_N_VAR get_typename(neuron->tp), neuron->id, neuron->id, 	\
 			neuron->tr, neuron->re, neuron->op, neuron,neuron->nx
 # define BRA_TITLE "\n::: BRAIN ::: ~%x~ :::\n"
 # define NET_A_STR " >[ %5lu ] <-------- %0.5lf -- [%3lu*%-3lu] {%x|%-x} %x>%x\n"
-# define NET_A_VAR ni->ou,ni->tr,n->id,n->iv,ni->re,ni->op,n,n->nx
+# define NET_A_VAR ni->ou,ni->tr,n->id,n->id,    ni->re,ni->op,n,n->nx
 # define NET_N_STR "%s:[%3lu*%-3lu] : %0.5lf %s [| %0.2lf ] {%x|%-x} %x>%x\n"
-# define NET_N_VAR get_typename(ni->tp),n->id,n->iv,n->bz,gauge_bar(n->bz),ni->tr,\
-				ni->re,ni->op,n, n->nx
+# define NET_N_VAR get_typename(ni->tp),n->id,n->id,    n->bz,gauge_bar(n->bz),ni->tr,\
+				ni->re, ni->op, n, n->nx
 # define NET_H_STR " |[%3lu*%-3lu] [%3lu]-%0.4lf->[%-3lu] {%x|%-x}|%x>%x\n"
-# define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
+# define NET_H_VAR 	n->id,n->id,   ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
 # define TIC_SEC 0.0618

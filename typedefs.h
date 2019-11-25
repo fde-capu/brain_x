@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/24 21:54:47 by ||||||                                   */
+/*   Updated: 2019/11/24 23:06:25 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,11 @@ typedef TYPE_OF_CHARGE	tbz;
 
 typedef struct	neuro_net
 {
-	struct	brain		*why;//?
+	struct	brain		*pt;
 	tid		id;
 	tid		iv;
+	tbz		iz;
 	tbz		bz;
-//	tbz		iz;
-	struct	brain		*pt;
 	struct	neuro_net	*nx;
 }	net;
 
