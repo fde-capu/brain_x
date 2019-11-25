@@ -153,12 +153,12 @@ char	*gauge_bar(fin v);
 
 // random.c
 void	init_rnd(void);
-float	rnd01(void);
-float	rnd(float max);
-int		irnd(float max);
-int	rndi(float min, float max);
-int		izrnd(float max);
-int		brnd(float chance);
+double	rnd01(void);
+double	rnd(double max);
+int		irnd(double max);
+int	rndi(double min, double max);
+int		izrnd(double max);
+int		brnd(double chance);
 void	tic(fin ms);
 void	color(int c);
 

@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 02:05:31 by ||||||                                   */
-/*   Updated: 2019/11/24 23:05:33 by ||||||                                   */
+/*   Updated: 2019/11/25 00:25:27 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ net	*rnd_neu(typ t, int q, bra *b)
 		n = init_net();
 		n->nx = nx;
 		STRESS_BRAIN_CREATION
-		do {
-			STRESSMSG(BRAIN_ERROR)
-			g = rnd_from_genome(t);
-		} while (find_id(g.id, n));
+			do {
+				STRESSMSG(BRAIN_ERROR)
+					g = rnd_from_genome(t);
+			} while (find_id(g.id, n));
 		nx = n;
 		n->id = g.id;
 		n->iv = g.iv;

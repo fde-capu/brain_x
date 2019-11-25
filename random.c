@@ -17,20 +17,20 @@ void	init_rnd()
 	srand(time(0));
 }
 
-float	rnd01(void)
+double	rnd01(void)
 {
-	// float 0 ~ 1
-	return ((float)rand() / \
-	(float)((unsigned)RAND_MAX + 1));
+	// double 0 ~ 1
+	return ((double)rand() / \
+	(double)((unsigned)RAND_MAX + 1));
 }
 
-float	rnd(float max)
+double	rnd(double max)
 {
-	// float 0 ~ max
+	// double 0 ~ max
 	return(rnd01() * max);
 }
 
-int	irnd(float max)
+int	irnd(double max)
 {
 	// int 1 ~ max
 	int	r;
@@ -40,7 +40,7 @@ int	irnd(float max)
 	return (r);
 }
 
-int	rndi(float min, float max)
+int	rndi(double min, double max)
 {
 	// min ~ max
 	int	r;
@@ -51,7 +51,7 @@ int	rndi(float min, float max)
 	return(r);
 }
 
-int     izrnd(float max)
+int     izrnd(double max)
 {
 	// int 0 ~ max
     return(rnd01() * (max + 1));
@@ -63,7 +63,7 @@ int		idxrnd(int arrsize)
 	return(izrnd(arrsize - 1));
 }
 
-int	brnd(float chance)
+int	brnd(double chance)
 {
 	// int bool 0 or 1
 	if (rnd(1) >= chance)
