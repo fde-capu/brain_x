@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/24 17:01:00 by ||||||                                   */
+/*   Updated: 2019/11/24 21:46:04 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	print_neu_list(neu *n)
 
 void	print_brain(bra *b)
 {
-	printf(BRA_TITLE, b);
+	printf(BRA_TITLE, (void *)b);
 	net	*n;
 	n = b->bias;
 	print_net_list(n);
@@ -184,14 +184,12 @@ char	*gauge_bar(fin v)
 {
 	char	*out;
 	char	*p;
-	char	*o;
 	int		i;
 	int		c;
 	int		c2;
 
 	out = malloc(sizeof(char) * 12);
 	p = out;
-	o = out;
 	i = -1;
 
 	c2 = 0;

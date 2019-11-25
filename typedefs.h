@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/06 13:46:58 by ||||||                                   */
-/*   Updated: 2019/11/24 16:30:12 by ||||||                                   */
+/*   Updated: 2019/11/24 21:54:47 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@ typedef TYPE_OF_TYPE	typ;
 typedef TYPE_OF_FINE	fin;
 typedef TYPE_OF_CHARGE	tbz;
 
-typedef struct	brain		bra;
-typedef struct	neuron		neu;
-typedef struct	neuro_net	net;
+//typedef struct	brain		bra;
+//typedef struct	neuron		neu;
+//typedef struct	neuro_net	net;
 
 typedef struct	neuro_net
 {
-	struct brain *why;//?
+	struct	brain		*why;//?
 	tid		id;
 	tid		iv;
 	tbz		bz;
-	bra		*pt;
+//	tbz		iz;
+	struct	brain		*pt;
 	struct	neuro_net	*nx;
 }	net;
 

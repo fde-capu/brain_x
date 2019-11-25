@@ -46,20 +46,20 @@
 # define TTPA if (t & TP_A)
 
 # define GNM_TITLE "\n::: GENOME :::\n"
-# define GNM_A_STR "%s:[%3d*%-3d] [%3d]--%0.5lf-->[%-3d] {%2x|%-2x} %2x>%2x\n"
+# define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%x|%-x} %x>%x\n"
 # define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->iv,\
 			neuron->in,neuron->tr,neuron->ou,\
 			neuron->re, neuron->op, neuron, neuron->nx
-# define GNM_N_STR "%s:[%3d*%-3d] [ %0.16lf ] {%2x|%-2x} %2x>%2x\n"
+# define GNM_N_STR "%s:[%3lu*%-3lu] [ %0.16lf ] {%x|%-x} %x>%x\n"
 # define GNM_N_VAR get_typename(neuron->tp), neuron->id, neuron->iv, 	\
 			neuron->tr, neuron->re, neuron->op, neuron,neuron->nx
-# define BRA_TITLE "\n::: BRAIN ::: ~%2x~ :::\n"
-# define NET_A_STR " >[ %5d ] <-------- %0.5lf -- [%3d*%-3d] {%2x|%-2x} %2x>%2x\n"
+# define BRA_TITLE "\n::: BRAIN ::: ~%x~ :::\n"
+# define NET_A_STR " >[ %5lu ] <-------- %0.5lf -- [%3lu*%-3lu] {%x|%-x} %x>%x\n"
 # define NET_A_VAR ni->ou,ni->tr,n->id,n->iv,ni->re,ni->op,n,n->nx
-# define NET_N_STR "%s:[%3d*%-3d] : %0.5f %s [| %0.2lf ] {%2x|%-2x} %2x>%2x\n"
+# define NET_N_STR "%s:[%3lu*%-3lu] : %0.5lf %s [| %0.2lf ] {%x|%-x} %x>%x\n"
 # define NET_N_VAR get_typename(ni->tp),n->id,n->iv,n->bz,gauge_bar(n->bz),ni->tr,\
 				ni->re,ni->op,n, n->nx
-# define NET_H_STR " |[%3d*%-3d] [%3d]-%0.4lf->[%-3d] {%2x|%-2x}|%2x>%2x\n"
+# define NET_H_STR " |[%3lu*%-3lu] [%3lu]-%0.4lf->[%-3lu] {%x|%-x}|%x>%x\n"
 # define NET_H_VAR 	n->id,n->iv,ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
@@ -106,7 +106,7 @@
 int		main(void);
 
 // genome.c
-void	*init_genome(tid b, tid i, tid h, tid o, tid a);
+void	init_genome(tid b, tid i, tid h, tid o, tid a);
 neu		*gen_neuron(typ t, int n);
 neu		*init_neu(void);
 neu		rnd_from_genome(typ t);

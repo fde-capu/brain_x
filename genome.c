@@ -6,13 +6,13 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/24 16:53:29 by ||||||                                   */
+/*   Updated: 2019/11/24 21:48:16 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	*init_genome(tid b, tid i, \
+void	init_genome(tid b, tid i, \
 		tid h, tid o, tid a)
 {
 	g_gnm = malloc(sizeof(gnm));
@@ -28,7 +28,6 @@ neu		*gen_neuron(typ t, int n)
 {
 	neu	*neuron;
 	neu	*nx;
-	neu	*head;
 
 	nx = 0;
 	while (--n > -1)
