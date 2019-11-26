@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/07 00:42:59 by ||||||                                   */
-/*   Updated: 2019/11/24 22:07:50 by ||||||                                   */
+/*   Updated: 2019/11/26 13:07:12 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,43 @@ void	imsg(char *str, int v)
 {
 	printf(GENERAL_ERROR_DETAIL\
 		": %s %d.\n", str, v);
+	fflush(stdout);
 }
 
 void	error_msg(char *str)
 {
 	printf(GENERAL_ERROR\
 		": %s.\n", str);
+	fflush(stdout);
 }
 
 void	msgs(char *str)
 {
 	printf("%s\n", str);
+	fflush(stdout);
 }
 
 void	msgi(int inty)
 {
 	printf("%d\n", inty);
+	fflush(stdout);
 }
 
 void	logi(char *c, int n)
 {
 	printf("%s: %d\n",c,n);
+	fflush(stdout);
+}
+
+void	logx(char *c, int n)
+{
+	printf("%s: %x\n",c,n);
+	fflush(stdout);
 }
 
 void	print_genome(void)
 {
-	printf(GNM_TITLE);
+	printf(GNM_TITLE, g_gnm);
 	neu	*n;
 	n = g_gnm->bias;
 	print_neu_list(n);
@@ -53,6 +64,7 @@ void	print_genome(void)
 	print_neu_list(n);
 	n = g_gnm->axon;
 	print_neu_list(n);
+	fflush(stdout);
 	return ;
 }
 
@@ -63,6 +75,7 @@ void	print_neu_list(neu *n)
 		print_neuron(n);
 		n = n->nx;
 	}
+	fflush(stdout);
 	return ;
 }
 
@@ -81,6 +94,7 @@ void	print_brain(bra *b)
 	print_net_list(n);
 	n = b->axon;
 	print_net_herd(n);
+	fflush(stdout);
 	return ;
 }
 
@@ -113,6 +127,7 @@ void	print_net_list(net *n)
 		}
 		n = n->nx;
 	}
+	fflush(stdout);
 	return ;
 }
 
@@ -151,6 +166,7 @@ void	print_net_herd(net *n)
 		}
 		n = n->nx;
 	}
+	fflush(stdout);
 	return ;
 }
 
@@ -160,6 +176,7 @@ void	print_neuron(neu *neuron)
 		printf(GNM_A_STR, GNM_A_VAR);
 	else
 		printf(GNM_N_STR, GNM_N_VAR);
+	fflush(stdout);
 	return ;
 }
 

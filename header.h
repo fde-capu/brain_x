@@ -45,7 +45,7 @@
 # define TTPO if (t & TP_O)
 # define TTPA if (t & TP_A)
 
-# define GNM_TITLE "\n::: GENOME :::\n"
+# define GNM_TITLE "\n::: GENOME ::: :%x: :::\n"
 # define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%x|%-x} %x>%x\n"
 # define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->id,\
 			neuron->in,neuron->tr,neuron->ou,\
@@ -64,8 +64,6 @@
 # define CLIPCHAR '+'
 
 # define TIC_SEC 0.0618
-
-# define GNM_NETS_N 5
 
 # define TP_B 1
 # define TP_I 2
@@ -109,7 +107,7 @@ int		main(void);
 void	init_genome(tid b, tid i, tid h, tid o, tid a);
 neu		*gen_neuron(typ t, int n);
 neu		*init_neu(void);
-neu		rnd_from_genome(typ t);
+neu		*rnd_from_genome(typ t);
 
 // brain.c
 bra	*init_brain(\
@@ -148,6 +146,7 @@ void	print_neu_list(neu *n);
 void	print_net_list(net *n);
 void	print_neuron(neu *neuron);
 void	logi(char *c, int n);
+void	logx(char *c, int n);
 void	print_net_herd(net *n);
 char	*gauge_bar(fin v);
 

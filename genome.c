@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 09:28:31 by ||||||                                   */
-/*   Updated: 2019/11/24 21:48:16 by ||||||                                   */
+/*   Updated: 2019/11/26 13:31:24 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,16 @@ void	init_genome(tid b, tid i, \
 		tid h, tid o, tid a)
 {
 	g_gnm = malloc(sizeof(gnm));
-	g_gnm->bias = gen_neuron (TP_B, b);
-	g_gnm->inpu = gen_neuron (TP_I, i);
-	g_gnm->hidd = gen_neuron (TP_H, h);
-	g_gnm->outp = gen_neuron (TP_O, o);
-	g_gnm->axon = gen_neuron (TP_A, a);
+	g_gnm->bias = gen_neuron(TP_B, b);
+	msgs("gb");
+	g_gnm->inpu = gen_neuron(TP_I, i);
+	msgs("gi");
+	g_gnm->hidd = gen_neuron(TP_H, h);
+	msgs("gh");
+	g_gnm->outp = gen_neuron(TP_O, o);
+	msgs("go");
+	g_gnm->axon = gen_neuron(TP_A, a);
+	msgs("ga");
 	return ;
 }
 
@@ -39,10 +44,10 @@ neu		*gen_neuron(typ t, int n)
 		{
 			neuron->in = \
 				rnd_from_genome( \
-				TP_B + TP_I + TP_H).id;
+				TP_B + TP_I + TP_H)->id;
 			neuron->ou = \
 				rnd_from_genome( \
-				TP_H + TP_O).id;
+				TP_H + TP_O)->id;
 		}
 		else
 		{
@@ -61,6 +66,43 @@ neu		*gen_neuron(typ t, int n)
 	return (neuron);
 }
 
+neu		*rnd_from_genome(typ t)
+{
+	int	c;
+	neu	*n;
+	int	i;
+
+	c = 0;
+	TTPB c += GENB;
+	TTPI c += GENI;
+	TTPH c += GENH;
+	TTPO c += GENO;
+	TTPA c += GENA;
+	c = irnd(c);
+	TTPA i = 4;
+	TTPO i = 3;
+	TTPH i = 2;
+	TTPI i = 1;
+	TTPB i = 0;
+	n = i_to_g_niche(i);
+	while ((i <= 4) && (c > 1))
+	{
+		while ((n) && (c > 1))
+		{
+			n = n->nx;
+			if (i == 0)	TTPB c--;
+			if (i == 1)	TTPI c--;
+			if (i == 2)	TTPH c--;
+			if (i == 3)	TTPO c--;
+			if (i == 4)	TTPA c--;
+		}
+		i++;
+		if (!n)
+			n = i_to_g_niche(i);
+	}
+	return (n);
+}
+
 neu		*init_neu(void)
 {
 	neu *n;
@@ -76,92 +118,4 @@ neu		*init_neu(void)
 	n->iv = 0;
 	n->nx = 0;
 	return (n);
-}
-
-neu		rnd_from_genome(typ t)
-{
-	tid	cb[GNM_NETS_N];
-	tid	i;
-	tid c;
-	neu *n;
-
-	i = 0;
-	while (++i <= GNM_NETS_N)
-		cb[i - 1] = 0;
-	TTPB cb[0] += count_neu(g_gnm->bias);
-	TTPI cb[1] += count_neu(g_gnm->inpu);
-	TTPH cb[2] += count_neu(g_gnm->hidd);
-	TTPO cb[3] += count_neu(g_gnm->outp);
-	TTPA cb[4] += count_neu(g_gnm->axon);
-	c = 0;
-	i = 0;
-	while (++i <= GNM_NETS_N)
-		c += cb[i - 1];
-	c = irnd(c);
-	n = init_neu();
-	TTPA n = g_gnm->axon;
-	TTPO n = g_gnm->outp;
-	TTPH n = g_gnm->hidd;
-	TTPI n = g_gnm->inpu;
-	TTPB n = g_gnm->bias;
-	TTPA i = 4;
-	TTPO i = 3;
-	TTPH i = 2;
-	TTPI i = 1;
-	TTPO i = 0;
-	while (--c)
-	{
-		n = n->nx;
-		if (!n)
-		{
-			n = init_neu();
-			if (i == 0)
-			{
-				TTPA n = g_gnm->axon;
-				TTPO n = g_gnm->outp;
-				TTPH n = g_gnm->hidd;
-				TTPI n = g_gnm->inpu;
-			}
-			if (i == 1)
-			{
-				TTPA n = g_gnm->axon;
-				TTPO n = g_gnm->outp;
-				TTPH n = g_gnm->hidd;
-			}
-			if (i == 2)
-			{
-				TTPA n = g_gnm->axon;
-				TTPO n = g_gnm->outp;
-			}
-			if (i == 3)
-			{
-				TTPA n = g_gnm->axon;
-				i = 0;
-				TTPA	i = 4;
-			}
-			if (i == 2)
-			{
-				i = 0;
-				TTPA	i = 4;
-				TTPO	i = 3;
-			}
-			if (i == 1)
-			{
-				i = 0;
-				TTPA	i = 4;
-				TTPO	i = 3;
-				TTPH	i = 2;
-			}
-			if (i == 0)
-			{
-				i = 0;
-				TTPA	i = 4;
-				TTPO	i = 3;
-				TTPH	i = 2;
-				TTPI	i = 1;
-			}
-			if (i == 0)	c = 1;
-		}
-	}
-	return (*n);
 }

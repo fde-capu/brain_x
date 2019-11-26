@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/08 12:03:46 by ||||||                                   */
-/*   Updated: 2019/11/24 16:55:46 by ||||||                                   */
+/*   Updated: 2019/11/26 01:43:37 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ int	find_id(tid id, net *n)
 {
 	while (n)
 	{
-		if (id == n->id) return (1);
+		if (n->id == id)
+			return (1);
 		n = n->nx;
 	}
 	return (0);
@@ -63,17 +64,11 @@ net	*neuron_in_brain(bra *b, tid nid)
 {
 	net	*n;
 	int	i;
-
 	i = -1;
 	while (++i <= 4)
 	{
 		n = i_to_b_niche(i, b);
-		while (n)
-		{
-			if (n->id == nid)
-				return (n);
-			n = n->nx;
-		}
+		if (find_id(nid, n)) return (n);
 	}
 	return (0);
 }
