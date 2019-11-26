@@ -6,7 +6,7 @@
 /*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
 /*                                                  |:|:|:::|::|::::::|||||   */
 /*   Created: 2019/11/18 12:10:45 by ||||||                                   */
-/*   Updated: 2019/11/26 01:09:17 by ||||||                                   */
+/*   Updated: 2019/11/26 14:13:32 by ||||||                                   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,11 @@ void	think(bra *b)
 		n = i_to_b_niche(i, b);
 		while (n)
 		{
+			logi("think", n->id);
 			ne = neuron_by_id(n->id);
+			logi("---ne", ne->id);
 			ne->op(n, ne);
+			msgs("\top ok");
 			if (ne->tp & TP_B)
 			{
 				n->bz=rnd01();
@@ -83,6 +86,28 @@ void	re_sigmoid(net *n, fin v)
 }
 
 void	op_spark(net *n, neu *ne)
+{
+	neu	*na;
+	net *no;
+
+	if (n->bz >= ne->tr)
+	{
+		na = neuron_by_id(n->pt->axon->id);
+		while (na)
+		{
+			if (na->in == n->id)
+			{
+				no = neuron_in_brain(n->pt, na->ou);
+				no->bz += 1 * na->tr;
+				n->bz = 0;
+			}
+			na = na->nx;
+		}
+	}
+	return ;
+}
+
+void	op_sparkX(net *n, neu *ne)
 {
 	net	*na;
 	neu *ni;
