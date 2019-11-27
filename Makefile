@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = x.exe
+NAME = ./x
 
-CC = gcc -g
+CC = gcc -g $(FLAGS)
 
 FLAGS = -Wall -Werror -Wextra
 FLAG2 = -v

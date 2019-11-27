@@ -17,7 +17,8 @@ bra	*init_brain(\
 		tid h, 	tid o, 	tid a)
 {
 	bra	*brain;
-	brain = malloc(sizeof(brain));
+
+	brain = malloc(sizeof(bra));
  brain->bias = rnd_neu(TP_B, b, brain);
  brain->inpu = rnd_neu(TP_I, i, brain);
  brain->hidd = rnd_neu(TP_H, h, brain);
@@ -43,10 +44,10 @@ net	*rnd_neu(typ t, int q, bra *b)
 			STRESSMSG(BRAIN_ERROR)
 			g = rnd_from_genome(t);
 		} while (find_id(g->id, n));
-		nx = n;
 		n->id = g->id;
 		n->iv = g->iv;
 		n->pt = b;
+		nx = n;
 	}
 	return (n);
 }

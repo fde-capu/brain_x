@@ -50,6 +50,12 @@ void	logx(char *c, int n)
 	fflush(stdout);
 }
 
+void	logp(char *c, void *n)
+{
+	printf("%s: %p\n",c,n);
+	fflush(stdout);
+}
+
 void	print_genome(void)
 {
 	printf(GNM_TITLE, g_gnm);
@@ -78,7 +84,6 @@ void	print_neu_list(neu *n)
 	fflush(stdout);
 	return ;
 }
-
 
 void	print_brain(bra *b)
 {
@@ -131,7 +136,6 @@ void	print_net_list(net *n)
 	return ;
 }
 
-
 void	print_net_herd(net *n)
 {
 	neu		*ni;
@@ -151,7 +155,7 @@ void	print_net_herd(net *n)
 			 na = i == 0 ? n->pt->bias : \
 				  i == 1 ? n->pt->inpu : \
 				  i == 2 ? n->pt->hidd : \
-			 		n->pt->outp;
+						   n->pt->outp;
 			 while ((na) && (!found))
 			 {
 			  if (na->id == ni->in) // && ni->ou is con
@@ -182,10 +186,11 @@ void	print_neuron(neu *neuron)
 
 char	*get_typename(typ t)
 {
-	char	out[6];
+	char	*out;
 	char	*p;
 	char	*o;
 
+	out = malloc(sizeof(char) * 6);
 	p = out;
 	o = out;
 	if (t & TP_B){ *p = TPN_B; p++; }

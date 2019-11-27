@@ -14,8 +14,8 @@
 
 void	init_rnd()
 {
-	//srand(time(0));
-	srand(1);
+	srand(time(0));
+//	srand(1);//
 }
 
 double	rnd01(void)

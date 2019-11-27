@@ -54,11 +54,8 @@ void	think(bra *b)
 		n = i_to_b_niche(i, b);
 		while (n)
 		{
-			logi("think", n->id);
 			ne = neuron_by_id(n->id);
-			logi("---ne", ne->id);
 			ne->op(n, ne);
-			msgs("\top ok");
 			if (ne->tp & TP_B)
 			{
 				n->bz=rnd01();
@@ -78,9 +75,7 @@ void	re_sum_clip(net *n, fin v)
 
 void	re_sigmoid(net *n, fin v)
 {
-	v = n->bz +\
-		(pow(EULER, v) / \
-		((pow(EULER, v) + 1)) - .5);
+//	v = n->bz +	(pow(EULER, v) / ((pow(EULER, v) + 1)) - .5);
 	n->bz = v;
 	return ;
 }
@@ -112,15 +107,17 @@ void	op_sparkX(net *n, neu *ne)
 	net	*na;
 	neu *ni;
 	net *nd;
+	bra	*b;
 
-	na = n->pt->axon;
+	b = n->pt;
+	na = b->axon;
 	while (na)
 	{
 		ni = neuron_by_id(na->id);
 		if (ni->in == n->id)
 		{
 			nd = neuron_in_brain \
-				 (n->pt, ni->ou);
+				 (b, ni->ou);
 			if ((nd) && \
 				(n->bz >= ne->tr))
 			{

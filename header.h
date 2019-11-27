@@ -39,27 +39,28 @@
 # define LOGI(c,n) logi(c,n);
 
 # define NL printf("\n");
+# define FLUSH fflush(stdout);
 # define TTPB if (t & TP_B)
 # define TTPI if (t & TP_I)
 # define TTPH if (t & TP_H)
 # define TTPO if (t & TP_O)
 # define TTPA if (t & TP_A)
 
-# define GNM_TITLE "\n::: GENOME ::: :%x: :::\n"
-# define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%x|%-x} %x>%x\n"
+# define GNM_TITLE "\n::: GENOME ::: :%p: :::\n"
+# define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%p|%-p} %p>%p\n"
 # define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->id,\
 			neuron->in,neuron->tr,neuron->ou,\
 			neuron->re, neuron->op, neuron, neuron->nx
-# define GNM_N_STR "%s:[%3lu*%-3lu] [ %0.16lf ] {%x|%-x} %x>%x\n"
+# define GNM_N_STR "%s:[%3lu*%-3lu] [ %0.16lf ] {%p|%-p} %p>%p\n"
 # define GNM_N_VAR get_typename(neuron->tp), neuron->id, neuron->id, 	\
 			neuron->tr, neuron->re, neuron->op, neuron,neuron->nx
-# define BRA_TITLE "\n::: BRAIN ::: ~%x~ :::\n"
-# define NET_A_STR " >[ %5lu ] <-------- %0.5lf -- [%3lu*%-3lu] {%x|%-x} %x>%x\n"
+# define BRA_TITLE "\n::: BRAIN ::: ~%p~ :::\n"
+# define NET_A_STR " >[ %5lu ] <-------- %0.5lf -- [%3lu*%-3lu] {%p|%-p} %p>%p\n"
 # define NET_A_VAR ni->ou,ni->tr,n->id,n->id,    ni->re,ni->op,n,n->nx
-# define NET_N_STR "%s:[%3lu*%-3lu] : %0.5lf %s [| %0.2lf ] {%x|%-x} %x>%x\n"
+# define NET_N_STR "%s:[%3lu*%-3lu] : %0.5lf %s [| %0.2lf ] {%p|%-p} %p>%p\n"
 # define NET_N_VAR get_typename(ni->tp),n->id,n->id,    n->bz,gauge_bar(n->bz),ni->tr,\
 				ni->re, ni->op, n, n->nx
-# define NET_H_STR " |[%3lu*%-3lu] [%3lu]-%0.4lf->[%-3lu] {%x|%-x}|%x>%x\n"
+# define NET_H_STR " |[%3lu*%-3lu] [%3lu]-%0.4lf->[%-3lu] {%p|%-p}|%p>%p\n"
 # define NET_H_VAR 	n->id,n->id,   ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
@@ -77,7 +78,7 @@
 # define TPN_O 'O'
 # define TPN_A 'A'
 
-# define DEFB 1
+# define DEFB 2
 # define DEFI 3
 # define DEFH 5
 # define DEFO 3
@@ -147,6 +148,7 @@ void	print_net_list(net *n);
 void	print_neuron(neu *neuron);
 void	logi(char *c, int n);
 void	logx(char *c, int n);
+void	logp(char *c, void *n);
 void	print_net_herd(net *n);
 char	*gauge_bar(fin v);
 

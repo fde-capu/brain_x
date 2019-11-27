@@ -97,6 +97,7 @@ neu	*i_to_g_niche(int i)
 
 double	sigmoid(double v)
 {
-	return ((pow(EULER, v) / \
-		((pow(EULER, v) + 1))) - .5);
+	(void) v;
+	return (0);
+//	return ((pow(EULER, v) / ((pow(EULER, v) + 1))) - .5);
 }

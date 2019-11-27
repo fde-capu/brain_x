@@ -15,13 +15,13 @@ typedef TYPE_OF_TYPE	typ;
 typedef TYPE_OF_FINE	fin;
 typedef TYPE_OF_CHARGE	tbz;
 
-//typedef struct	brain		bra;
-//typedef struct	neuron		neu;
-//typedef struct	neuro_net	net;
+typedef struct	brain		bra;
+typedef struct	neuron		neu;
+typedef struct	neuro_net	net;
 
 typedef struct	neuro_net
 {
-	struct	brain		*pt;
+	struct brain	*pt;
 	tid		id;
 	tid		iv;
 	tbz		iz;
