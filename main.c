@@ -40,7 +40,7 @@ int	main(void)
 		DEFA 		\
 	);
 	i = 0;
-	while (++i < 200)
+	while (++i < 500)
 	{
 		nchoice = \
 			rndi(GENB + 1, GENB + GENI);
@@ -91,7 +91,7 @@ int	main(void)
 //  - sigmoid
 //  
 //	Bias behaviors:
-//	- random / static
+//	- random / static / waveshape
 //	- continuous / granular
 //  - ADSR
-//	- local / global
+//	- local / global / selective

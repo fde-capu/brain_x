@@ -60,7 +60,7 @@ int	find_id(tid id, net *n)
 	return (0);
 }
 
-net	*neuron_in_brain(bra *b, tid nid)
+net	*neuron_in_brain(bra *b, tid id)
 {
 	net	*n;
 	int	i;
@@ -68,7 +68,12 @@ net	*neuron_in_brain(bra *b, tid nid)
 	while (++i <= 4)
 	{
 		n = i_to_b_niche(i, b);
-		if (find_id(nid, n)) return (n);
+		while (n)
+		{
+			if (n->id == id)
+				return (n);
+			n = n->nx;
+		}
 	}
 	return (0);
 }
@@ -97,7 +102,5 @@ neu	*i_to_g_niche(int i)
 
 double	sigmoid(double v)
 {
-	(void) v;
-	return (0);
-//	return ((pow(EULER, v) / ((pow(EULER, v) + 1))) - .5);
+	return ((pow(EULER, v) / ((pow(EULER, v) + 1))) - .5);
 }

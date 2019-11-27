@@ -87,6 +87,7 @@ void	print_neu_list(neu *n)
 void	print_brain(bra *b)
 {
 	printf("%c[2J%c[;H",(char) 27, (char) 27);
+	print_genome();
 	printf(BRA_TITLE, b);
 	net	*n;
 	n = b->bias;

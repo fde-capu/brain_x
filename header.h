@@ -7,7 +7,7 @@
 # define TYPE_OF_CHARGE double
 
 # define PRECISION 100000
-# define EULER 2.71828122845904523536
+# define EULER (double)2.71828122845904523536
 
 #define STR_HELPER(x) #x
 #define STR(x) STR_HELPER(x)
@@ -40,6 +40,9 @@
 
 # define NL printf("\n");
 # define FLUSH fflush(stdout);
+# define DEFTIC 0.25
+# define TIC tic(DEFTIC); FLUSH
+# define TICC tic(DEFTIC * 4); FLUSH
 # define TTPB if (t & TP_B)
 # define TTPI if (t & TP_I)
 # define TTPH if (t & TP_H)
@@ -119,12 +122,12 @@ net	*init_net(void);
 
 // thoughts.c
 void	feed(bra *b, tid id, fin v);
-void	feed_nd(net *nd, fin v);
+void	feed_nd(net *nd);
 void	think(bra *b);
 void	op_spark(net *n, neu *ne);
 void	op_bias(net *n, neu *ne);
-void	re_sum_clip(net *n, fin v);
-void	re_sigmoid(net *n, fin v);
+void	re_sum_clip(net *n);
+void	re_sigmoid(net *n);
 
 // helper.c
 tid	count_neu(neu *l);

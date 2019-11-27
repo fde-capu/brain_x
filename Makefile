@@ -33,7 +33,7 @@ all:	$(HEADER) $(NAME)
 	$(NAME)
 
 $(NAME):	$(HEADER) $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJS) -o $(NAME) -lm
 
 clean:
 	rm -f $(OBJS)

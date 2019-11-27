@@ -25,7 +25,8 @@ void	feed(bra *b, tid id, fin v)
 		{
 			if (p->id == id)
 			{
-				feed_nd(p, v);
+				p->iz += v;
+				feed_nd(p);
 				return ;
 			}
 			p = p->nx;
@@ -34,12 +35,14 @@ void	feed(bra *b, tid id, fin v)
 	return ;
 }
 
-void	feed_nd(net *nd, fin v)
+void	feed_nd(net *nd)
 {
 	neu	*ne;
 
+	if (!nd->iz)	return ;
 	ne = neuron_by_id(nd->id);
-	ne->re(nd, v);
+	ne->re(nd);
+	nd->iz = 0;
 	return ;
 }
 
@@ -48,6 +51,7 @@ void	think(bra *b)
 	net	*n;
 	neu	*ne;
 	int	i;
+
 	i = -1;
 	while (++i <= 4)
 	{
@@ -57,35 +61,42 @@ void	think(bra *b)
 			ne = neuron_by_id(n->id);
 			ne->op(n, ne);
 			if (ne->tp & TP_B)
-			{
 				n->bz=rnd01();
-			}
+			n = n->nx;
+		}
+	}
+	i = -1;
+	while (++i <= 4)
+	{
+		n = i_to_b_niche(i, b);
+		while (n)
+		{
+			feed_nd(n);
 			n = n->nx;
 		}
 	}
 	return ;
 }
 
-void	re_sum_clip(net *n, fin v)
+void	re_sum_clip(net *n)
 {
-	n->bz += v;
+	n->bz += n->iz;
 	n->bz = n->bz > 1 ? 1 : n->bz;
 	return ;
 }
 
-void	re_sigmoid(net *n, fin v)
+void	re_sigmoid(net *n)
 {
-//	v = n->bz +	(pow(EULER, v) / ((pow(EULER, v) + 1)) - .5);
-	n->bz = v;
+	n->bz += (pow(EULER, n->iz) / ((pow(EULER, n->iz) + 1)) - .5);
 	return ;
 }
 
 void	op_spark(net *n, neu *ne)
-{ // is addressing corrent? does not seem. xxx
+{ 
 	neu	*na;
 	net *no;
 
-	if (n->bz >= ne->tr)
+	if (n->bz >= ne->tr) // threshold
 	{
 		na = neuron_by_id(n->pt->axon->id);
 		while (na)
@@ -93,8 +104,8 @@ void	op_spark(net *n, neu *ne)
 			if (na->in == n->id)
 			{
 				no = neuron_in_brain(n->pt, na->ou);
-				no->bz += 1 * na->tr;
-				n->bz = 0;
+				no->iz += 1 * na->tr;	// spark behavior
+				n->bz = 0;				// spark behavior
 			}
 			na = na->nx;
 		}
@@ -105,7 +116,6 @@ void	op_spark(net *n, neu *ne)
 void	op_bias(net *n, neu *ne)
 {
 	op_spark(n, ne);
-	n->bz = 0;
 	return ;
 }
 
