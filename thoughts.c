@@ -81,7 +81,7 @@ void	re_sigmoid(net *n, fin v)
 }
 
 void	op_spark(net *n, neu *ne)
-{
+{ // is addressing corrent? does not seem. xxx
 	neu	*na;
 	net *no;
 
@@ -98,34 +98,6 @@ void	op_spark(net *n, neu *ne)
 			}
 			na = na->nx;
 		}
-	}
-	return ;
-}
-
-void	op_sparkX(net *n, neu *ne)
-{
-	net	*na;
-	neu *ni;
-	net *nd;
-	bra	*b;
-
-	b = n->pt;
-	na = b->axon;
-	while (na)
-	{
-		ni = neuron_by_id(na->id);
-		if (ni->in == n->id)
-		{
-			nd = neuron_in_brain \
-				 (b, ni->ou);
-			if ((nd) && \
-				(n->bz >= ne->tr))
-			{
-				feed_nd(nd, 1 * ni->tr);
-				n->bz = 0;
-			}
-		}
-		na = na->nx;
 	}
 	return ;
 }

@@ -40,7 +40,7 @@ int	main(void)
 		DEFA 		\
 	);
 	i = 0;
-	while (++i < 2)
+	while (++i < 200)
 	{
 		nchoice = \
 			rndi(GENB + 1, GENB + GENI);
@@ -90,5 +90,8 @@ int	main(void)
 //  - sum_clip : no reduction, only sum until 1
 //  - sigmoid
 //  
-//
-// brain log trace
+//	Bias behaviors:
+//	- random / static
+//	- continuous / granular
+//  - ADSR
+//	- local / global

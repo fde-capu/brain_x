@@ -78,13 +78,13 @@
 # define TPN_O 'O'
 # define TPN_A 'A'
 
-# define DEFB 2
+# define DEFB 1
 # define DEFI 3
 # define DEFH 5
 # define DEFO 3
 # define DEFA 7
 
-# define GENB 2
+# define GENB 1
 # define GENI 3
 # define GENH 5
 # define GENO 3

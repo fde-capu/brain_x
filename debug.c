@@ -81,12 +81,12 @@ void	print_neu_list(neu *n)
 		print_neuron(n);
 		n = n->nx;
 	}
-	fflush(stdout);
 	return ;
 }
 
 void	print_brain(bra *b)
 {
+	printf("%c[2J%c[;H",(char) 27, (char) 27);
 	printf(BRA_TITLE, b);
 	net	*n;
 	n = b->bias;
@@ -132,7 +132,6 @@ void	print_net_list(net *n)
 		}
 		n = n->nx;
 	}
-	fflush(stdout);
 	return ;
 }
 
@@ -170,7 +169,6 @@ void	print_net_herd(net *n)
 		}
 		n = n->nx;
 	}
-	fflush(stdout);
 	return ;
 }
 
@@ -180,7 +178,6 @@ void	print_neuron(neu *neuron)
 		printf(GNM_A_STR, GNM_A_VAR);
 	else
 		printf(GNM_N_STR, GNM_N_VAR);
-	fflush(stdout);
 	return ;
 }
 
