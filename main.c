@@ -53,7 +53,7 @@ int	main(void)
 			x = rnd01() * 1;
 			feed(b, nchoice, x);
 		}
-		tic(TIC_SEC);
+
 		think(b);
 		print_brain(b);
 		tic(TIC_SEC);
@@ -77,7 +77,7 @@ int	main(void)
 //				accumulate value	|| wastes	|| noise	|| treat tr as
 //
 //		opt(C) divide bus for each out || same bus for each out
-//		opt		bol clip;
+//		opt		clip* || acc+1 || op?
 //
 //	- axon = threshold multiply
 //

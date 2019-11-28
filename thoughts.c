@@ -26,7 +26,6 @@ void	feed(bra *b, tid id, fin v)
 			if (p->id == id)
 			{
 				p->iz += v;
-//				feed_nd(p);
 				return ;
 			}
 			p = p->nx;
@@ -60,8 +59,6 @@ void	think(bra *b)
 		{
 			ne = neuron_by_id(n->id);
 			ne->op(n, ne);
-			if (ne->tp & TP_B)
-				n->bz=rnd01();
 			n = n->nx;
 		}
 	}
@@ -87,8 +84,8 @@ void	re_sum_clip(net *n)
 
 void	re_sigmoid(net *n) // ("ALL_RE")
 {
-	//presumes accu:
 	n->bz += (pow(EULER, n->iz) / ((pow(EULER, n->iz) + 1)) - .5);
+	if (n->bz > 1) n->bz = 1;
 	return ;
 }
 
@@ -122,6 +119,7 @@ void	op_spark(net *n, neu *ne)
 void	op_bias(net *n, neu *ne)
 {
 	op_spark(n, ne);
+	n->bz = rnd01();
 	return ;
 }
 

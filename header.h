@@ -66,7 +66,7 @@
 # define NET_H_VAR 	n->id,n->id,   ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
-# define TIC_SEC .09
+# define TIC_SEC .05
 
 # define TP_B 1
 # define TP_I 2
@@ -84,13 +84,13 @@
 # define DEFI 3
 # define DEFH 5
 # define DEFO 3
-# define DEFA 3
+# define DEFA 7
 
 # define GENB 1
 # define GENI 3
 # define GENH 5
 # define GENO 3
-# define GENA 3
+# define GENA 7
 
 # define DEF_SIG sigmoid
 # define ALL_RE &re_sigmoid
