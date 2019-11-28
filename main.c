@@ -40,12 +40,19 @@ int	main(void)
 		DEFA 		\
 	);
 	i = 0;
+	int	j = GENB;
+	double	x;
 	while (++i < 500)
 	{
 		nchoice = \
 			rndi(GENB + 1, GENB + GENI);
-		feed(b, nchoice, rnd01() * 1);
-		print_brain(b);
+		j = GENB;
+		while (++j <= GENB + GENI)
+		{
+			nchoice = j;
+			x = rnd01() * 1;
+			feed(b, nchoice, x);
+		}
 		tic(TIC_SEC);
 		think(b);
 		print_brain(b);
@@ -70,6 +77,7 @@ int	main(void)
 //				accumulate value	|| wastes	|| noise	|| treat tr as
 //
 //		opt(C) divide bus for each out || same bus for each out
+//		opt		bol clip;
 //
 //	- axon = threshold multiply
 //

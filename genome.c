@@ -57,7 +57,7 @@ neu		*gen_neuron(typ t, int n)
 		neuron->tr = t & TP_B ? \
 				0 : rnd01();
 		neuron->op = t & TP_B ? \
-				&op_spark : &op_spark;
+				&op_bias : &op_spark;
 		neuron->re = ALL_RE;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;

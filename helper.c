@@ -49,6 +49,30 @@ neu	*neuron_by_id(tid id)
 	FAIL_SSI(NEU_ID_NOT_FOUND, "id", id)
 }
 
+neu	*g_axon_by_id(tid id)
+{
+	neu	*n;
+
+	n = (neu *)g_gnm->axon;
+	while (n)
+	{
+		if (n->id == id)
+			return (n);
+		n = n->nx;
+	}
+	return (0);
+}
+
+tid	axon_ou(tid id)
+{
+	return (g_axon_by_id(id)->ou);
+}
+
+tid	axon_in(tid id)
+{
+	return (g_axon_by_id(id)->in);
+}
+
 int	find_id(tid id, net *n)
 {
 	while (n)
@@ -64,6 +88,7 @@ net	*neuron_in_brain(bra *b, tid id)
 {
 	net	*n;
 	int	i;
+
 	i = -1;
 	while (++i <= 4)
 	{

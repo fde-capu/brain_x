@@ -40,9 +40,8 @@
 
 # define NL printf("\n");
 # define FLUSH fflush(stdout);
-# define DEFTIC 0.25
-# define TIC tic(DEFTIC); FLUSH
-# define TICC tic(DEFTIC * 4); FLUSH
+# define TIC tic(TIC_SEC); FLUSH
+# define TICC tic(TIC_SEC * 4); FLUSH
 # define TTPB if (t & TP_B)
 # define TTPI if (t & TP_I)
 # define TTPH if (t & TP_H)
@@ -67,7 +66,7 @@
 # define NET_H_VAR 	n->id,n->id,   ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
-# define TIC_SEC 0.0618
+# define TIC_SEC .09
 
 # define TP_B 1
 # define TP_I 2
@@ -85,13 +84,13 @@
 # define DEFI 3
 # define DEFH 5
 # define DEFO 3
-# define DEFA 7
+# define DEFA 3
 
 # define GENB 1
 # define GENI 3
 # define GENH 5
 # define GENO 3
-# define GENA 7
+# define GENA 3
 
 # define DEF_SIG sigmoid
 # define ALL_RE &re_sigmoid
@@ -128,10 +127,14 @@ void	op_spark(net *n, neu *ne);
 void	op_bias(net *n, neu *ne);
 void	re_sum_clip(net *n);
 void	re_sigmoid(net *n);
+void	fire(bra *b, fin f, tid id);
 
 // helper.c
 tid	count_neu(neu *l);
 neu	*neuron_by_id(tid id);
+neu	*g_axon_by_id(tid id);
+tid	axon_ou(tid id);
+tid	axon_in(tid id);
 net	*neuron_in_brain(bra *b, tid nid);
 int	find_id(tid id, net *n);
 net	*i_to_b_niche(int i, bra *b);

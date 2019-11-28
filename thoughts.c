@@ -26,7 +26,7 @@ void	feed(bra *b, tid id, fin v)
 			if (p->id == id)
 			{
 				p->iz += v;
-				feed_nd(p);
+//				feed_nd(p);
 				return ;
 			}
 			p = p->nx;
@@ -53,7 +53,7 @@ void	think(bra *b)
 	int	i;
 
 	i = -1;
-	while (++i <= 4)
+	while (++i <= 3)
 	{
 		n = i_to_b_niche(i, b);
 		while (n)
@@ -66,7 +66,7 @@ void	think(bra *b)
 		}
 	}
 	i = -1;
-	while (++i <= 4)
+	while (++i <= 3)
 	{
 		n = i_to_b_niche(i, b);
 		while (n)
@@ -85,30 +85,36 @@ void	re_sum_clip(net *n)
 	return ;
 }
 
-void	re_sigmoid(net *n)
+void	re_sigmoid(net *n) // ("ALL_RE")
 {
+	//presumes accu:
 	n->bz += (pow(EULER, n->iz) / ((pow(EULER, n->iz) + 1)) - .5);
 	return ;
 }
 
 void	op_spark(net *n, neu *ne)
-{ 
-	neu	*na;
-	net *no;
+{
+	net		*na;
+	char	sparked;
 
-	if (n->bz >= ne->tr) // threshold
+	sparked = 0;
+	if (n->bz >= ne->tr)
 	{
-		na = neuron_by_id(n->pt->axon->id);
+		printf("*%ld* ", n->id);
+		na = n->pt->axon;
 		while (na)
 		{
-			if (na->in == n->id)
+			if (axon_in(na->id) == n->id)
 			{
-				no = neuron_in_brain(n->pt, na->ou);
-				no->iz += 1 * na->tr;	// spark behavior
-				n->bz = 0;				// spark behavior
+				fire(n->pt, 1, na->id);
+				sparked = 1;
 			}
 			na = na->nx;
 		}
+	}
+	if (sparked)
+	{
+		n->bz = 0;
 	}
 	return ;
 }
@@ -119,3 +125,12 @@ void	op_bias(net *n, neu *ne)
 	return ;
 }
 
+void	fire(bra *b, fin f, tid id)
+{
+	neu	*na;
+
+	na = g_axon_by_id(id);
+	f *= na->tr;
+	neuron_in_brain(b, na->ou)->iz += f;
+	return ;
+}

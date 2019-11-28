@@ -15,7 +15,7 @@
 void	init_rnd()
 {
 	srand(time(0));
-//	srand(1);//
+//	srand(3);//
 }
 
 double	rnd01(void)
@@ -79,7 +79,7 @@ void	tic(fin ms)
 	return ;
 }
 
-void	color(int c){
+void	color(int c){ // whats this here?
 	printf("\e[38;5;%dm", c);
 	return ;
 }
