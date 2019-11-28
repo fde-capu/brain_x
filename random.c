@@ -72,7 +72,7 @@ int	brnd(double chance)
 	return (0);
 }
 
-void	tic(fin ms)
+void	tic(fin ms)	// why is this here?
 {
 	fflush(stdout);
 	usleep(ms * 1000000);

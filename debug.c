@@ -16,44 +16,44 @@ void	imsg(char *str, int v)
 {
 	printf(GENERAL_ERROR_DETAIL\
 		": %s %d.\n", str, v);
-	fflush(stdout);
+	TICC
 }
 
 void	error_msg(char *str)
 {
 	printf(GENERAL_ERROR\
 		": %s.\n", str);
-	fflush(stdout);
+	TICC
 }
 
 void	msgs(char *str)
 {
 	printf("%s\n", str);
-	fflush(stdout);
+	TICC
 }
 
 void	msgi(int inty)
 {
 	printf("%d\n", inty);
-	fflush(stdout);
+	TICC
 }
 
 void	logi(char *c, int n)
 {
 	printf("%s: %d\n",c,n);
-	fflush(stdout);
+	TICC
 }
 
 void	logx(char *c, int n)
 {
 	printf("%s: %x\n",c,n);
-	fflush(stdout);
+	TICC
 }
 
 void	logp(char *c, void *n)
 {
 	printf("%s: %p\n",c,n);
-	fflush(stdout);
+	TICC
 }
 
 void	print_genome(void)
@@ -70,7 +70,6 @@ void	print_genome(void)
 	print_neu_list(n);
 	n = g_gnm->axon;
 	print_neu_list(n);
-	fflush(stdout);
 	return ;
 }
 
@@ -86,8 +85,7 @@ void	print_neu_list(neu *n)
 
 void	print_brain(bra *b)
 {
-	printf("%c[2J%c[;H",(char) 27, (char) 27);
-	print_genome();
+	//CLS
 	printf(BRA_TITLE, b);
 	net	*n;
 	n = b->bias;
@@ -100,7 +98,6 @@ void	print_brain(bra *b)
 	print_net_list(n);
 	n = b->axon;
 	print_net_herd(n);
-	fflush(stdout);
 	return ;
 }
 

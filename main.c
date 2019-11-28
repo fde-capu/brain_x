@@ -12,17 +12,23 @@
 
 #include "header.h"
 
-
+int	init_env(void)
+{
+	color(COLOR_FORE);
+	init_rnd();
+	return (0);
+}
 
 int	main(void)
 {
-	color(COLOR_FORE);
+
 	bra	*b;
-	int	i;
-	tid	nchoice;
-	init_rnd();
-	g_id = 0;
-	g_iv = 0;
+
+	init_env();
+
+	g_id = 0; // from file
+	g_iv = 0; //
+
 	init_genome(	\
 		GENB,		\
 		GENI,		\
@@ -39,21 +45,9 @@ int	main(void)
 		DEFO,		\
 		DEFA 		\
 	);
-	i = 0;
-	int	j = GENB;
-	double	x;
-	while (++i < 500)
-	{
-		nchoice = \
-			rndi(GENB + 1, GENB + GENI);
-		j = GENB;
-		while (++j <= GENB + GENI)
-		{
-			nchoice = j;
-			x = rnd01() * 1;
-			feed(b, nchoice, x);
-		}
 
+	while (1) // until exec break
+	{
 		think(b);
 		print_brain(b);
 		tic(TIC_SEC);

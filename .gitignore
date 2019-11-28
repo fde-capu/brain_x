@@ -10,3 +10,5 @@
 !brain.c
 !genome.c
 !helper.c
+!defs.h
+!helperdefs.h

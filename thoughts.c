@@ -132,7 +132,7 @@ void	op_out(net *n)
 {
 	if (n->bz >= neuron_by_id(n->id)->tr)
 	{
-		FAIL_SSI("Hi", "decision is", n->id);
+	//	FAIL_SSI("Hi", "decision is", n->id);
 	}
 	return ;
 }

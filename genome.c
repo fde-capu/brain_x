@@ -17,15 +17,10 @@ void	init_genome(tid b, tid i, \
 {
 	g_gnm = malloc(sizeof(gnm));
 	g_gnm->bias = gen_neuron(TP_B, b);
-	msgs("gb");
 	g_gnm->inpu = gen_neuron(TP_I, i);
-	msgs("gi");
 	g_gnm->hidd = gen_neuron(TP_H, h);
-	msgs("gh");
 	g_gnm->outp = gen_neuron(TP_O, o);
-	msgs("go");
 	g_gnm->axon = gen_neuron(TP_A, a);
-	msgs("ga");
 	return ;
 }
 
@@ -54,13 +49,10 @@ neu		*gen_neuron(typ t, int n)
 			neuron->in = 0;
 			neuron->ou = 0;
 		}
-		neuron->tr = \
-			t & TP_B ?	0		: \
-						rnd01()	;
-		neuron->op = \
-			t & TP_B ?	&op_bias	: \
-			t & TP_O ?	&op_out		: \
-						&op_spark	;
+		neuron->tr = rnd01();
+		neuron->op = t & TP_B ?	&op_bias : \
+					 t & TP_O ?	&op_out  : \
+								&op_spark;
 		neuron->re = ALL_RE;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;

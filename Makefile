@@ -27,7 +27,10 @@ SRCS =	main.c		\
 
 OBJS = $(SRCS:.c=.o)
 
-HEADER = header.h
+HEADER =	header.h	 \
+			typedefs.h	 \
+			helperdefs.h \
+			defs.h
 
 all:	$(HEADER) $(NAME)
 	$(NAME)
