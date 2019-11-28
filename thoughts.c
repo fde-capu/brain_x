@@ -48,7 +48,6 @@ void	feed_nd(net *nd)
 void	think(bra *b)
 {
 	net	*n;
-	neu	*ne;
 	int	i;
 
 	i = -1;
@@ -57,8 +56,7 @@ void	think(bra *b)
 		n = i_to_b_niche(i, b);
 		while (n)
 		{
-			ne = neuron_by_id(n->id);
-			ne->op(n, ne);
+			operate(n);
 			n = n->nx;
 		}
 	}
@@ -72,6 +70,12 @@ void	think(bra *b)
 			n = n->nx;
 		}
 	}
+	return ;
+}
+
+void	operate(net *n)
+{
+	neuron_by_id(n->id)->op(n);
 	return ;
 }
 
@@ -89,15 +93,16 @@ void	re_sigmoid(net *n) // ("ALL_RE")
 	return ;
 }
 
-void	op_spark(net *n, neu *ne)
+void	op_spark(net *n)
 {
 	net		*na;
 	char	sparked;
-
+	neu		*ne;
+	
+	ne = neuron_by_id(n->id);
 	sparked = 0;
 	if (n->bz >= ne->tr)
 	{
-		printf("*%ld* ", n->id);
 		na = n->pt->axon;
 		while (na)
 		{
@@ -116,10 +121,19 @@ void	op_spark(net *n, neu *ne)
 	return ;
 }
 
-void	op_bias(net *n, neu *ne)
+void	op_bias(net *n)
 {
-	op_spark(n, ne);
+	op_spark(n);
 	n->bz = rnd01();
+	return ;
+}
+
+void	op_out(net *n)
+{
+	if (n->bz >= neuron_by_id(n->id)->tr)
+	{
+		FAIL_SSI("Hi", "decision is", n->id);
+	}
 	return ;
 }
 

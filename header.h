@@ -84,13 +84,13 @@
 # define DEFI 3
 # define DEFH 5
 # define DEFO 3
-# define DEFA 7
+# define DEFA 15
 
 # define GENB 1
 # define GENI 3
 # define GENH 5
 # define GENO 3
-# define GENA 7
+# define GENA 15
 
 # define DEF_SIG sigmoid
 # define ALL_RE &re_sigmoid
@@ -123,8 +123,10 @@ net	*init_net(void);
 void	feed(bra *b, tid id, fin v);
 void	feed_nd(net *nd);
 void	think(bra *b);
-void	op_spark(net *n, neu *ne);
-void	op_bias(net *n, neu *ne);
+void	operate(net *n);
+void	op_spark(net *n);
+void	op_bias(net *n);
+void	op_out(net *n);
 void	re_sum_clip(net *n);
 void	re_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);

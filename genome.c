@@ -54,10 +54,13 @@ neu		*gen_neuron(typ t, int n)
 			neuron->in = 0;
 			neuron->ou = 0;
 		}
-		neuron->tr = t & TP_B ? \
-				0 : rnd01();
-		neuron->op = t & TP_B ? \
-				&op_bias : &op_spark;
+		neuron->tr = \
+			t & TP_B ?	0		: \
+						rnd01()	;
+		neuron->op = \
+			t & TP_B ?	&op_bias	: \
+			t & TP_O ?	&op_out		: \
+						&op_spark	;
 		neuron->re = ALL_RE;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
