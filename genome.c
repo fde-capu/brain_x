@@ -50,7 +50,7 @@ neu		*gen_neuron(typ t, int n)
 			neuron->ou = 0;
 		}
 		neuron->tr = rnd01();
-		neuron->op = t & TP_B ?	&op_bias : \
+		neuron->op = t & TP_B ?	&op_bias_rnd : \
 					 t & TP_O ?	&op_out  : \
 								&op_spark;
 		neuron->re = ALL_RE;

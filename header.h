@@ -58,7 +58,7 @@ void	feed_nd(net *nd);
 void	think(bra *b);
 void	operate(net *n);
 void	op_spark(net *n);
-void	op_bias(net *n);
+void	op_bias_rnd(net *n);
 void	op_out(net *n);
 void	re_sum_clip(net *n);
 void	re_sigmoid(net *n);
