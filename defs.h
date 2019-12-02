@@ -1,7 +1,40 @@
-# define COLOR_FORE 104
-# define STRESS 5
-# define STRESS_BRAIN 256
+/* ******************************************* */
+/*                                             */
+/*                     ||::::::||:::|||::||:|| */
+/* defs.h              ::|::::|::||||:|||:|::: */
+/*                     |:||:|:|::|:|:||||||::: */
+/*     ||:|:: <||:|::>                         */
+/*                                             */
+/* C20191202165722 ||:|::                      */
+/* U20191202165724 |:||||                      */
+/*                                             */
+/* ******************************************* */
 
+/*
+** Default functions:
+*/
+# define DEF_RE			re_sigmoid
+# define DEF_OP_BIAS	op_bias_rnd
+# define DEF_OP_OUT		op_out
+# define DEF_OP			op_spark
+
+/*
+** Default initial creation values:
+*/
+# define DEFB 1
+# define DEFI 3
+# define DEFH 5
+# define DEFO 3
+# define DEFA 15
+# define GENB 1
+# define GENI 3
+# define GENH 5
+# define GENO 3
+# define GENA 15
+
+/*
+** Printing definitions:
+*/
 # define GNM_TITLE "\n::: GENOME ::: :%p: :::\n"
 # define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%p|%-p} %p>%p\n"
 # define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->id,\
@@ -20,18 +53,12 @@
 # define NET_H_VAR 	n->id,n->id,   ni->in,ni->tr,ni->ou,ni->re,ni->op,n,n->nx
 # define CLIPCHAR '+'
 
+/*
+** System macros:
+*/
+# define COLOR_FORE 69
+# define STRESS 5
+# define STRESS_BRAIN 256
 # define TIC_SEC .25
-
-# define DEFB 1
-# define DEFI 3
-# define DEFH 5
-# define DEFO 3
-# define DEFA 15
-
-# define GENB 1
-# define GENI 3
-# define GENH 5
-# define GENO 3
-# define GENA 15
-
-# define ALL_RE &re_sigmoid
+# define CLEAR_SCREEN 1
+# define PRINT_ADDRESS 0
