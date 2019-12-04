@@ -1,19 +1,6 @@
-/* *********************************************** */
-/*                                                 */
-/*                         ||:|:|:||:|::|:|:::|:|| */
-/* header.h                |:||::|::||:||||::|||:: */
-/*                         :||::::|::::::||||||:|: */
-/*     |:|::| <|:|::|>                             */
-/*                                                 */
-/* C20191202162622 |:|::|                          */
-/* U20191202162626 :|:|:|                          */
-/*                                                 */
-/* *********************************************** */
-
 #ifndef HEADER_H
 # define HEADER_H
 
-# define VERSION		"0.0.1"
 # define TYPE_OF_ID		unsigned long
 # define TYPE_OF_TYPE	char
 # define TYPE_OF_FINE	double
@@ -23,7 +10,7 @@
 # define STRESS_ERROR			"Stress"
 # define GENERAL_ERROR			"Error"
 # define GENERAL_ERROR_DETAIL	"Detail"
-# define BRAIN_ERROR_MSG		"brain creation, (not enough genome?) stress "
+# define BRAIN_ERROR_MSG		"brain creation, (not enough static genome?) stress "
 # define NEU_ID_NOT_FOUND		"(internal) neuron not found in genome (version problem?) "
 
 # define TP_B	1
@@ -31,17 +18,15 @@
 # define TP_H	4
 # define TP_O	8
 # define TP_A	16
-# define TPN_B	'B'
-# define TPN_I	'I'
-# define TPN_H	'H'
-# define TPN_O	'O'
-# define TPN_A	'A'
 
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <time.h>
 # include <math.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 # include "defs.h"
 # include "helperdefs.h"
@@ -58,11 +43,11 @@ neu		*init_neu(void);
 neu		*rnd_from_genome(typ t);
 
 // brain.c
-bra	*init_brain(\
+bra		*init_brain(\
 		tid b, tid i, \
 		tid h, tid o, tid a);
-net	*rnd_neu (typ t, int q, bra *b);
-net	*init_net(void);
+net		*rnd_neu (typ t, int q, bra *b);
+net		*init_net(void);
 
 // thoughts.c
 void	feed(bra *b, tid id, fin v);
@@ -110,7 +95,7 @@ void	init_rnd(void);
 double	rnd01(void);
 double	rnd(double max);
 int		irnd(double max);
-int	rndi(double min, double max);
+int		rndi(double min, double max);
 int		izrnd(double max);
 int		brnd(double chance);
 void	tic(fin ms);

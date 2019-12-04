@@ -1,0 +1,36 @@
+////
+//// genome filename:
+//// [new] used to follow parameters.
+////
+
+genome [new] filename
+
+
+////
+//// auto option
+//// if set, will overide parameters with
+//// default initials.
+////
+
+// gnm auto
+
+
+////
+//// genome parameters:
+////
+
+gnm_bias n
+gnm_input n
+gnm_hidden n
+gnm_output
+	name
+	operation // default: op_out
+	? [initial threshold]
+	? [mandatory]
+gnm_axon n
+
+########################
+## save file .gnm
+## version
+## sizeof(GNM)
+## binary(?) g_genome

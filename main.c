@@ -1,14 +1,14 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                                            */
-/*   main.c                                                                   */
-/*                                                  ||||||:||||::|||:|:|||:   */
-/*   By: |||||| <::::::>                            ::||:||:|::||::|:||::::   */
-/*                                                  |:|:|:::|::|::::::|||||   */
-/*   Created: 2019/11/07 00:42:43 by ||||||                                   */
-/*   Updated: 2019/11/26 15:40:20 by ||||||                                   */
-/*                                                                            */
-/* ************************************************************************** */
+/* ******************************************* */
+/*                                             */
+/*                     ||:|:|:||:|::|:|:::|:|| */
+/* main.c              |||::|::|:||::||:|::||| */
+/*                     :||::::|::::::||||||:|: */
+/*     :|:||| <:|:|||>                         */
+/*                                             */
+/* C20191203164737 :|:|||                      */
+/* U20191204103812 ||::::                      */
+/*                                             */
+/* ******************************************* */
 
 #include "header.h"
 
@@ -19,16 +19,14 @@ int	init_env(void)
 	return (0);
 }
 
-int	main(void)
+int main(void)
 {
 
 	bra	*b;
 
 	init_env();
-
 	g_id = 0; // from file
 	g_iv = 0; //
-
 	init_genome(	\
 		GENB,		\
 		GENI,		\
@@ -37,7 +35,6 @@ int	main(void)
 		GENA		\
 	);
 	print_genome();
-
 	b =	init_brain(	\
 		DEFB,		\
 		DEFI,		\
@@ -45,14 +42,12 @@ int	main(void)
 		DEFO,		\
 		DEFA 		\
 	);
-
 	while (1) // until exec break
 	{
 		think(b);
 		print_brain(b);
 		tic(TIC_SEC);
 	}
-
 	return (0);
 }
 
@@ -97,3 +92,6 @@ int	main(void)
 //	- continuous / granular
 //  - ADSR
 //	- local / global / selective
+//
+//  Autoresponse:
+//	- For every action, a feedback input in self
