@@ -6,7 +6,7 @@
 /*     ::|||: <::|||:>                         */
 /*                                             */
 /* C20191202164814 ::|||:                      */
-/* U20191206154831 :|:||:                      */
+/* U20191206190353                             */
 /*                                             */
 /* ******************************************* */
 
@@ -173,6 +173,7 @@ void	print_net_herd(net *n)
 	net		*na;
 	tid		found;
 	tid		i;
+	char	net_h[] = NET_H_STR;
 
 	while (n)
 	{
@@ -196,7 +197,7 @@ void	print_net_herd(net *n)
 			 i++;
 			}
 			if (!found)
-				printf(NET_H_STR, \
+				printf(format_p(net_h), \
 						NET_H_VAR);
 		}
 		n = n->nx;

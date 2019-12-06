@@ -6,7 +6,7 @@
 /*     ::||:: <::||::>                         */
 /*                                             */
 /* C20191206110155 ::||::                      */
-/* U20191206175018 ||||||                      */
+/* U20191206190439 :||:|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -24,13 +24,13 @@
 # define DEFB 1
 # define DEFI 3
 # define DEFH 7
-# define DEFO 3
-# define DEFA 30
+# define DEFO 5
+# define DEFA 20
 # define GENB 1
 # define GENI 6
 # define GENH 10
-# define GENO 3
-# define GENA 40
+# define GENO 10
+# define GENA 30
 
 /*
 ** Printing definitions:
