@@ -1,6 +1,7 @@
 ////
 //// genome filename:
 //// [new] used to follow parameters.
+//// without [new] includes genome.
 ////
 
 genome [new] filename

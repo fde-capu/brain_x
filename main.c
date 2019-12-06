@@ -1,12 +1,12 @@
 /* ******************************************* */
 /*                                             */
 /*                     ||:|:|:||:|::|:|:::|:|| */
-/* main.c              |||::|::|:||::||:|::||| */
+/* main.c              ::|::::|::||||:|||:|::: */
 /*                     :||::::|::::::||||||:|: */
 /*     :|:||| <:|:|||>                         */
 /*                                             */
 /* C20191203164737 :|:|||                      */
-/* U20191204103812 ||::::                      */
+/* U20191206094124 |::|::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -23,6 +23,7 @@ int main(void)
 {
 
 	bra	*b;
+	bra	*b2;
 
 	init_env();
 	g_id = 0; // from file
@@ -35,7 +36,14 @@ int main(void)
 		GENA		\
 	);
 	print_genome();
-	b =	init_brain(	\
+	b = init_brain(	\
+		DEFB,		\
+		DEFI,		\
+		DEFH,		\
+		DEFO,		\
+		DEFA 		\
+	);
+	b2 = init_brain(	\
 		DEFB,		\
 		DEFI,		\
 		DEFH,		\
@@ -45,7 +53,10 @@ int main(void)
 	while (1) // until exec break
 	{
 		think(b);
+		think(b2);
+		if (CLEAR_SCREEN) CLS
 		print_brain(b);
+		print_brain(b2);
 		tic(TIC_SEC);
 	}
 	return (0);
@@ -95,3 +106,7 @@ int main(void)
 //
 //  Autoresponse:
 //	- For every action, a feedback input in self
+//
+//  Observation inputs
+//
+//
