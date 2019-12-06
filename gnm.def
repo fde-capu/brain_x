@@ -42,3 +42,18 @@ gnm_axon n
 
 output name
 output code
+
+
+
+////
+out:
+	announce
+	refuse
+	ask
+	force
+
+////
+out:
+	joy (+ in: self-joy)
+	pain (+ in: self-pain)
+	may have variable threshold in brains

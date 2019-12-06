@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191206154130 |:|||:                      */
+/* U20191206175756 :::|:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -141,9 +141,12 @@ void	op_out(net *n)
 void	fire(bra *b, fin f, tid id)
 {
 	neu	*na;
+	net	*ne;
 
 	na = g_axon_by_id(id);
+	ne = neuron_in_brain(b, na->ou);
+	if (!ne) return ;
 	f *= na->tr;
-	neuron_in_brain(b, na->ou)->iz += f;
+	ne->iz += f;
 	return ;
 }

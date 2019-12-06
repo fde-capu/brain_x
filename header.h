@@ -62,17 +62,17 @@ void	re_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);
 
 // helper.c
-tid	count_neu(neu *l);
-neu	*neuron_by_id(tid id);
-neu	*g_axon_by_id(tid id);
-tid	axon_ou(tid id);
-tid	axon_in(tid id);
-net	*neuron_in_brain(bra *b, tid nid);
-int	find_id(tid id, net *n);
-net	*i_to_b_niche(int i, bra *b);
-neu	*i_to_g_niche(int i);
+tid		count_neu(neu *l);
+neu		*neuron_by_id(tid id);
+neu		*g_axon_by_id(tid id);
+tid		axon_ou(tid id);
+tid		axon_in(tid id);
+net		*neuron_in_brain(bra *b, tid nid);
+int		find_id(tid id, net *n);
+net		*i_to_b_niche(int i, bra *b);
+neu		*i_to_g_niche(int i);
 double	sigmoid(double v);
-net	*prepend_cp(net *ne, net *n);
+net		*prepend_cp(net *ne, net *n);
 
 // debug.c
 void	imsg(char *str, int v);

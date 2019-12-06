@@ -6,7 +6,7 @@
 /*     ::||:: <::||::>                         */
 /*                                             */
 /* C20191206110155 ::||::                      */
-/* U20191206153044 :||::|                      */
+/* U20191206175018 ||||||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -23,12 +23,12 @@
 */
 # define DEFB 1
 # define DEFI 3
-# define DEFH 5
+# define DEFH 7
 # define DEFO 3
-# define DEFA 15
+# define DEFA 30
 # define GENB 1
-# define GENI 3
-# define GENH 5
+# define GENI 6
+# define GENH 10
 # define GENO 3
 # define GENA 40
 
@@ -64,6 +64,6 @@
 # define COLOR_FORE 69
 # define STRESS 5
 # define STRESS_BRAIN 256
-# define TIC_SEC .25
-# define CLEAR_SCREEN 0
+# define TIC_SEC .025
+# define CLEAR_SCREEN 1
 # define PRINT_ADDRESS 0
