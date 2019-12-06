@@ -1,12 +1,12 @@
 /* ******************************************* */
 /*                                             */
 /*                     ||::::::||:::|||::||:|| */
-/* debug.c             ::|::::|::||||:|||:|::: */
+/* debug.c             :::||||:|||:|::|:||:|:| */
 /*                     |:||:|:|::|:|:||||||::: */
 /*     ::|||: <::|||:>                         */
 /*                                             */
 /* C20191202164814 ::|||:                      */
-/* U20191206104143 ||:::|                      */
+/* U20191206123649 ||:||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -100,22 +100,43 @@ void	print_brain(bra *b)
 	return ;
 }
 
+char	*format_p(char *str)
+{
+	char	*r;
+
+	if (!PRINT_ADDRESS)
+	{
+		r = str;
+		while (*r && *r != '{' && *r != '\n')
+			r++;
+
+		if (*r != '\n')
+		{
+			*r = '\n';
+			*(r + 1) = 0;
+		}
+	}
+	return (str);
+}
+
 void	print_net_list(net *n)
 {
-	neu	*ni;
-	net	*na;
+	neu		*ni;
+	net		*na;
+	char	str_a[] = NET_A_STR;
+	char	str_n[] = NET_N_STR;
 
 	while (n)
 	{
 		ni = neuron_by_id(n->id);
 		if (ni->tp & TP_A)
 		{
-			printf(NET_A_STR, NET_A_VAR);
+			printf(format_p(str_a),NET_A_VAR);
 			return ;
 		}
 		else
 		{
-		 printf(NET_N_STR, NET_N_VAR);
+		 printf(format_p(str_n), NET_N_VAR);
 		 na = n->pt->axon;
 		 while (na)
 		 {

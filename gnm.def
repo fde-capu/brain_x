@@ -35,3 +35,10 @@ gnm_axon n
 ## version
 ## sizeof(GNM)
 ## binary(?) g_genome
+
+////
+//// output sequence list
+////
+
+output name
+output code
