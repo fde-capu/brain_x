@@ -6,7 +6,7 @@
 /*     ::|||: <::|||:>                         */
 /*                                             */
 /* C20191202164814 ::|||:                      */
-/* U20191206123649 ||:||:                      */
+/* U20191206152636 ::::||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -97,6 +97,8 @@ void	print_brain(bra *b)
 	print_net_list(n);
 	n = b->axon;
 	print_net_herd(n);
+	n = b->resp;
+	print_resp(n);
 	return ;
 }
 
@@ -150,6 +152,18 @@ void	print_net_list(net *n)
 		}
 		n = n->nx;
 	}
+	return ;
+}
+
+void	print_resp(net *n)
+{
+	printf("R: \n");
+	while (n)
+	{
+		printf("%ld ", n->id);
+		n = n->nx;
+	}
+	NL;
 	return ;
 }
 

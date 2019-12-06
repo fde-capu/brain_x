@@ -72,6 +72,7 @@ int	find_id(tid id, net *n);
 net	*i_to_b_niche(int i, bra *b);
 neu	*i_to_g_niche(int i);
 double	sigmoid(double v);
+net	*prepend_cp(net *ne, net *n);
 
 // debug.c
 void	imsg(char *str, int v);
@@ -88,7 +89,9 @@ void	logi(char *c, int n);
 void	logx(char *c, int n);
 void	logp(char *c, void *n);
 void	print_net_herd(net *n);
+void	print_resp(net *n);
 char	*gauge_bar(fin v);
+char	*format_p(char *str);
 
 // random.c
 void	init_rnd(void);

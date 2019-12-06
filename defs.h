@@ -6,7 +6,7 @@
 /*     ::||:: <::||::>                         */
 /*                                             */
 /* C20191206110155 ::||::                      */
-/* U20191206123734 ::||||                      */
+/* U20191206153044 :||::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -65,5 +65,5 @@
 # define STRESS 5
 # define STRESS_BRAIN 256
 # define TIC_SEC .25
-# define CLEAR_SCREEN 1
+# define CLEAR_SCREEN 0
 # define PRINT_ADDRESS 0
