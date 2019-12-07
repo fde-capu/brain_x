@@ -1,106 +1,106 @@
 /* ******************************************* */
 /*                                             */
-/*                     ||::::::||:::|||::||:|| */
-/* debug.c             :::||||:|||:|::|:||:|:| */
-/*                     |:||:|:|::|:|:||||||::: */
-/*     ::|||: <::|||:>                         */
+/*                     :||::||:::||:||:|::|||: */
+/* debug.c             :|::|:|||:||||::::||||| */
+/*                     |:|:|:::|::::::|:|:||:: */
+/*     ||||:| <||||:|>                         */
 /*                                             */
-/* C20191202164814 ::|||:                      */
-/* U20191206190353                             */
+/* C20191207191227 ||||:|                      */
+/* U20191207195706 :|:|::                      */
 /*                                             */
 /* ******************************************* */
 
 #include "header.h"
 
-void	imsg(char *str, int v)
-{
-	printf(GENERAL_ERROR_DETAIL\
-		": %s %d.\n", str, v);
-	TICC
-}
-
-void	error_msg(char *str)
-{
-	printf(GENERAL_ERROR\
-		": %s.\n", str);
-	TICC
-}
-
-void	msgs(char *str)
-{
-	printf("%s\n", str);
-	TICC
-}
-
-void	msgi(int inty)
-{
-	printf("%d\n", inty);
-	TICC
-}
-
-void	logi(char *c, int n)
-{
-	printf("%s: %d\n",c,n);
-	TICC
-}
-
-void	logx(char *c, int n)
-{
-	printf("%s: %x\n",c,n);
-	TICC
-}
-
-void	logp(char *c, void *n)
-{
-	printf("%s: %p\n",c,n);
-	TICC
-}
-
-void	print_genome(void)
-{
-	printf(GNM_TITLE, g_gnm);
-	neu	*n;
-	n = g_gnm->bias;
-	print_neu_list(n);
-	n = g_gnm->inpu;
-	print_neu_list(n);
-	n = g_gnm->hidd;
-	print_neu_list(n);
-	n = g_gnm->outp;
-	print_neu_list(n);
-	n = g_gnm->axon;
-	print_neu_list(n);
-	return ;
-}
-
-void	print_neu_list(neu *n)
-{
-	while (n)
+	void	imsg(char *str, int v)
 	{
-		print_neuron(n);
-		n = n->nx;
+		printf(GENERAL_ERROR_DETAIL\
+			": %s %d.\n", str, v);
+		TICC
 	}
-	return ;
-}
 
-void	print_brain(bra *b)
-{
-	printf(BRA_TITLE, b);
-	net	*n;
-	n = b->bias;
-	print_net_list(n);
-	n = b->inpu;
-	print_net_list(n);
-	n = b->hidd;
-	print_net_list(n);
-	n = b->outp;
-	print_net_list(n);
-	n = b->axon;
-	print_net_herd(n);
-	n = b->resp;
-	print_resp(n);
-	return ;
-}
+	void	error_msg(char *str)
+	{
+		printf(GENERAL_ERROR\
+			": %s.\n", str);
+		TICC
+	}
+
+	void	msgs(char *str)
+	{
+		printf("%s\n", str);
+		TICC
+	}
+
+	void	msgi(int inty)
+	{
+		printf("%d\n", inty);
+		TICC
+	}
+
+	void	logi(char *c, int n)
+	{
+		printf("%s: %d\n",c,n);
+		TICC
+	}
+
+	void	logx(char *c, int n)
+	{
+		printf("%s: %x\n",c,n);
+		TICC
+	}
+
+	void	logp(char *c, void *n)
+	{
+		printf("%s: %p\n",c,n);
+		TICC
+	}
+
+	void	print_genome(void)
+	{
+		printf(GNM_TITLE, g_gnm);
+		neu	*n;
+		n = g_gnm->bias;
+		print_neu_list(n);
+		n = g_gnm->inpu;
+		print_neu_list(n);
+		n = g_gnm->hidd;
+		print_neu_list(n);
+		n = g_gnm->outp;
+		print_neu_list(n);
+		n = g_gnm->axon;
+		print_neu_list(n);
+		return ;
+	}
+
+	void	print_neu_list(neu *n)
+	{
+		while (n)
+		{
+			print_neuron(n);
+			n = n->nx;
+		}
+		return ;
+	}
+
+	void	print_brain(bra *b)
+	{
+		printf(BRA_TITLE, b);
+		net	*n;
+		n = b->bias;
+		print_net_list(n);
+		n = b->inpu;
+		print_net_list(n);
+		n = b->hidd;
+		print_net_list(n);
+		n = b->outp;
+		print_net_list(n);
+		n = b->axon;
+		print_net_herd(n);
+		n = b->resp;
+		print_resp(n);
+		return ;
+	}
 
 char	*format_p(char *str)
 {
@@ -119,6 +119,17 @@ char	*format_p(char *str)
 		}
 	}
 	return (str);
+}
+
+int		is_dumb(net *na, neu *ni)
+{
+	char	dumb;
+
+	if ((na->id == ni->in) &&	\
+		())
+		return (0);
+	
+	return (1);
 }
 
 void	print_net_list(net *n)
@@ -142,8 +153,7 @@ void	print_net_list(net *n)
 		 na = n->pt->axon;
 		 while (na)
 		 {
-		  if (neuron_by_id(na->id)->in \
-		      == n->id) //&& ou is con
+		  if (!is_dumb(n, neuron_by_id(na->id)))
 		  {
 		   print_net_list(na);
 		  }
@@ -165,6 +175,11 @@ void	print_resp(net *n)
 	}
 	NL
 	return ;
+}
+
+void	print_herd(net *n)
+{
+	(void)n;
 }
 
 void	print_net_herd(net *n)
@@ -190,7 +205,7 @@ void	print_net_herd(net *n)
 						   n->pt->outp;
 			 while ((na) && (!found))
 			 {
-			  if (na->id == ni->in) // && ni->ou is con
+			  if (!is_dumb(na, ni)) // && ni->ou is con
 			  	found = 1;
 			  na = na->nx;
 			 }
