@@ -1,12 +1,12 @@
 /* ******************************************* */
 /*                                             */
 /*                     ||:|:|:||:|::|:|:::|:|| */
-/* main.c              :::||||:|||:|::|:||:|:| */
+/* main.c              ::||:|::::|:||::::::||| */
 /*                     :||::::|::::::||||||:|: */
 /*     :|:||| <:|:|||>                         */
 /*                                             */
 /* C20191203164737 :|:|||                      */
-/* U20191206094124 |::|::                      */
+/* U20191208035338 |::|:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -21,9 +21,11 @@ int	init_env(void)
 
 int main(void)
 {
-
+	bra	*br;
 	bra	*b;
-	bra	*b2;
+	bra *nb;
+	tid	i;
+	tid	brains = 2;
 
 	init_env();
 	g_id = 0; // from file
@@ -36,27 +38,31 @@ int main(void)
 		GENA		\
 	);
 	print_genome();
-	b = init_brain(	\
-		DEFB,		\
-		DEFI,		\
-		DEFH,		\
-		DEFO,		\
-		DEFA 		\
-	);
-	b2 = init_brain(	\
-		DEFB,		\
-		DEFI,		\
-		DEFH,		\
-		DEFO,		\
-		DEFA 		\
-	);
+	nb = 0;
+	i = 0;
+	while(++i <= brains)
+	{
+		br = init_brain(\
+			DEFB,		\
+			DEFI,		\
+			DEFH,		\
+			DEFO,		\
+			DEFA 		\
+		);
+		b = br;
+		b->nx = nb;
+		nb = b;
+	}
 	while (1) // until exec break
 	{
-		think(b);
-		think(b2);
 		if (CLEAR_SCREEN) CLS
-		print_brain(b);
-		print_brain(b2);
+		b = br;
+		while (b)
+		{
+			think(b);
+			print_brain(b);
+			b = b->nx;
+		}
 		tic(TIC_SEC);
 	}
 	return (0);

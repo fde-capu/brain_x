@@ -1,12 +1,12 @@
 /* ******************************************* */
 /*                                             */
 /*                     ::|::|:::|:|::||::|:||: */
-/* brain.c             ::||:|::::|||::||||:|:| */
+/* brain.c             ::||:|::::|:||::::::||| */
 /*                     :|||:||:||||||::::::|:: */
 /*     :||::| <:||::|>                         */
 /*                                             */
 /* C20191206150601 :||::|                      */
-/* U20191206150705 :|::::                      */
+/* U20191208034639 :||::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -19,12 +19,12 @@ bra	*init_brain(\
 	bra	*brain;
 
 	brain = malloc(sizeof(bra));
- brain->bias = rnd_neu(TP_B, b, brain);
- brain->inpu = rnd_neu(TP_I, i, brain);
- brain->hidd = rnd_neu(TP_H, h, brain);
- brain->outp = rnd_neu(TP_O, o, brain);
- brain->axon = rnd_neu(TP_A, a, brain);
- brain->resp = 0;
+	brain->bias = rnd_neu(TP_B, b, brain);
+	brain->inpu = rnd_neu(TP_I, i, brain);
+	brain->hidd = rnd_neu(TP_H, h, brain);
+	brain->outp = rnd_neu(TP_O, o, brain);
+	brain->axon = rnd_neu(TP_A, a, brain);
+	brain->resp = 0;
 	return (brain);
 }
 
