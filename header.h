@@ -92,6 +92,9 @@ void	print_net_herd(net *n);
 void	print_resp(net *n);
 char	*gauge_bar(fin v);
 char	*format_p(char *str);
+int		is_dumb(net *na);
+int		is_conn(net *na, net *ni);
+int		is_conn_netneu(net *na, neu *ni);
 
 // random.c
 void	init_rnd(void);

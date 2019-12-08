@@ -1,12 +1,12 @@
 /* ******************************************* */
 /*                                             */
 /*                     :||::||:::||:||:|::|||: */
-/* debug.c             :|::|:|||:||||::::||||| */
+/* debug.c             ::||:|::::|:||::::::||| */
 /*                     |:|:|:::|::::::|:|:||:: */
 /*     ||||:| <||||:|>                         */
 /*                                             */
 /* C20191207191227 ||||:|                      */
-/* U20191207195706 :|:|::                      */
+/* U20191208030328 :|||:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -95,8 +95,11 @@
 		print_net_list(n);
 		n = b->outp;
 		print_net_list(n);
-		n = b->axon;
-		print_net_herd(n);
+		if (PRINT_HERD)
+		{
+			n = b->axon;
+			print_net_herd(n);
+		}
 		n = b->resp;
 		print_resp(n);
 		return ;
@@ -121,15 +124,24 @@ char	*format_p(char *str)
 	return (str);
 }
 
-int		is_dumb(net *na, neu *ni)
+int		is_dumb(net *na)
 {
 	char	dumb;
+	(void)na;
+	dumb = 0;
+	return (dumb);
+}
 
-	if ((na->id == ni->in) &&	\
-		())
-		return (0);
-	
-	return (1);
+int		is_conn(net *n, net *ax)
+{
+	neu	*ne;
+
+	ne = neuron_by_id(ax->id);
+	if ((n->id == ne->in)	\
+	//||  (n->id == ne->ou)
+	)
+		return (1);
+	return (0);
 }
 
 void	print_net_list(net *n)
@@ -153,7 +165,7 @@ void	print_net_list(net *n)
 		 na = n->pt->axon;
 		 while (na)
 		 {
-		  if (!is_dumb(n, neuron_by_id(na->id)))
+		  if (is_conn(n, na))
 		  {
 		   print_net_list(na);
 		  }
@@ -205,7 +217,7 @@ void	print_net_herd(net *n)
 						   n->pt->outp;
 			 while ((na) && (!found))
 			 {
-			  if (!is_dumb(na, ni)) // && ni->ou is con
+			  if (is_conn(na, n))
 			  	found = 1;
 			  na = na->nx;
 			 }

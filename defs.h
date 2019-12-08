@@ -1,12 +1,12 @@
 /* ******************************************* */
 /*                                             */
 /*                     ::::||||||::::|:::||::: */
-/* defs.h              :::||||:|||:|::|:||:|:| */
+/* defs.h              ::||:|::::|:||::::::||| */
 /*                     |::|::|:|:||:|:|::::::| */
 /*     ::||:: <::||::>                         */
 /*                                             */
 /* C20191206110155 ::||::                      */
-/* U20191206190439 :||:|:                      */
+/* U20191208030153 :::|||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -21,15 +21,15 @@
 /*
 ** Default initial creation values:
 */
-# define DEFB 1
+# define DEFB 3
 # define DEFI 3
-# define DEFH 7
+# define DEFH 15
 # define DEFO 5
-# define DEFA 20
-# define GENB 1
+# define DEFA 25
+# define GENB 3
 # define GENI 6
-# define GENH 10
-# define GENO 10
+# define GENH 15
+# define GENO 7 
 # define GENA 30
 
 /*
@@ -67,3 +67,4 @@
 # define TIC_SEC .025
 # define CLEAR_SCREEN 1
 # define PRINT_ADDRESS 0
+# define PRINT_HERD 0
