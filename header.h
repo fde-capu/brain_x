@@ -33,7 +33,7 @@
 # include "typedefs.h"
 
 // main.c
-int		init_env(void);
+int		init_envt(void);
 int		main(void);
 
 // genome.c
