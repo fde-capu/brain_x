@@ -34,7 +34,8 @@
 
 // main.c
 int		init_envt(void);
-int		main(void);
+int		main(int argc, char **argv);
+int		main2(void);
 
 // genome.c
 void	init_genome(tid b, tid i, tid h, tid o, tid a);

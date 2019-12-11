@@ -1,12 +1,12 @@
 /* ******************************************* */
 /*                                             */
-/*                     ||:|:|:||:|::|:|:::|:|| */
-/* main.c              :||:::||:|:|:|||::|||:| */
-/*                     :||::::|::::::||||||:|: */
-/*     :|:||| <:|:|||>                         */
+/*                     |||:|||:|:||||::|||:::| */
+/* main.c              |:||:|::||::|:||::::|:| */
+/*                     :|:::|::|::::::||||||:| */
+/*     |:|||: <|:|||:>                         */
 /*                                             */
-/* C20191203164737 :|:|||                      */
-/* U20191211133026 ::|::|                      */
+/* C20191211154835 |:|||:                      */
+/* U20191211171118 ::|||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,12 +14,63 @@
 
 int	init_envt(void)
 {
+	char	def_gnm[] = DEF_GENOME;
+	char	*p;
+	char	*r;
+
+	g_gnm_file = malloc(sizeof(char) * 30);
+	p = g_gnm_file;
+	r = def_gnm;
+	while (*r != 0)
+	{
+		*p = *r;
+		r++;
+		p++;
+	}
+	*p = 0;
 	color(COLOR_FORE);
 	init_rnd();
 	return (0);
 }
 
-int main(void)
+int		strm(char *a, char *b)
+{
+	while (*a == *b)
+	{
+		a++;
+		b++;
+	}
+	if ((*a == 0) || (*b == 0)) return (1);
+	return (0);
+}
+
+void	option(char	*op)
+{
+	char	*p;
+
+	p = op;
+	while (*p != '=')
+		p++;
+	p++;
+	if (strm(op, "genome"))
+		g_gnm_file = p;
+	return ;
+}
+
+int main(int argc, char **argv)
+{
+	init_envt();
+	while (argc > 1)
+	{
+		option(argv[argc - 1]);
+		argc--;
+	}
+	printf("%s\n", g_gnm_file);
+	(void)argv;
+	return (0);
+}
+
+int main2(void)
 {
 	bra	*br;
 	bra	*b;
