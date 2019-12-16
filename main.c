@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191211171118 ::|||:                      */
+/* U20191216155512 :|::||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -18,7 +18,8 @@ int	init_envt(void)
 	char	*p;
 	char	*r;
 
-	g_gnm_file = malloc(sizeof(char) * 30);
+	g_gnm_file = malloc(sizeof(char) * \
+		FILE_NAME_LIMIT);
 	p = g_gnm_file;
 	r = def_gnm;
 	while (*r != 0)
@@ -30,17 +31,6 @@ int	init_envt(void)
 	*p = 0;
 	color(COLOR_FORE);
 	init_rnd();
-	return (0);
-}
-
-int		strm(char *a, char *b)
-{
-	while (*a == *b)
-	{
-		a++;
-		b++;
-	}
-	if ((*a == 0) || (*b == 0)) return (1);
 	return (0);
 }
 
@@ -60,13 +50,20 @@ void	option(char	*op)
 int main(int argc, char **argv)
 {
 	init_envt();
-	while (argc > 1)
-	{
-		option(argv[argc - 1]);
-		argc--;
-	}
-	printf("%s\n", g_gnm_file);
-	(void)argv;
+	//while (argc > 1)
+	//{
+	//	option(argv[argc - 1]);
+	//	argc--;
+	//}
+	//printf("%s\n", g_gnm_file);
+	//init_genome(	\
+	//	GENB,		\
+	//	GENI,		\
+	//	GENH,		\
+	//	GENO,		\
+	//	GENA		\
+	//);
+	//(void)argv;
 	return (0);
 }
 

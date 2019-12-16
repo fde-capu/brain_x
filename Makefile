@@ -1,29 +1,30 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                                              #
-#    Makefile                                                                  #
-#                                                   ||||||:||||::|||:|:|||:    #
-#    By: |||||| <::::::>                            ::||:||:|::||::|:||::::    #
-#                                                   |:|:|:::|::|::::::|||||    #
-#    Created: 2019/11/08 13:55:06 by ||||||                                    #
-#    Updated: 2019/11/26 15:06:55 by ||||||                                    #
-#                                                                              #
-# **************************************************************************** #
+# ********************************************* #
+#                                               #
+#                      |:||:||::||:|:|||:||||:  #
+#  Makefile            |::|||::|:|:|:::||:::|:  #
+#                      :|::::||||||::::::|:||:  #
+#      |:|:|: <|:|:|:>                          #
+#                                               #
+#  C20191216161355 |:|:|:                       #
+#  U20191216162723 ::::::                       #
+#                                               #
+# ********************************************* #
 
 NAME = ./x
 
-CC = gcc -g $(FLAGS)
+CC = gcc $(DEFBUG)
 
-FLAGS = -Wall -Werror -Wextra
-FLAG2 = -v
+HARD = -Wall -Werror -Wextra
+VERBOSE = -v
+DEBUG = -g
 
-SRCS =	main.c		\
-		random.c	\
-		debug.c		\
-		brain.c		\
-		genome.c	\
-		helper.c	\
-		thoughts.c
+SRCS =		main.c		 \
+			random.c	 \
+			debug.c		 \
+			brain.c		 \
+			genome.c	 \
+			helper.c	 \
+			thoughts.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -36,7 +37,7 @@ all:	$(HEADER) $(NAME)
 	$(NAME)
 
 $(NAME):	$(HEADER) $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME) -lm
+	$(CC) $(HARD) $(OBJS) -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
@@ -48,6 +49,9 @@ re:	fclean
 	make all
 
 v:	$(OBJS)
-	$(CC) $(FLAGS) $(FLAG2) \
+	$(CC) $(HARD) $(VERBOSE) \
 		$(OBJS) -o $(NAME)
 
+soft:	$(HEADER) $(OBJS)
+	$(CC) $(VERBOSE) $(OBJS) -o $(NAME)
+	$(NAME)
