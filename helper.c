@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191211173809 ||:||:                      */
+/* U20191216165832 :|:::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -148,7 +148,8 @@ neu	*i_to_g_niche(int i)
 
 double	sigmoid(double v)
 {
-	return ((pow(EULER, v) / ((pow(EULER, v) + 1))) - .5);
+	return ((pow(EULER, v) / 
+		((pow(EULER, v) + 1))) - .5);
 }
 
 net		*prepend_cp(net *ne, net *n)

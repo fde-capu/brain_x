@@ -6,7 +6,7 @@
 #      |:|:|: <|:|:|:>                          #
 #                                               #
 #  C20191216161355 |:|:|:                       #
-#  U20191216162723 ::::::                       #
+#  U20191216172127 ||:::|                       #
 #                                               #
 # ********************************************* #
 
@@ -17,6 +17,7 @@ CC = gcc $(DEFBUG)
 HARD = -Wall -Werror -Wextra
 VERBOSE = -v
 DEBUG = -g
+LIBFIXMATH = -lm
 
 SRCS =		main.c		 \
 			random.c	 \
@@ -37,7 +38,7 @@ all:	$(HEADER) $(NAME)
 	$(NAME)
 
 $(NAME):	$(HEADER) $(OBJS)
-	$(CC) $(HARD) $(OBJS) -o $(NAME)
+	$(CC) $(HARD) $(OBJS) -o $(NAME) $(LIBFIXMATH)
 
 clean:
 	rm -f $(OBJS)
@@ -53,5 +54,5 @@ v:	$(OBJS)
 		$(OBJS) -o $(NAME)
 
 soft:	$(HEADER) $(OBJS)
-	$(CC) $(VERBOSE) $(OBJS) -o $(NAME)
+	$(CC) $(VERBOSE) $(OBJS) -o $(NAME) $(LIBFIXMATH)
 	$(NAME)
