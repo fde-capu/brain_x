@@ -6,12 +6,11 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191218083816 :||::|                      */
+/* U20191218125118 |::::|                      */
 /*                                             */
 /* ******************************************* */
 
 #include "header.h"
-# define FNL FILE_NAME_LIMIT
 
 int		init_envt(void)
 {
@@ -19,6 +18,7 @@ int		init_envt(void)
 	char	*p;
 	char	*r;
 
+	init_rnd();
 	g_gnm_file = malloc(sizeof(char) * FNL);
 	p = g_gnm_file;
 	r = def_gnm;
@@ -30,7 +30,6 @@ int		init_envt(void)
 	}
 	*p = 0;
 	color(COLOR_FORE);
-	init_rnd();
 	return (0);
 }
 
@@ -55,9 +54,7 @@ int main(int argc, char **argv)
 		argc--;
 	}
 	printf("%s\n", g_gnm_file);
-	init_genome(						\
-		GENB,GENI,GENH,GENO,GENA		\
-	);
+	init_genome(GENB, GENI, GENH, GENO, GENA);
 	(void)argv;
 	return (0);
 }

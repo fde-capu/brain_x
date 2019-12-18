@@ -6,7 +6,7 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20191216154315 ::||::                      */
+/* U20191218145030 |::|||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -22,7 +22,7 @@
 /*
 ** Default files:
 */
-# define DEF_GENOME "genome_default.gnm"
+# define DEF_GENOME "genome_config_default.x"
 
 /*
 ** Default initial creation values:
@@ -32,7 +32,7 @@
 # define DEFH 2
 # define DEFO 1
 # define DEFA 8
-# define GENB 1
+# define GENB 2
 # define GENI 1
 # define GENH 2
 # define GENO 1 
@@ -75,3 +75,4 @@
 # define PRINT_ADDRESS 0
 # define PRINT_HERD 0
 # define FILE_NAME_LIMIT 30
+# define FNL FILE_NAME_LIMIT

@@ -6,19 +6,28 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191218090051 |:||||                      */
+/* U20191218144632 :|||||                      */
 /*                                             */
 /* ******************************************* */
 
 #include "header.h"
 
-void	write_bin(char *fn, void *dt)
+void	save_genome(char *fn, void *dt)
 {
 	int fd;
+	neu	*n;
 
-	(void)dt;
-	fd = open(fn, O_CREAT);
-	if (fd == -1) FAIL("write_bin error");
+	printf("fn %s\n", fn);
+	fd = open(fn, O_WRONLY | O_CREAT | O_TRUNC);
+	if (fd == -1) FAIL("save_genome error");
+
+	n = g_gnm->bias;
+	while (n)
+	{
+		write(fd, n, sizeof(neu));
+		n = n->nx;
+	}
+	close(fd);
 	return ;
 }
 

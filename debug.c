@@ -6,104 +6,104 @@
 /*     ||||:| <||||:|>                         */
 /*                                             */
 /* C20191207191227 ||||:|                      */
-/* U20191208030328 :|||:|                      */
+/* U20191218142924 |::|::                      */
 /*                                             */
 /* ******************************************* */
 
 #include "header.h"
 
-	void	imsg(char *str, int v)
-	{
-		printf(GENERAL_ERROR_DETAIL\
-			": %s %d.\n", str, v);
-		TICC
-	}
+void	imsg(char *str, int v)
+{
+	printf(GENERAL_ERROR_DETAIL\
+		": %s %d.\n", str, v);
+	TICC
+}
 
-	void	error_msg(char *str)
-	{
-		printf(GENERAL_ERROR\
-			": %s.\n", str);
-		TICC
-	}
+void	error_msg(char *str)
+{
+	printf(GENERAL_ERROR\
+		": %s.\n", str);
+	TICC
+}
 
-	void	msgs(char *str)
-	{
-		printf("%s\n", str);
-		TICC
-	}
+void	msgs(char *str)
+{
+	printf("%s\n", str);
+	TICC
+}
 
-	void	msgi(int inty)
-	{
-		printf("%d\n", inty);
-		TICC
-	}
+void	msgi(int inty)
+{
+	printf("%d\n", inty);
+	TICC
+}
 
-	void	logi(char *c, int n)
-	{
-		printf("%s: %d\n",c,n);
-		TICC
-	}
+void	logi(char *c, int n)
+{
+	printf("%s: %d\n",c,n);
+	TICC
+}
 
-	void	logx(char *c, int n)
-	{
-		printf("%s: %x\n",c,n);
-		TICC
-	}
+void	logx(char *c, int n)
+{
+	printf("%s: %x\n",c,n);
+	TICC
+}
 
-	void	logp(char *c, void *n)
-	{
-		printf("%s: %p\n",c,n);
-		TICC
-	}
+void	logp(char *c, void *n)
+{
+	printf("%s: %p\n",c,n);
+	TICC
+}
 
-	void	print_genome(void)
-	{
-		printf(GNM_TITLE, g_gnm);
-		neu	*n;
-		n = g_gnm->bias;
-		print_neu_list(n);
-		n = g_gnm->inpu;
-		print_neu_list(n);
-		n = g_gnm->hidd;
-		print_neu_list(n);
-		n = g_gnm->outp;
-		print_neu_list(n);
-		n = g_gnm->axon;
-		print_neu_list(n);
-		return ;
-	}
+void	print_genome(void)
+{
+	printf(GNM_TITLE, g_gnm);
+	neu	*n;
+	n = g_gnm->bias;
+	print_neu_list(n);
+	n = g_gnm->inpu;
+	print_neu_list(n);
+	n = g_gnm->hidd;
+	print_neu_list(n);
+	n = g_gnm->outp;
+	print_neu_list(n);
+	n = g_gnm->axon;
+	print_neu_list(n);
+	return ;
+}
 
-	void	print_neu_list(neu *n)
+void	print_neu_list(neu *n)
+{
+	while (n)
 	{
-		while (n)
-		{
-			print_neuron(n);
-			n = n->nx;
-		}
-		return ;
+		print_neuron(n);
+		n = n->nx;
 	}
+	return ;
+}
 
-	void	print_brain(bra *b)
+void	print_brain(bra *b)
+{
+	printf(BRA_TITLE, b);
+	net	*n;
+	n = b->bias;
+	print_net_list(n);
+	n = b->inpu;
+	print_net_list(n);
+	n = b->hidd;
+	print_net_list(n);
+	n = b->outp;
+	print_net_list(n);
+	if (PRINT_HERD)
 	{
-		printf(BRA_TITLE, b);
-		net	*n;
-		n = b->bias;
-		print_net_list(n);
-		n = b->inpu;
-		print_net_list(n);
-		n = b->hidd;
-		print_net_list(n);
-		n = b->outp;
-		print_net_list(n);
-		if (PRINT_HERD)
-		{
-			n = b->axon;
-			print_net_herd(n);
-		}
-		n = b->resp;
-		print_resp(n);
-		return ;
+		n = b->axon;
+		print_net_herd(n);
 	}
+	n = b->resp;
+	print_resp(n);
+	return ;
+}
 
 char	*format_p(char *str)
 {

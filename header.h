@@ -63,7 +63,7 @@ void	re_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);
 
 // helper.c
-void	write_bin(char *fn, void *dt);
+void	save_genome(char *fn, void *dt);
 int		strm(char *a, char *b);
 tid		count_neu(neu *l);
 neu		*neuron_by_id(tid id);

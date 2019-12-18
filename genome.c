@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191211172526 |:::|:                      */
+/* U20191218144419 ::|:||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -21,7 +21,7 @@ void	init_genome(tid b, tid i, \
 	g_gnm->hidd = gen_neuron(TP_H, h);
 	g_gnm->outp = gen_neuron(TP_O, o);
 	g_gnm->axon = gen_neuron(TP_A, a);
-	write_bin(g_gnm_file, g_gnm);
+	save_genome(g_gnm_file, g_gnm);
 	return ;
 }
 
