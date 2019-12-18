@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191216165832 :|:::|                      */
+/* U20191218090051 |:||||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,11 +14,11 @@
 
 void	write_bin(char *fn, void *dt)
 {
-	int	err;
+	int fd;
 
 	(void)dt;
-	err = open(fn, O_CREAT);
-	printf("error: %d\n", err);
+	fd = open(fn, O_CREAT);
+	if (fd == -1) FAIL("write_bin error");
 	return ;
 }
 
