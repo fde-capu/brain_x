@@ -6,7 +6,7 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20191218145030 |::|||                      */
+/* U20191219110339 ||:|||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,15 +14,13 @@
 ** Default functions:
 */
 # define DEF_RE			re_sigmoid
-# define DEF_OP_BIAS	op_bias_rnd
-# define DEF_OP_OUT		op_out
 # define DEF_OP			op_spark
-
+# define DEF_OP_BIAS	op_random
 
 /*
 ** Default files:
 */
-# define DEF_GENOME "genome_config_default.x"
+# define DEF_GENOME		"genome_table_default.x"
 
 /*
 ** Default initial creation values:

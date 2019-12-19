@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191218125118 |::::|                      */
+/* U20191219110610 |||:|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -29,6 +29,7 @@ int		init_envt(void)
 		p++;
 	}
 	*p = 0;
+	g_continue = 0;
 	color(COLOR_FORE);
 	return (0);
 }
@@ -38,24 +39,25 @@ void	option(char	*op)
 	char	*p;
 
 	p = op;
-	while (*p != '=')
+	while ((*p) && (*p != '='))
 		p++;
 	p++;
-	if (strm(op, "genome")) g_gnm_file = p;
+	if (strm(op, "genome"))
+		{ g_gnm_file = p; RE }
+	if (strm(op, "continue"))
+		{ g_continue = 1; RE }
+	FAIL_S("Invalid option");
 	return ;
 }
 
 int main(int argc, char **argv)
 {
 	init_envt();
-	while (argc > 1)
-	{
-		option(argv[argc - 1]);
-		argc--;
-	}
-	printf("%s\n", g_gnm_file);
-	init_genome(GENB, GENI, GENH, GENO, GENA);
-	(void)argv;
+	while (--argc)
+		option(argv[argc]);
+	// 0.5 case continue, init from file
+	init_genome();
+	print_genome();
 	return (0);
 }
 
@@ -70,9 +72,7 @@ int		main2(void) // oldie currently unused
 	init_envt();
 	g_id = 0; // from file
 	g_iv = 0; //
-	init_genome(						\
-		GENB,GENI,GENH,GENO,GENA		\
-	);
+	init_genome();
 	print_genome();
 	nb = 0;
 	i = 0;

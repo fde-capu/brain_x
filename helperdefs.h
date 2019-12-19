@@ -5,6 +5,7 @@
 # define STRESSOUT if(!--stress) {FAIL(STRESS_ERROR);}
 # define STRESSMSG(s) if(!--stress) {FAIL(s);}
 # define BRAIN_ERROR BRAIN_ERROR_MSG STR(STRESS_BRAIN)
+# define RE return ;
 # define FAIL(f) FAIL_S(f)
 # define FAIL_S(f) { error_msg(f); exit (1); }
 # define FAIL_SSI(f,m,v) { error_msg(f); imsg(m,v); exit (1); }

@@ -6,21 +6,21 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191218144419 ::|:||                      */
+/* U20191219105553 |::::|                      */
 /*                                             */
 /* ******************************************* */
 
 #include "header.h"
 
-void	init_genome(tid b, tid i, \
-		tid h, tid o, tid a)
+void	init_genome()
 {
 	g_gnm = malloc(sizeof(gnm));
-	g_gnm->bias = gen_neuron(TP_B, b);
-	g_gnm->inpu = gen_neuron(TP_I, i);
-	g_gnm->hidd = gen_neuron(TP_H, h);
-	g_gnm->outp = gen_neuron(TP_O, o);
-	g_gnm->axon = gen_neuron(TP_A, a);
+	// 1.0 get setup from genome_config_default.x
+	g_gnm->bias = gen_neuron(TP_B, 1);
+	g_gnm->inpu = gen_neuron(TP_I, 1);
+	g_gnm->hidd = gen_neuron(TP_H, 0);
+	g_gnm->outp = gen_neuron(TP_O, 1);
+	g_gnm->axon = gen_neuron(TP_A, 1);
 	save_genome(g_gnm_file, g_gnm);
 	return ;
 }
@@ -54,7 +54,6 @@ neu		*gen_neuron(typ t, int n)
 		}
 		neuron->tr = rnd01();
 		neuron->op = t & TP_B ?	&DEF_OP_BIAS :\
-					 t & TP_O ?	&DEF_OP_OUT	 :\
 								&DEF_OP		 ;
 		neuron->re = &DEF_RE;
 		neuron->iv = ++g_iv;

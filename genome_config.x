@@ -24,7 +24,7 @@ gnm_bias	n
 gnm_input	n
 gnm_hidden	n
 gnm_output	name
-			operation // default: op_out
+			operation // default: op_spark
 			? [initial threshold]
 			? [mandatory]
 gnm_axon	n

@@ -38,7 +38,7 @@ int		main(int argc, char **argv);
 int		main2(void);
 
 // genome.c
-void	init_genome(tid b, tid i, tid h, tid o, tid a);
+void	init_genome();
 neu		*gen_neuron(typ t, int n);
 neu		*init_neu(void);
 neu		*rnd_from_genome(typ t);
@@ -56,8 +56,7 @@ void	feed_nd(net *nd);
 void	think(bra *b);
 void	operate(net *n);
 void	op_spark(net *n);
-void	op_bias_rnd(net *n);
-void	op_out(net *n);
+void	op_random(net *n);
 void	re_sum_clip(net *n);
 void	re_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);

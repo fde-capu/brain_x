@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191216165837 :|::::                      */
+/* U20191219105833 :::::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -121,20 +121,10 @@ void	op_spark(net *n)
 	return ;
 }
 
-void	op_bias_rnd(net *n)
+void	op_random(net *n)
 {
 	op_spark(n);
 	n->bz = rnd01();
-	return ;
-}
-
-void	op_out(net *n)
-{
-	if (n->bz >= neuron_by_id(n->id)->tr)
-	{
-		n->pt->resp = prepend_cp(n->pt->resp, n);
-		n->bz = 0;
-	}
 	return ;
 }
 
