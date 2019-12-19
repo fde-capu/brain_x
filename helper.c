@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191219152953 ::::|:                      */
+/* U20191219174441 |::|::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -23,11 +23,14 @@ void	save_genome(char *fn, void *dt)
 	n = g_gnm->bias;
 	while (n)
 	{
-// write ponts to uninitilized bytes...
-// fix it
-		printf("n->id %ld ->\n", n->id);
-		fflush(stdout);
-//		write(fd, &(n->id), sizeof(((neu*)0)->id));
+		write(fd, &(n->id), sizeof(((neu*)0)->id));
+		write(fd, &(n->iv), sizeof(((neu*)0)->iv));
+		write(fd, &(n->tp), sizeof(((neu*)0)->tp));
+		write(fd, &(n->in), sizeof(((neu*)0)->in));
+		write(fd, &(n->ou), sizeof(((neu*)0)->ou));
+		write(fd, &(n->tr), sizeof(((neu*)0)->tr));
+		write(fd, &(n->op), sizeof(((neu*)0)->op));
+		write(fd, &(n->re), sizeof(((neu*)0)->re));
 		n = n->nx;
 	}
 	write(fd, "\0", 1);
