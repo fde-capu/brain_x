@@ -1,0 +1,5 @@
+x [genome=_genome_file_] [continue]
+
+If genome is not specified, defaults genome_table_default.x.
+
+If continue is not specified, starts from nothing. Otherwise, open and proceeds from _genome_file_.

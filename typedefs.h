@@ -6,7 +6,7 @@
 /*     ::|||| <::||||>                         */
 /*                                             */
 /* C20191211171721 ::||||                      */
-/* U20191218180057 :::||:                      */
+/* U20191219150704 :|::||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,6 +14,7 @@ typedef TYPE_OF_ID		tid;
 typedef TYPE_OF_TYPE	typ;
 typedef TYPE_OF_FINE	fin;
 typedef TYPE_OF_CHARGE	tbz;
+typedef TYPE_OF_WORD	wor;
 
 typedef struct	brain		bra;
 typedef struct	neuron		neu;
@@ -48,13 +49,9 @@ typedef struct	neuron
 	tid	in;
 	tid	ou;
 	fin	tr;
-	void	(*op)();
-	void	(*re)();
+	wor	op[30];
+	wor re[30];
 	struct	neuron	*nx;
-
-//	void	(*op)(bra *, neu *);
-	// op = &function;
-	// (*op)(a,b);
 }	neu;
 
 typedef struct	genome

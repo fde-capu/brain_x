@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191218144632 :|||||                      */
+/* U20191219152953 ::::|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -19,14 +19,18 @@ void	save_genome(char *fn, void *dt)
 
 	printf("fn %s\n", fn);
 	fd = open(fn, O_WRONLY | O_CREAT | O_TRUNC);
-	if (fd == -1) FAIL("save_genome error");
-
+	if (fd <= 0) FAIL("save_genome error");
 	n = g_gnm->bias;
 	while (n)
 	{
-		write(fd, n, sizeof(neu));
+// write ponts to uninitilized bytes...
+// fix it
+		printf("n->id %ld ->\n", n->id);
+		fflush(stdout);
+//		write(fd, &(n->id), sizeof(((neu*)0)->id));
 		n = n->nx;
 	}
+	write(fd, "\0", 1);
 	close(fd);
 	return ;
 }

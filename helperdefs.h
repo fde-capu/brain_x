@@ -15,6 +15,11 @@
 # define CLS printf("%c[2J%c[;H", (char) 27, (char) 27); FLUSH
 # define NL printf("\n");
 # define FLUSH fflush(stdout);
+# define TP_B	1
+# define TP_I	2
+# define TP_H	4
+# define TP_O	8
+# define TP_A	16
 # define TTPB	if (t & TP_B)
 # define TTPI	if (t & TP_I)
 # define TTPH	if (t & TP_H)

@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191219105553 |::::|                      */
+/* U20191219151815 :::|||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -18,7 +18,7 @@ void	init_genome()
 	// 1.0 get setup from genome_config_default.x
 	g_gnm->bias = gen_neuron(TP_B, 1);
 	g_gnm->inpu = gen_neuron(TP_I, 1);
-	g_gnm->hidd = gen_neuron(TP_H, 0);
+	g_gnm->hidd = gen_neuron(TP_H, 1);//0
 	g_gnm->outp = gen_neuron(TP_O, 1);
 	g_gnm->axon = gen_neuron(TP_A, 1);
 	save_genome(g_gnm_file, g_gnm);
@@ -36,26 +36,15 @@ neu		*gen_neuron(typ t, int n)
 		neuron = init_neu();
 		neuron->id = ++g_id;
 		neuron->tp = t;
-		TTPA
-		{
-			neuron->in = rnd_from_genome(	\
-				TP_B + TP_I + TP_H			\
-				+ TP_O						\
-				)->id;
-			neuron->ou = rnd_from_genome(	\
-				TP_H + TP_O					\
-				+ TP_B + TP_I				\
-				)->id;
-		}
-		else
-		{
-			neuron->in = 0;
-			neuron->ou = 0;
-		}
+		// is axon just a neuron?
+		neuron->in = 0;
+		neuron->ou = 0;
 		neuron->tr = rnd01();
-		neuron->op = t & TP_B ?	&DEF_OP_BIAS :\
-								&DEF_OP		 ;
-		neuron->re = &DEF_RE;
+		//neuron->op = t & TP_B ?	&DEF_OP_BIAS :\
+		//						&DEF_OP		 ;
+		//neuron->re = &DEF_RE;
+		neuron->op[0] = 0;
+		neuron->re[0] = 0;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
 		nx = neuron;
@@ -104,15 +93,19 @@ neu		*init_neu(void)
 {
 	neu *n;
 
-	n = malloc(sizeof(neu));
+	n = calloc(1, sizeof(neu));
 	n->id = 0;
+	n->iv = 0;
 	n->tp = 0;
 	n->in = 0;
 	n->ou = 0;
 	n->tr = 0;
-	n->op = 0;
-	n->re = 0;
-	n->iv = 0;
+	int i = -1;
+	while (++i < 30)
+	{
+		n->op[i] = 0;
+		n->re[i] = 0;
+	}
 	n->nx = 0;
 	return (n);
 }

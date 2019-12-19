@@ -5,6 +5,7 @@
 # define TYPE_OF_TYPE	char
 # define TYPE_OF_FINE	double
 # define TYPE_OF_CHARGE	double
+# define TYPE_OF_WORD	char
 # define EULER			(double) 2.718281228459045//23536...
 
 # define STRESS_ERROR			"Stress"
@@ -12,12 +13,6 @@
 # define GENERAL_ERROR_DETAIL	"Detail"
 # define BRAIN_ERROR_MSG		"brain creation, (not enough static genome?) stress "
 # define NEU_ID_NOT_FOUND		"(internal) neuron not found in genome (version problem?) "
-
-# define TP_B	1
-# define TP_I	2
-# define TP_H	4
-# define TP_O	8
-# define TP_A	16
 
 # include <math.h>
 # include <stdio.h>
