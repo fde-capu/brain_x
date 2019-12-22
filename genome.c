@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191222201427 ::||::                      */
+/* U20191222202636 :||||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -37,8 +37,16 @@ neu		*gen_neuron(typ t, int n)
 		neuron->id = ++g_id;
 		neuron->tp = t;
 		// is axon just a neuron?
-		neuron->in = irnd(g_id);
-		neuron->ou = irnd(g_id);
+		TTPA
+		{
+			neuron->in = irnd(g_id);
+			neuron->ou = irnd(g_id);
+		}
+		else
+		{
+			neuron->in = 0;
+			neuron->ou = 0;
+		}
 		neuron->tr = rnd01();
 		neuron->op[0] = 0;
 		TTPB
