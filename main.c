@@ -6,11 +6,22 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191219110610 |||:|:                      */
+/* U20191222194111 ||::::                      */
 /*                                             */
 /* ******************************************* */
 
 #include "header.h"
+
+int main(int argc, char **argv)
+{
+	init_envt();
+	while (--argc)
+		option(argv[argc]);
+	// v0.5 case g_continue, init from file
+	init_genome();
+	print_genome();
+	return (0);
+}
 
 int		init_envt(void)
 {
@@ -48,17 +59,6 @@ void	option(char	*op)
 		{ g_continue = 1; RE }
 	FAIL_S("Invalid option");
 	return ;
-}
-
-int main(int argc, char **argv)
-{
-	init_envt();
-	while (--argc)
-		option(argv[argc]);
-	// 0.5 case continue, init from file
-	init_genome();
-	print_genome();
-	return (0);
 }
 
 int		main2(void) // oldie currently unused

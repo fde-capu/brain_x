@@ -29,15 +29,16 @@
 # include "typedefs.h"
 
 // main.c
-int		init_envt(void);
 int		main(int argc, char **argv);
+int		init_envt(void);
+void	option(char	*op);
 int		main2(void);
 
 // genome.c
 void	init_genome();
 neu		*gen_neuron(typ t, int n);
-neu		*init_neu(void);
 neu		*rnd_from_genome(typ t);
+neu		*init_neu(void);
 
 // brain.c
 bra		*init_brain(\
@@ -58,7 +59,6 @@ void	re_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);
 
 // helper.c
-void	save_genome(char *fn, void *dt);
 int		strm(char *a, char *b);
 tid		count_neu(neu *l);
 neu		*neuron_by_id(tid id);
@@ -71,6 +71,9 @@ net		*i_to_b_niche(int i, bra *b);
 neu		*i_to_g_niche(int i);
 double	sigmoid(double v);
 net		*prepend_cp(net *ne, net *n);
+
+// filer.c
+void	save_genome(char *fn, void *dt);
 
 // debug.c
 void	imsg(char *str, int v);

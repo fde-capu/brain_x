@@ -6,16 +6,16 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20191219110339 ||:|||                      */
+/* U20191222195200 ::::||                      */
 /*                                             */
 /* ******************************************* */
 
 /*
 ** Default functions:
 */
-# define DEF_RE			re_sigmoid
-# define DEF_OP			op_spark
-# define DEF_OP_BIAS	op_random
+# define DEF_RE			"re_sigmoid"
+# define DEF_OP			"op_spark"
+# define DEF_OP_BIAS	"op_random"
 
 /*
 ** Default files:

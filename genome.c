@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191219174514 |||||:                      */
+/* U20191222195458 :||||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -15,7 +15,7 @@
 void	init_genome()
 {
 	g_gnm = malloc(sizeof(gnm));
-	// 1.0 get setup from genome_config_default.x
+	// v1.0 get setup from genome_config_default.x
 	g_gnm->bias = gen_neuron(TP_B, 2);
 	g_gnm->inpu = gen_neuron(TP_I, 1);
 	g_gnm->hidd = gen_neuron(TP_H, 1);//0
@@ -40,11 +40,11 @@ neu		*gen_neuron(typ t, int n)
 		neuron->in = 0;
 		neuron->ou = 0;
 		neuron->tr = rnd01();
-		//neuron->op = t & TP_B ?	&DEF_OP_BIAS :\
-		//						&DEF_OP		 ;
-		//neuron->re = &DEF_RE;
 		neuron->op[0] = 0;
-		strcpy(neuron->op, "aaa");
+		TTPB
+			strcpy(neuron->op, DEF_OP_BIAS);
+		else
+			strcpy(neuron->op, DEF_OP);
 		neuron->re[0] = 0;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
