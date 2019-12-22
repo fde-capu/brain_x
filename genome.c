@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191222195458 :||||:                      */
+/* U20191222201100 |||:::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -45,7 +45,7 @@ neu		*gen_neuron(typ t, int n)
 			strcpy(neuron->op, DEF_OP_BIAS);
 		else
 			strcpy(neuron->op, DEF_OP);
-		neuron->re[0] = 0;
+		strcpy(neuron->re, DEF_RE);
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
 		nx = neuron;
