@@ -41,9 +41,8 @@ neu		*rnd_from_genome(typ t);
 neu		*init_neu(void);
 
 // brain.c
-bra		*init_brain(\
-		tid b, tid i, \
-		tid h, tid o, tid a);
+bra		*init_brain(tid b, tid i, tid h, \
+			tid o, tid a);
 net		*rnd_neu (typ t, int q, bra *b);
 net		*init_net(void);
 
