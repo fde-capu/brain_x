@@ -6,7 +6,7 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20191222195200 ::::||                      */
+/* U20191223164728 ::::::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -40,11 +40,11 @@
 ** Printing definitions:
 */
 # define GNM_TITLE "\n::: GENOME ::: :%p: :::\n"
-# define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%p|%-p} %p>%p\n"
+# define GNM_A_STR "%s:[%3lu*%-3lu] [%3lu]--%0.5lf-->[%-3lu] {%15s|%-15s} %p>%p\n"
 # define GNM_A_VAR get_typename(neuron->tp), neuron->id, neuron->id,\
 			neuron->in,neuron->tr,neuron->ou,\
 			neuron->re, neuron->op, neuron, neuron->nx
-# define GNM_N_STR "%s:[%3lu*%-3lu] [ %0.16lf ] {%p|%-p} %p>%p\n"
+# define GNM_N_STR "%s:[%3lu*%-3lu] [ %0.16lf ] {%15s|%-15s} %p>%p\n"
 # define GNM_N_VAR get_typename(neuron->tp), neuron->id, neuron->id, 	\
 			neuron->tr, neuron->re, neuron->op, neuron,neuron->nx
 # define BRA_TITLE "\n::: BRAIN ::: ~%p~ :::\n"
