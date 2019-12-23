@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191222203248 :|:::|                      */
+/* U20191223151234 |::||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -18,7 +18,6 @@ void	init_genome()
 	// v1.0 get setup from genome_config_default.x
 	g_gnm->bias = gen_neuron(TP_B, 1);
 	g_gnm->inpu = gen_neuron(TP_I, 1);
-	// printing 2 Is?
 	g_gnm->hidd = gen_neuron(TP_H, 0);//0
 	g_gnm->outp = gen_neuron(TP_O, 1);
 	g_gnm->axon = gen_neuron(TP_A, 1);
@@ -28,6 +27,8 @@ void	init_genome()
 
 neu		*gen_neuron(typ t, int n)
 {
+	if (!n)	return (0);
+
 	neu	*neuron;
 	neu	*nx;
 
