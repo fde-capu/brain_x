@@ -6,15 +6,14 @@
 /*     :||::| <:||::|>                         */
 /*                                             */
 /* C20191206150601 :||::|                      */
-/* U20191208034639 :||::|                      */
+/* U20191223144924 :||::|                      */
 /*                                             */
 /* ******************************************* */
 
 #include "header.h"
 
-bra	*init_brain(\
-		tid b, tid i, \
-		tid h, 	tid o, 	tid a)
+bra	*init_brain	\
+		(tid b, tid i, tid h, tid o, tid a)
 {
 	bra	*brain;
 

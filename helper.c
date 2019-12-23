@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191222200250 ||:||:                      */
+/* U20191223150032 |:||||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -155,4 +155,15 @@ net		*prepend_cp(net *ne, net *n)
 	cp->nx = ne;
 	ne = cp;
 	return (cp);
+}
+
+char	*filename_str(char *fn)
+{
+	char	*fn_o;
+	char	*p;
+	
+	fn_o = malloc(sizeof(char) * FNL);
+	p = fn_o;
+	p = strcpy(p, fn);
+	return (fn_o);
 }

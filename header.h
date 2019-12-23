@@ -41,8 +41,8 @@ neu		*rnd_from_genome(typ t);
 neu		*init_neu(void);
 
 // brain.c
-bra		*init_brain(tid b, tid i, tid h, \
-			tid o, tid a);
+bra	*init_brain	\
+		(tid b, tid i, tid h, tid o, tid a);
 net		*rnd_neu (typ t, int q, bra *b);
 net		*init_net(void);
 
@@ -70,6 +70,7 @@ net		*i_to_b_niche(int i, bra *b);
 neu		*i_to_g_niche(int i);
 double	sigmoid(double v);
 net		*prepend_cp(net *ne, net *n);
+char	*filename_str(char *fn);
 
 // filer.c
 void	save_genome(char *fn, void *dt);

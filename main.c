@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191222194111 ||::::                      */
+/* U20191223145823 ::::||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -25,21 +25,8 @@ int main(int argc, char **argv)
 
 int		init_envt(void)
 {
-	char	def_gnm[] = DEF_GENOME;
-	char	*p;
-	char	*r;
-
 	init_rnd();
-	g_gnm_file = malloc(sizeof(char) * FNL);
-	p = g_gnm_file;
-	r = def_gnm;
-	while (*r != 0)
-	{
-		*p = *r;
-		r++;
-		p++;
-	}
-	*p = 0;
+	g_gnm_file = filename_str(DEF_GENOME);
 	g_continue = 0;
 	color(COLOR_FORE);
 	return (0);
