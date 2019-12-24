@@ -6,9 +6,14 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20191224112920 :|||::                      */
+/* U20191224113132 :::|::                      */
 /*                                             */
 /* ******************************************* */
+
+/*
+** Default files:
+*/
+# define DEF_GENOME		"genome_table_default.x"
 
 /*
 ** Default functions:
@@ -18,11 +23,6 @@
 # define DEF_OP			"op_spark"
 # define DEF_OP_BIAS	"op_random"
 # define DEF_OP_AXON	"op_multiply"
-
-/*
-** Default files:
-*/
-# define DEF_GENOME		"genome_table_default.x"
 
 /*
 ** Default initial creation values:
