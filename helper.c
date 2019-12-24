@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191224155735 :||::|                      */
+/* U20191224173224 :|:|:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -184,27 +184,38 @@ void	append_module(char *m_n, void *m_a)
 	mod	*mp;
 	mod	*ns;
 
-	printf("APMOD\n");
-	
 	mp = g_module;
-	printf("1");
 	if (!mp->ad)
 	{
-	printf("2");
 		ns = mp;
 	}
 	else
 	{
-	printf("3");
 		while (mp->nx)
 			mp = mp->nx;
 		ns = init_mod();
 		mp->nx = ns;
 	}
-	printf("4");
 	strcpy(ns->fu, m_n);
-	printf("5");
 	ns->ad = m_a;
-	printf("(ap) %16s %p\n", ns->fu, ns->ad);
+	return ;
+}
+
+void	exec(char *m_n)
+{
+	mod	*m;
+	
+	m = g_module;
+	while (m)
+	{
+		if (strm(m->fu, m_n))
+		{
+			printf("exec %s: %p\n", m->fu, m->ad);
+			m->ad();
+			return ;
+		}
+		m = m->nx;
+	}
+	FAIL("Inconsistent module name");
 	return ;
 }

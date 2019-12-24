@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191224160505 |:|::|                      */
+/* U20191224163759 :::||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -20,7 +20,6 @@ int main(int argc, char **argv)
 	while (--argc)
 		option(argv[argc]);
 	// v0.5 case g_continue, init from file
-	print_modules();
 	init_genome();
 	print_genome();
 	ind = init_brain(DEFB,DEFI,DEFH,DEFO,DEFA);
@@ -37,6 +36,8 @@ int		init_envt(void)
 	color(COLOR_FORE);
 	g_module = init_mod();
 	load_modules();
+	print_modules();
+	exec("teste");
 	init_rnd();
 	return (0);
 }

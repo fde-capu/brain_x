@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191224160305 :||:::                      */
+/* U20191224170357 :||::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -130,9 +130,15 @@ void	op_random(net *n)
 	return ;
 }
 
+void teste(void)
+{
+	printf("TESTE OK\n");
+}
+
 void	load_modules(void)
 {
-	append_module("op_random", op_random);
+	append_module("op_random", &op_random);
+	append_module("teste", &teste);
 }
 
 void	fire(bra *b, fin f, tid id)
