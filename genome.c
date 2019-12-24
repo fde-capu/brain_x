@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191223151234 |::||:                      */
+/* U20191224110156 ::::|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -50,12 +50,19 @@ neu		*gen_neuron(typ t, int n)
 			neuron->ou = 0;
 		}
 		neuron->tr = rnd01();
-		neuron->op[0] = 0;
-		TTPB
-			strcpy(neuron->op, DEF_OP_BIAS);
+		TTPA
+		{
+			strcpy(neuron->re, DEF_RE_AXON);
+			strcpy(neuron->op, DEF_OP_AXON);
+		}
 		else
-			strcpy(neuron->op, DEF_OP);
-		strcpy(neuron->re, DEF_RE);
+		{
+			strcpy(neuron->re, DEF_RE);
+			TTPB
+				strcpy(neuron->op, DEF_OP_BIAS);
+			else
+				strcpy(neuron->op, DEF_OP);
+		}
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
 		nx = neuron;

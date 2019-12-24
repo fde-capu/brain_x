@@ -6,7 +6,7 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20191223164728 ::::::                      */
+/* U20191224110051 |:::|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,8 +14,10 @@
 ** Default functions:
 */
 # define DEF_RE			"re_acc_sigmoid"
+# define DEF_RE_AXON	"re_inputonly"
 # define DEF_OP			"op_spark"
 # define DEF_OP_BIAS	"op_random"
+# define DEF_OP_AXON	"op_multiply"
 
 /*
 ** Default files:
