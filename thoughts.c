@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191224174735 :|:|:|                      */
+/* U20191224175753 |:::||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -129,22 +129,19 @@ void	op_spark(net *n)
 
 void	op_random(net *n)
 {
-	printf("op_random\n");
 	op_spark(n);
 	n->bz = rnd01();
 	return ;
 }
 
-void	re_inputonly(net *n)
+void	re_inputonly(net *n) //to do
 {
-	printf("inputonly\n");
 	(void)n;
 	return ;
 }
 
-void	op_multiply(net *n)
+void	op_multiply(net *n) //to do
 {
-	printf("multiply\n");
 	(void)n;
 	return ;
 }
