@@ -6,7 +6,7 @@
 /*     ::|||| <::||||>                         */
 /*                                             */
 /* C20191211171721 ::||||                      */
-/* U20191223150448 :|:|::                      */
+/* U20191224131242 |::::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -69,6 +69,13 @@ typedef struct	tuplet_id_inn
 	tid	iv;
 } nii;
 
+typedef struct	re_op
+{
+	wor		fu[16];
+	void	*ad;
+	struct	re_op	*nx;
+}	mod;
+
 /*
 // Globals
 */
@@ -78,3 +85,4 @@ tid		g_iv;
 gnm		*g_gnm;
 char	*g_gnm_file;
 int		g_continue;
+mod		*g_module;

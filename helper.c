@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191223150032 |:||||                      */
+/* U20191224150554 ||::|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -166,4 +166,37 @@ char	*filename_str(char *fn)
 	p = fn_o;
 	p = strcpy(p, fn);
 	return (fn_o);
+}
+
+mod		*init_mod(void)
+{
+	mod	*nm;
+
+	nm = malloc(sizeof(mod));
+	nm->fu[0] = 0;
+	nm->ad = 0;
+	nm->nx = 0;
+	return (nm);
+}
+
+void	append_module(char *m_n, void *m_a)
+{
+	mod	*mp;
+	mod	*ns;
+
+	mp = g_module;
+	if (mp->ad == 0)
+	{
+		ns = mp;
+	}
+	else
+	{
+		while (mp->nx)
+			mp = mp->nx;
+		ns = init_mod();
+		mp->nx = ns;
+	}
+	strcpy(ns->fu, m_n);
+	ns->ad = m_a;
+	return ;
 }
