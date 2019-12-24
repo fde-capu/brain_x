@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191219141941 :|:::|                      */
+/* U20191224121508 ::|::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -31,18 +31,6 @@ void	feed(bra *b, tid id, fin v)
 			p = p->nx;
 		}
 	}
-	return ;
-}
-
-void	feed_nd(net *nd)
-{
-	neu	*ne;
-
-	if (!nd->iz)	return ;
-	ne = neuron_by_id(nd->id);
-	// make it find_re(char re_name);
-	//ne->re(nd);
-	nd->iz = 0;
 	return ;
 }
 
@@ -78,6 +66,18 @@ void	operate(net *n)
 {
 	// make op = find_op(char op_name);
 	//neuron_by_id(n->id)->op(n);
+	return ;
+}
+
+void	feed_nd(net *nd)
+{
+	neu	*ne;
+
+	if (!nd->iz)	return ;
+	ne = neuron_by_id(nd->id);
+	// make it find_re(char re_name);
+	//ne->re(nd);
+	nd->iz = 0;
 	return ;
 }
 

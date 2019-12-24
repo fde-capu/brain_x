@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191224113428 :|:::|                      */
+/* U20191224121250 |:||||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -23,6 +23,9 @@ int main(int argc, char **argv)
 	init_genome();
 	print_genome();
 	ind = init_brain(DEFB,DEFI,DEFH,DEFO,DEFA);
+	print_brain(ind);
+	think(ind);
+	print_brain(ind);
 	return (0);
 }
 
