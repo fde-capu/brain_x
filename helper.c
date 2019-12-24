@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191224173224 :|:|:|                      */
+/* U20191224175530 :::|::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,7 +14,7 @@
 
 int		strm(char *a, char *b)
 {
-	while (*a == *b)
+	while ((*a) && (*b) && (*a == *b))
 	{
 		a++;
 		b++;
@@ -201,7 +201,7 @@ void	append_module(char *m_n, void *m_a)
 	return ;
 }
 
-void	exec(char *m_n)
+void	exec(char *m_n, net *n)
 {
 	mod	*m;
 	
@@ -211,11 +211,11 @@ void	exec(char *m_n)
 		if (strm(m->fu, m_n))
 		{
 			printf("exec %s: %p\n", m->fu, m->ad);
-			m->ad();
+			m->ad(n);
 			return ;
 		}
 		m = m->nx;
 	}
-	FAIL("Inconsistent module name");
+	FAIL_SS("Inconsistent module name", m_n);
 	return ;
 }

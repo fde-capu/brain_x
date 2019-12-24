@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191224170357 :||::|                      */
+/* U20191224174735 :|:|:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -65,7 +65,9 @@ void	think(bra *b)
 void	operate(net *n)
 {
 	// make op = find_op(char op_name);
-	//neuron_by_id(n->id)->op(n);
+	exec(\
+		neuron_by_id(n->id)->op\
+	, n);
 	return ;
 }
 
@@ -76,7 +78,9 @@ void	feed_nd(net *nd)
 	if (!nd->iz)	return ;
 	ne = neuron_by_id(nd->id);
 	// make it find_re(char re_name);
-	//ne->re(nd);
+	exec(\
+		ne->re\
+	, nd);
 	nd->iz = 0;
 	return ;
 }
@@ -125,20 +129,34 @@ void	op_spark(net *n)
 
 void	op_random(net *n)
 {
+	printf("op_random\n");
 	op_spark(n);
 	n->bz = rnd01();
 	return ;
 }
 
-void teste(void)
+void	re_inputonly(net *n)
 {
-	printf("TESTE OK\n");
+	printf("inputonly\n");
+	(void)n;
+	return ;
+}
+
+void	op_multiply(net *n)
+{
+	printf("multiply\n");
+	(void)n;
+	return ;
 }
 
 void	load_modules(void)
 {
-	append_module("op_random", &op_random);
-	append_module("teste", &teste);
+	append_module("re_inputonly", re_inputonly);
+	append_module("op_multiply", op_multiply);
+	append_module("op_random", op_random);
+	append_module("op_spark", op_spark);
+	append_module("re_acc_sigmoid", re_acc_sigmoid);
+	append_module("re_sum_clip", re_sum_clip);
 }
 
 void	fire(bra *b, fin f, tid id)

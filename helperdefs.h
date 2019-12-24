@@ -9,6 +9,7 @@
 # define FAIL(f) FAIL_S(f)
 # define FAIL_S(f) { error_msg(f); exit (1); }
 # define FAIL_SSI(f,m,v) { error_msg(f); imsg(m,v); exit (1); }
+# define FAIL_SS(f,m) { error_msg(f); error_msg(m); exit (1); }
 # define LOGI(c,n) logi(c,n);
 # define TIC tic(TIC_SEC);
 # define TICC tic(TIC_SEC * 4);
