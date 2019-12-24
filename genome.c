@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191224110156 ::::|:                      */
+/* U20191224112855 :|||:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -16,11 +16,11 @@ void	init_genome()
 {
 	g_gnm = malloc(sizeof(gnm));
 	// v1.0 get setup from genome_config_default.x
-	g_gnm->bias = gen_neuron(TP_B, 1);
-	g_gnm->inpu = gen_neuron(TP_I, 1);
-	g_gnm->hidd = gen_neuron(TP_H, 0);//0
-	g_gnm->outp = gen_neuron(TP_O, 1);
-	g_gnm->axon = gen_neuron(TP_A, 1);
+	g_gnm->bias = gen_neuron(TP_B, GENB);
+	g_gnm->inpu = gen_neuron(TP_I, GENI);
+	g_gnm->hidd = gen_neuron(TP_H, GENH);
+	g_gnm->outp = gen_neuron(TP_O, GENO);
+	g_gnm->axon = gen_neuron(TP_A, GENA);
 	save_genome(g_gnm_file, g_gnm);
 	return ;
 }
