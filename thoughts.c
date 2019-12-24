@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191224151551 :|::|:                      */
+/* U20191224160305 :||:::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -127,8 +127,12 @@ void	op_random(net *n)
 {
 	op_spark(n);
 	n->bz = rnd01();
-	append_module("op_random", op_random);
 	return ;
+}
+
+void	load_modules(void)
+{
+	append_module("op_random", op_random);
 }
 
 void	fire(bra *b, fin f, tid id)

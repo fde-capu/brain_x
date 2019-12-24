@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191224121250 |:||||                      */
+/* U20191224160505 |:|::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -20,6 +20,7 @@ int main(int argc, char **argv)
 	while (--argc)
 		option(argv[argc]);
 	// v0.5 case g_continue, init from file
+	print_modules();
 	init_genome();
 	print_genome();
 	ind = init_brain(DEFB,DEFI,DEFH,DEFO,DEFA);
@@ -34,6 +35,8 @@ int		init_envt(void)
 	g_continue = 0;
 	g_gnm_file = filename_str(DEF_GENOME);
 	color(COLOR_FORE);
+	g_module = init_mod();
+	load_modules();
 	init_rnd();
 	return (0);
 }

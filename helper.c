@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191224150554 ||::|:                      */
+/* U20191224155735 :||::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -184,19 +184,27 @@ void	append_module(char *m_n, void *m_a)
 	mod	*mp;
 	mod	*ns;
 
+	printf("APMOD\n");
+	
 	mp = g_module;
-	if (mp->ad == 0)
+	printf("1");
+	if (!mp->ad)
 	{
+	printf("2");
 		ns = mp;
 	}
 	else
 	{
+	printf("3");
 		while (mp->nx)
 			mp = mp->nx;
 		ns = init_mod();
 		mp->nx = ns;
 	}
+	printf("4");
 	strcpy(ns->fu, m_n);
+	printf("5");
 	ns->ad = m_a;
+	printf("(ap) %16s %p\n", ns->fu, ns->ad);
 	return ;
 }

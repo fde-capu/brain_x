@@ -6,7 +6,7 @@
 /*     ||||:| <||||:|>                         */
 /*                                             */
 /* C20191207191227 ||||:|                      */
-/* U20191218142924 |::|::                      */
+/* U20191224152148 ||||::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -302,4 +302,18 @@ char	*gauge_bar(fin v)
 		*(p + i - 1) = CLIPCHAR;
 	*(p + i) = 0;
 	return (out);
+}
+
+void	print_modules(void)
+{
+	mod	*m;
+
+	printf("MODULES:\n");
+	m = g_module;
+	while (m)
+	{
+		printf("%16s %p\n", m->fu, m->ad);
+		m = m->nx;
+	}
+	return ;
 }

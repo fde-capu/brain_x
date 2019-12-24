@@ -56,6 +56,7 @@ void	op_random(net *n);
 void	re_sum_clip(net *n);
 void	re_acc_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);
+void	load_modules(void);
 
 // helper.c
 int		strm(char *a, char *b);
@@ -98,6 +99,7 @@ char	*format_p(char *str);
 int		is_dumb(net *na);
 int		is_conn(net *na, net *ni);
 int		is_conn_netneu(net *na, neu *ni);
+void	print_modules(void);
 
 // random.c
 void	init_rnd(void);
