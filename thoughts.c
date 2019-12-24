@@ -88,7 +88,7 @@ void	re_sum_clip(net *n)
 	return ;
 }
 
-void	re_sigmoid(net *n)
+void	re_acc_sigmoid(net *n)
 {
 	n->bz += sigmoid(n->iz);
 	if (n->bz > 1) n->bz = 1;

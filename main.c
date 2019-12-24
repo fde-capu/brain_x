@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191223150247 :::|::                      */
+/* U20191223183323 ::|:|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -26,9 +26,9 @@ int main(int argc, char **argv)
 int		init_envt(void)
 {
 	g_continue = 0;
-	init_rnd();
 	g_gnm_file = filename_str(DEF_GENOME);
 	color(COLOR_FORE);
+	init_rnd();
 	return (0);
 }
 

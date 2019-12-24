@@ -54,7 +54,7 @@ void	operate(net *n);
 void	op_spark(net *n);
 void	op_random(net *n);
 void	re_sum_clip(net *n);
-void	re_sigmoid(net *n);
+void	re_acc_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);
 
 // helper.c

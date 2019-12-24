@@ -13,7 +13,7 @@
 /*
 ** Default functions:
 */
-# define DEF_RE			"re_sigmoid"
+# define DEF_RE			"re_acc_sigmoid"
 # define DEF_OP			"op_spark"
 # define DEF_OP_BIAS	"op_random"
 
