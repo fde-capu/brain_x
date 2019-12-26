@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191224175753 |:::||                      */
+/* U20191226174834 |:|||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -64,7 +64,6 @@ void	think(bra *b)
 
 void	operate(net *n)
 {
-	// make op = find_op(char op_name);
 	exec(\
 		neuron_by_id(n->id)->op\
 	, n);
@@ -77,7 +76,6 @@ void	feed_nd(net *nd)
 
 	if (!nd->iz)	return ;
 	ne = neuron_by_id(nd->id);
-	// make it find_re(char re_name);
 	exec(\
 		ne->re\
 	, nd);

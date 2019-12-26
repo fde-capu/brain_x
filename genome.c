@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191226172652 :||:::                      */
+/* U20191226174708 ::::::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -36,7 +36,6 @@ neu		*gen_neuron(typ t, int n)
 	while (--n > -1)
 	{
 		neuron = init_neu();
-		neuron->id = ++g_id;
 		neuron->tp = t;
 		// is axon just a neuron?
 		TTPA
@@ -65,6 +64,7 @@ neu		*gen_neuron(typ t, int n)
 			else
 				strcpy(neuron->op, DEF_OP);
 		}
+		neuron->id = ++g_id;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
 		nx = neuron;
@@ -74,17 +74,12 @@ neu		*gen_neuron(typ t, int n)
 
 tid		rnd_from_genome(typ t)
 {
-	printf("g_id %ld\n", g_id);
 	tid	o;
 
 	o = irnd(g_id);
-	printf("o id: %ld\n", neuron_by_id(o)->id);
 	while(neuron_by_id(o)->tp & (TP_TOT - t))
-	{
 		o = irnd(g_id);
-		printf("o id: %ld\n", neuron_by_id(o)->id);
-	}
-	return	(neuron_by_id(o)->id);
+	return	(o);
 }
 
 neu		*init_neu(void)
