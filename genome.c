@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191224120240 :|||:|                      */
+/* U20191226172652 :||:::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -41,8 +41,10 @@ neu		*gen_neuron(typ t, int n)
 		// is axon just a neuron?
 		TTPA
 		{
-			neuron->in = irnd(g_id);
-			neuron->ou = irnd(g_id);
+//			neuron->in = irnd(g_id);
+//			neuron->ou = irnd(g_id);
+			neuron->in = rnd_from_genome(TP_TOT - TP_A);
+			neuron->ou = rnd_from_genome(TP_TOT - TP_A);
 		}
 		else
 		{
@@ -70,42 +72,19 @@ neu		*gen_neuron(typ t, int n)
 	return (neuron);
 }
 
-neu		*rnd_from_genome(typ t)
+tid		rnd_from_genome(typ t)
 {
-	int	c;
-	neu	*n;
-	int	i;
+	printf("g_id %ld\n", g_id);
+	tid	o;
 
-	c = 0;
-	TTPB c += GENB;
-	TTPI c += GENI;
-	TTPH c += GENH;
-	TTPO c += GENO;
-	TTPA c += GENA;
-	TTPA i = 4;
-	TTPO i = 3;
-	TTPH i = 2;
-	TTPI i = 1;
-	TTPB i = 0;
-	if (!c) return (init_neu());
-	c = irnd(c);
-	n = i_to_g_niche(i);
-	while ((i <= 4) && (c > 1))
+	o = irnd(g_id);
+	printf("o id: %ld\n", neuron_by_id(o)->id);
+	while(neuron_by_id(o)->tp & (TP_TOT - t))
 	{
-		while ((n) && (c > 1))
-		{
-			n = n->nx;
-			if (i == 0)	TTPB c--;
-			if (i == 1)	TTPI c--;
-			if (i == 2)	TTPH c--;
-			if (i == 3)	TTPO c--;
-			if (i == 4)	TTPA c--;
-		}
-		i++;
-		if (!n)
-			n = i_to_g_niche(i);
+		o = irnd(g_id);
+		printf("o id: %ld\n", neuron_by_id(o)->id);
 	}
-	return (n);
+	return	(neuron_by_id(o)->id);
 }
 
 neu		*init_neu(void)

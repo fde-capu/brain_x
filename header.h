@@ -37,7 +37,7 @@ int		main2(void);
 // genome.c
 void	init_genome();
 neu		*gen_neuron(typ t, int n);
-neu		*rnd_from_genome(typ t);
+tid		rnd_from_genome(typ t);
 neu		*init_neu(void);
 
 // brain.c

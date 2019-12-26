@@ -6,7 +6,7 @@
 /*     :||::| <:||::|>                         */
 /*                                             */
 /* C20191206150601 :||::|                      */
-/* U20191223144924 :||::|                      */
+/* U20191226171220 :::||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -42,7 +42,7 @@ net	*rnd_neu(typ t, int q, bra *b)
 		STRESS_BRAIN_CREATION
 		do {
 			STRESSMSG(BRAIN_ERROR)
-			g = rnd_from_genome(t);
+			g = neuron_by_id(rnd_from_genome(t));
 		} while (find_id(g->id, n));
 		n->id = g->id;
 		n->iv = g->iv;

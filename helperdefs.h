@@ -21,6 +21,7 @@
 # define TP_H	4
 # define TP_O	8
 # define TP_A	16
+# define TP_TOT	TP_B + TP_I + TP_H + TP_O + TP_A
 # define TTPB	if (t & TP_B)
 # define TTPI	if (t & TP_I)
 # define TTPH	if (t & TP_H)
