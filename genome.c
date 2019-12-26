@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191226174708 ::::::                      */
+/* U20191226175805 ::||||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -40,8 +40,6 @@ neu		*gen_neuron(typ t, int n)
 		// is axon just a neuron?
 		TTPA
 		{
-//			neuron->in = irnd(g_id);
-//			neuron->ou = irnd(g_id);
 			neuron->in = rnd_from_genome(TP_TOT - TP_A);
 			neuron->ou = rnd_from_genome(TP_TOT - TP_A);
 		}
