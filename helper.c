@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191226183528 ||::||                      */
+/* U20191227170827 |||:|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -38,27 +38,21 @@ tid	count_neu(neu *l)
 
 neu	*neuron_by_id(tid id)
 {
-	neu		*n;
-	char	found;
-	tid		i;
+	neu	*n;
+	int	i;
 
-	i = 0;
-	found = 0;
-	while ((!found) && (i <= 4))
+	i = -1;
+	while (++i <= 4)
 	{
 		n = i_to_g_niche(i);
 		while (n)
 		{
 			if (n->id == id)
-			{
 				return (n);
-			}
 			n = n->nx;
 		}
-		i++;
 	}
 	return (0);
-//	FAIL_SSI(NEU_ID_NOT_FOUND, "id", id)
 }
 
 neu	*g_axon_by_id(tid id)
@@ -129,11 +123,11 @@ net	*i_to_b_niche(int i, bra *b)
 neu	*i_to_g_niche(int i)
 {
 	neu	*n;
-	n =	i == 0 ? g_gnm->bias :
-		i == 1 ? g_gnm->inpu :
-		i == 2 ? g_gnm->hidd :
-		i == 3 ? g_gnm->outp :
-		i == 4 ? g_gnm->axon : 0;
+	n =	i == 0 ? (neu *)g_gnm->bias :
+		i == 1 ? (neu *)g_gnm->inpu :
+		i == 2 ? (neu *)g_gnm->hidd :
+		i == 3 ? (neu *)g_gnm->outp :
+		i == 4 ? (neu *)g_gnm->axon : 0;
 	return (n);
 }
 

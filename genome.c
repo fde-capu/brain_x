@@ -6,7 +6,7 @@
 /*     ||:|:: <|:::||>                         */
 /*                                             */
 /* C20191211172320 ||:|::                      */
-/* U20191226175805 ::||||                      */
+/* U20191227170952 ::||:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -37,7 +37,6 @@ neu		*gen_neuron(typ t, int n)
 	{
 		neuron = init_neu();
 		neuron->tp = t;
-		// is axon just a neuron?
 		TTPA
 		{
 			neuron->in = rnd_from_genome(TP_TOT - TP_A);
@@ -58,14 +57,20 @@ neu		*gen_neuron(typ t, int n)
 		{
 			strcpy(neuron->re, DEF_RE);
 			TTPB
+			{
 				strcpy(neuron->op, DEF_OP_BIAS);
+			}
 			else
+			{
 				strcpy(neuron->op, DEF_OP);
+			}
 		}
 		neuron->id = ++g_id;
 		neuron->iv = ++g_iv;
 		neuron->nx = nx;
 		nx = neuron;
+		printf("Generated %ld: ", nx->id);
+		print_neuron(nx);	
 	}
 	return (neuron);
 }
@@ -73,10 +78,15 @@ neu		*gen_neuron(typ t, int n)
 tid		rnd_from_genome(typ t)
 {
 	tid	o;
+	neu	*n;
 
 	o = irnd(g_id);
-	while(neuron_by_id(o)->tp & (TP_TOT - t))
+	n = neuron_by_id(o);
+	while((!n) || ((n) && (n->tp & (TP_TOT - t))))
+	{
 		o = irnd(g_id);
+		n = neuron_by_id(o);
+	}
 	return	(o);
 }
 
