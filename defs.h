@@ -6,14 +6,14 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20191227171449 :|||::                      */
+/* U20200113172708 |||:::                      */
 /*                                             */
 /* ******************************************* */
 
 /*
 ** Default files:
 */
-# define DEF_GENOME		"genome_table_default.x"
+# define DEF_GENOME		"genome_table_default.xt"
 
 /*
 ** Default functions:
