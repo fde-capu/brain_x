@@ -6,7 +6,7 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20200113172708 |||:::                      */
+/* U20200113174624 |::|:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -76,4 +76,4 @@
 # define PRINT_HERD 0
 # define FILE_NAME_LIMIT 30
 # define FNL FILE_NAME_LIMIT
-# define VERBOSE 0
+# define VERBOSE 1

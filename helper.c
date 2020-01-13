@@ -6,7 +6,7 @@
 /*     |::||: <|::||:>                         */
 /*                                             */
 /* C20191211171456 |::||:                      */
-/* U20191227170827 |||:|:                      */
+/* U20200113175805 ::|::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -196,7 +196,7 @@ void	append_module(char *m_n, void *m_a)
 	return ;
 }
 
-void	exec(char *m_n, net *n)
+int		exec(char *m_n, net *n)
 {
 	mod	*m;
 	
@@ -205,12 +205,11 @@ void	exec(char *m_n, net *n)
 	{
 		if (strm(m->fu, m_n))
 		{
-			VERB printf("%s(%ld)\n", m->fu, n->id);
-			m->ad(n);
-			return ;
+			//VERB printf("%s(%ld)\n", m->fu, n->id);
+			return (m->ad(n));
 		}
 		m = m->nx;
 	}
 	FAIL_SS("Inconsistent module name", m_n);
-	return ;
+	return (0);
 }

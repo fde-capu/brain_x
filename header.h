@@ -51,10 +51,6 @@ void	feed(bra *b, tid id, fin v);
 void	feed_nd(net *nd);
 void	think(bra *b);
 void	operate(net *n);
-void	op_spark(net *n);
-void	op_random(net *n);
-void	re_sum_clip(net *n);
-void	re_acc_sigmoid(net *n);
 void	fire(bra *b, fin f, tid id);
 void	load_modules(void);
 
@@ -74,7 +70,7 @@ net		*prepend_cp(net *ne, net *n);
 char	*filename_str(char *fn);
 mod		*init_mod(void);
 void	append_module(char *m_n, void *m_a);
-void	exec(char *m_n, net *n);
+int		exec(char *m_n, net *n);
 
 // filer.c
 void	save_genome(char *fn, void *dt);

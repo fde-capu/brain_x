@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20191226174834 |:|||:                      */
+/* U20200113180011 ||:||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -64,9 +64,16 @@ void	think(bra *b)
 
 void	operate(net *n)
 {
-	exec(\
-		neuron_by_id(n->id)->op\
-	, n);
+	neu	*ne;
+
+	ne = neuron_by_id(n->id);
+	if(exec(ne->op, n))
+	{
+		if (ne->tp & TP_O)
+		{
+			printf("OUT! (%ld) ", n->id);
+		}
+	}
 	return ;
 }
 
@@ -83,21 +90,21 @@ void	feed_nd(net *nd)
 	return ;
 }
 
-void	re_sum_clip(net *n)
+int		re_sum_clip(net *n)
 {
 	n->bz += n->iz;
 	n->bz = n->bz > 1 ? 1 : n->bz;
-	return ;
+	return (1);
 }
 
-void	re_acc_sigmoid(net *n)
+int		re_acc_sigmoid(net *n)
 {
 	n->bz += sigmoid(n->iz);
 	if (n->bz > 1) n->bz = 1;
-	return ;
+	return (1);
 }
 
-void	op_spark(net *n)
+int		op_spark(net *n)
 {
 	net		*na;
 	char	sparked;
@@ -107,13 +114,13 @@ void	op_spark(net *n)
 	sparked = 0;
 	if (n->bz >= ne->tr)
 	{
+		sparked = 1;
 		na = n->pt->axon;
 		while (na)
 		{
 			if (axon_in(na->id) == n->id)
 			{
 				fire(n->pt, 1, na->id);
-				sparked = 1;
 			}
 			na = na->nx;
 		}
@@ -121,15 +128,16 @@ void	op_spark(net *n)
 	if (sparked)
 	{
 		n->bz = 0;
+		return (1);
 	}
-	return ;
+	return (0);
 }
 
-void	op_random(net *n)
+int		op_random(net *n)
 {
 	op_spark(n);
 	n->bz = rnd01();
-	return ;
+	return (1);
 }
 
 void	re_inputonly(net *n) //to do
