@@ -6,7 +6,7 @@
 /*     ||::|| <||::||>                         */
 /*                                             */
 /* C20191202164840 ||::||                      */
-/* U20200113180302 :||:||                      */
+/* U20200113230632 |:||:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -70,10 +70,7 @@ void	operate(net *n)
 	if(exec(ne->op, n))
 	{
 		if (ne->tp & TP_O)
-		{
-			printf("OUT! (%ld) ", n->id);
-			TICC
-		}
+			n->pt->resp = prepend_cp(n->pt->resp, n);
 	}
 	return ;
 }
@@ -112,22 +109,15 @@ int		op_spark(net *n)
 	neu		*ne;
 	
 	ne = neuron_by_id(n->id);
-	sparked = 0;
 	if (n->bz >= ne->tr)
 	{
-		sparked = 1;
 		na = n->pt->axon;
 		while (na)
 		{
 			if (axon_in(na->id) == n->id)
-			{
 				fire(n->pt, 1, na->id);
-			}
 			na = na->nx;
 		}
-	}
-	if (sparked)
-	{
 		n->bz = 0;
 		return (1);
 	}
