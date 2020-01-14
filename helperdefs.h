@@ -28,3 +28,4 @@
 # define TTPO	if (t & TP_O)
 # define TTPA	if (t & TP_A)
 # define VERB	if (VERBOSE)
+# define VERB2	if (VERBOSE == 2)
