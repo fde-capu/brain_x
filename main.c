@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20200115014626 ::|::|                      */
+/* U20200115014827 |:|:::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -84,43 +84,4 @@ void	option(char	*op)
 		{ g_continue = 1; RE }
 	FAIL_S("Invalid option");
 	return ;
-}
-
-int		main2(void) // oldie currently unused
-{
-	bra	*br;
-	bra	*b;
-	bra *nb;
-	tid	i;
-	tid	brains = 6;
-
-	init_envt();
-	g_id = 0; // from file
-	g_iv = 0; //
-	init_genome();
-	print_genome();
-	nb = 0;
-	i = 0;
-	while(++i <= brains)
-	{
-		br = init_brain(				\
-			DEFB,DEFI,DEFH,DEFO,DEFA	\
-		);
-		b = br;
-		b->nx = nb;
-		nb = b;
-	}
-	while (1) // until exec break
-	{
-		if (CLEAR_SCREEN) CLS
-		b = br;
-		while (b)
-		{
-			think(b);
-			print_brain(b);
-			b = b->nx;
-		}
-		tic(TIC_SEC);
-	}
-	return (0);
 }
