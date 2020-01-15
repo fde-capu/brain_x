@@ -27,5 +27,6 @@
 # define TTPH	if (t & TP_H)
 # define TTPO	if (t & TP_O)
 # define TTPA	if (t & TP_A)
-# define VERB	if (VERBOSE)
+# define VERB1	if (VERBOSE)
 # define VERB2	if (VERBOSE == 2)
+# define VERB	VERB1

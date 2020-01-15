@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20191227171828 :::|||                      */
+/* U20200114235909 |:|:||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -21,14 +21,13 @@ int main(int argc, char **argv)
 		option(argv[argc]);
 	// v0.5 case g_continue, init from file
 	init_genome();
-	print_genome();
-//	return (0);
+	VERB print_genome();
 	ind = init_brain(DEFB,DEFI,DEFH,DEFO,DEFA);
-	while (1)
+	while (VERB && 1)
 	{
 		if (CLEAR_SCREEN) CLS
-		print_genome();
-		print_brain(ind);
+		VERB2 print_genome();
+		VERB1 print_brain(ind);
 		think(ind);
 		tic(TIC_SEC);
 	}
