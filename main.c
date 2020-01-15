@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20200115013351 ::||:|                      */
+/* U20200115014626 ::|::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -15,6 +15,8 @@
 int main(int argc, char **argv)
 {
 	bra	*ind;
+	bra *bloop;
+	int bn = 2;
 
 	init_envt();
 	while (--argc)
@@ -23,13 +25,29 @@ int main(int argc, char **argv)
 	init_genome();
 	VERB print_genome();
 	ind = init_brain(g_db,g_di,g_dh,g_do,g_da);
+	bloop = ind;
+	while (--bn)
+	{
+		bloop->nx = init_brain(g_db,g_di,g_dh,g_do,g_da);
+		bloop = bloop->nx;
+	}
 	while (VERBOSE && 1)
 	{
+		bloop = ind;
+		while (bloop)
+		{
+			think(bloop);
+			bloop = bloop->nx;
+		}
+		bloop = ind;
 		if (CLEAR_SCREEN) CLS
 		VERB2 print_genome();
-		print_brain(ind);
+		while (bloop)
+		{
+			print_brain(bloop);
+			bloop = bloop->nx;
+		}
 		tic(TIC_SEC);
-		think(ind);
 	}
 	return (0);
 }
