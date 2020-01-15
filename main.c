@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20200114235909 |:|:||                      */
+/* U20200115013351 ::||:|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -22,20 +22,26 @@ int main(int argc, char **argv)
 	// v0.5 case g_continue, init from file
 	init_genome();
 	VERB print_genome();
-	ind = init_brain(DEFB,DEFI,DEFH,DEFO,DEFA);
-	while (VERB && 1)
+	ind = init_brain(g_db,g_di,g_dh,g_do,g_da);
+	while (VERBOSE && 1)
 	{
 		if (CLEAR_SCREEN) CLS
 		VERB2 print_genome();
-		VERB1 print_brain(ind);
-		think(ind);
+		print_brain(ind);
 		tic(TIC_SEC);
+		think(ind);
 	}
 	return (0);
 }
 
 int		init_envt(void)
 {
+	g_db = DEFB;
+	g_di = DEFI;
+	g_dh = DEFH;
+	g_do = DEFO;
+	g_da = DEFA;
+	// v1.0 get g_dbihoa from genome_config_default.x or genome_config.x
 	g_continue = 0;
 	g_gnm_file = filename_str(DEF_GENOME);
 	color(COLOR_FORE);
