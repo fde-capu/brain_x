@@ -1,6 +1,3 @@
-// 0.0 [re_acc_sigmoid] defaults as defs.h
-// 0.0 [op_spark] idem
-// 0.0 bias always defs [op_random]
 // 0.5 continue
 // 1.0 setup from this file
 // 1.5 force in and out

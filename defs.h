@@ -6,7 +6,7 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20200116141149 |:::|:                      */
+/* U20200116170258 :|||::                      */
 /*                                             */
 /* ******************************************* */
 
@@ -14,6 +14,11 @@
 ** Default files:
 */
 # define DEF_GENOME		"genome_table_default.xt"
+
+/*
+** Default options:
+*/
+# define DEF_CONTINUE	1
 
 /*
 ** Default functions:
@@ -28,15 +33,15 @@
 ** Default initial creation values:
 */
 # define DEFB 1
-# define DEFI 0
-# define DEFH 6
-# define DEFO 3
-# define DEFA 40
-# define GENB 2
-# define GENI 0
-# define GENH 10
-# define GENO 3 
-# define GENA 80 
+# define DEFI 1
+# define DEFH 0
+# define DEFO 1
+# define DEFA 1
+# define GENB 1
+# define GENI 1
+# define GENH 0
+# define GENO 1 
+# define GENA 1 
 
 /*
 ** Printing definitions:
@@ -76,4 +81,4 @@
 # define PRINT_HERD 0
 # define FILE_NAME_LIMIT 30
 # define FNL FILE_NAME_LIMIT
-# define VERBOSE 1
+# define VERBOSE 2

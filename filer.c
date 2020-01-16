@@ -6,7 +6,7 @@
 /*     :|:||: <:|:||:>                         */
 /*                                             */
 /* C20191222195718 :|:||:                      */
-/* U20191227155924 |::::|                      */
+/* U20200116165937 :|:|||                      */
 /*                                             */
 /* ******************************************* */
 
@@ -18,7 +18,6 @@ void	save_genome(char *fn, void *dt)
 	neu	*n;
 	int	i;
 
-	printf("genome file: %s\n", fn);
 	fd = open(fn, O_WRONLY | O_CREAT | O_TRUNC);
 	if (fd <= 0) FAIL("save_genome error");
 	i = -1;
@@ -40,5 +39,6 @@ void	save_genome(char *fn, void *dt)
 	}
 	write(fd, "\0", 1);
 	close(fd);
+	VERB printf("Saved genome file: %s\n", fn);
 	return ;
 }

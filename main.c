@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20200116140549 ||:|||                      */
+/* U20200116170330 :|:||:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -24,6 +24,7 @@ int main(int argc, char **argv)
 	// v0.5 case g_continue, init from file
 	init_genome();
 	VERB print_genome();
+	return (0);
 	ind = init_brain(g_db,g_di,g_dh,g_do,g_da);
 	bloop = ind;
 	while (--bn)
@@ -60,7 +61,7 @@ int		init_envt(void)
 	g_do = DEFO;
 	g_da = DEFA;
 	// v1.0 get g_dbihoa from genome_config_default.x or genome_config.x
-	g_continue = 0;
+	g_continue = DEF_CONTINUE;
 	g_gnm_file = filename_str(DEF_GENOME);
 	color(COLOR_FORE);
 	g_module = init_mod();
