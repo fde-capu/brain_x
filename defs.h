@@ -6,7 +6,7 @@
 /*     |:||:| <|:||:|>                         */
 /*                                             */
 /* C20191211160336 |:||:|                      */
-/* U20200113174624 |::|:|                      */
+/* U20200116141149 |:::|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -27,16 +27,16 @@
 /*
 ** Default initial creation values:
 */
-# define DEFB 2
-# define DEFI 4
+# define DEFB 1
+# define DEFI 0
 # define DEFH 6
-# define DEFO 4
-# define DEFA 20
+# define DEFO 3
+# define DEFA 40
 # define GENB 2
-# define GENI 4
-# define GENH 6
-# define GENO 4 
-# define GENA 20 
+# define GENI 0
+# define GENH 10
+# define GENO 3 
+# define GENA 80 
 
 /*
 ** Printing definitions:
