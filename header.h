@@ -74,6 +74,7 @@ int		exec(char *m_n, net *n);
 
 // filer.c
 void	save_genome(char *fn, void *dt);
+void	load_genome(char *fn, void *dt);
 
 // debug.c
 void	imsg(char *str, int v);

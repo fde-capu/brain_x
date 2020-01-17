@@ -6,7 +6,7 @@
 /*     |:|||: <|:|||:>                         */
 /*                                             */
 /* C20191211154835 |:|||:                      */
-/* U20200116170330 :|:||:                      */
+/* U20200116175018 :::::|                      */
 /*                                             */
 /* ******************************************* */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	// v0.5 case g_continue, init from file
 	init_genome();
 	VERB print_genome();
-	return (0);
+	return (0); // break to dev
 	ind = init_brain(g_db,g_di,g_dh,g_do,g_da);
 	bloop = ind;
 	while (--bn)
