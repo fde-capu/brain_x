@@ -6,7 +6,7 @@
 /*     :|:||: <:|:||:>                         */
 /*                                             */
 /* C20191222195718 :|:||:                      */
-/* U20200116234934 ::|:||                      */
+/* U20200117000626 ::::|:                      */
 /*                                             */
 /* ******************************************* */
 
@@ -91,6 +91,6 @@ void	load_genome(char *fn, void *dt)
 	 }
 	 if (n->id) VERB2 print_neuron(n);
 	}
-	printf("Above was read from file.\n");
+	VERB2 printf("Above was read from file.\n");
 	return ;
 }

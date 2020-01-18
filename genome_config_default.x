@@ -1,4 +1,4 @@
-// 0.5 continue
+// 0.5 continue brains?
 // 1.0 setup from this file
 // 1.5 force in and out
 // 2.0 add option to customize sigmoid function
